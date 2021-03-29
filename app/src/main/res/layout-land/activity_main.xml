@@ -9,21 +9,22 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="748dp"
-        android:layout_height="294dp"
+        android:layout_width="1079dp"
+        android:layout_height="299dp"
         android:background="@drawable/tittle"
         android:contentDescription="@string/game_tittle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123" />
+        app:layout_constraintVertical_bias="0.117" />
 
     <Button
         android:id="@+id/login"
         android:layout_width="462dp"
         android:layout_height="82dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/button_custom"
         android:elevation="10dp"
         android:fontFamily="@font/slackey"

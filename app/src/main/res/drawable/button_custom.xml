@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+<!-- This is the black button, there are two overlapping buttons  -->
+            <item android:left="20dp" android:top="10dp">
+                <shape>
+                    <corners android:radius="8dp" />
+                    <solid android:color="#000000" />
+                </shape>
+            </item>
+<!--   This is the shadow of the button    -->
+            <item android:right="8dp" android:bottom="8dp" >
+                <shape>
+                    <gradient android:angle="270"
+                        android:endColor="#EF5E31" android:startColor="#FF5722" />
+                    <stroke android:width="5dp" android:color="#FF5722" />
+                    <corners android:radius="6dp" />
+                    <padding android:bottom="10dp" android:left="10dp"
+                        android:right="10dp" android:top="10dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

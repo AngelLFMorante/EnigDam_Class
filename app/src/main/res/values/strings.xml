@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">EnigDam_Class</string>
+    <string name="game_tittle"></string>
+    <string name="entrar">Entrar</string>
+    <string name="login">LOGIN</string>
+    <string name="registry">REGISTRARSE</string>
+    <string name="score">PUNTUACIÓN</string>
 </resources>
