@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context=".MainActivity">
+    tools:context=".View.MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -25,7 +25,7 @@
         android:layout_width="462dp"
         android:layout_height="82dp"
         android:layout_marginTop="36dp"
-        android:background="@drawable/button_custom"
+        android:background="@drawable/buttons_default"
         android:elevation="10dp"
         android:fontFamily="@font/slackey"
         android:text="@string/login"
@@ -39,7 +39,7 @@
         android:layout_width="462dp"
         android:layout_height="82dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/button_custom"
+        android:background="@drawable/buttons_default"
         android:elevation="10dp"
         android:fontFamily="@font/slackey"
         android:text="@string/registry"
@@ -53,7 +53,7 @@
         android:layout_width="462dp"
         android:layout_height="82dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/button_custom"
+        android:background="@drawable/buttons_default"
         android:elevation="10dp"
         android:fontFamily="@font/slackey"
         android:text="@string/score"

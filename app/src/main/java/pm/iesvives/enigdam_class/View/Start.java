@@ -1,12 +1,13 @@
-package pm.iesvives.enigdam_class;
+package pm.iesvives.enigdam_class.View;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
-import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+
+import pm.iesvives.enigdam_class.R;
 
 //Start of the application
 public class Start extends MainActivity{

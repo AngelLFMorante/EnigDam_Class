@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    tools:context=".View.Scores">
+
+
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="908dp"
+        android:layout_height="210dp"
+        android:background="@drawable/tittle"
+        android:contentDescription="@string/game_tittle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.153" />
+
+    <Button
+        android:id="@+id/buttonsBack"
+        android:layout_width="94dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/button_x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/scoresListImg"
+        android:layout_width="663dp"
+        android:layout_height="482dp"
+        android:background="@drawable/score_popup"
+        android:contentDescription="@string/game_tittle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <ImageView
+        android:id="@+id/iconUser"
+        android:layout_width="72dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="608dp"
+        android:contentDescription="@string/icon_user"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textUserScore"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonsBack"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@drawable/gamepad" />
+
+    <TextView
+        android:id="@+id/textUserScore"
+        android:layout_width="337dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="672dp"
+        android:clickable="false"
+        android:fontFamily="@font/slackey"
+        android:textAlignment="textStart"
+        android:textColor="#FF5722"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonsBack" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleScore"
+        android:layout_width="523dp"
+        android:layout_height="271dp"
+        android:layout_marginTop="124dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

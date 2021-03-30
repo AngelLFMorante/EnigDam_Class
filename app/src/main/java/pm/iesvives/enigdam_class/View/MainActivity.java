@@ -1,13 +1,16 @@
-package pm.iesvives.enigdam_class;
+package pm.iesvives.enigdam_class.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+
+import pm.iesvives.enigdam_class.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 scores.startAnimation(scaleUp);
             }else if(event.getAction() == MotionEvent.ACTION_UP) {
                 scores.startAnimation(scaleDown);
-//                    Intent intent = new Intent(MainActivity.this, Scores.class);
-//                    startActivity(intent);
+                    Intent intent = new Intent(MainActivity.this, Scores.class);
+                    startActivity(intent);
             }
             return true;
         });
