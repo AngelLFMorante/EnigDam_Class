@@ -45,47 +45,15 @@
         app:layout_constraintVertical_bias="0.0" />
 
 
-    <ImageView
-        android:id="@+id/iconUser"
-        android:layout_width="72dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="224dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="608dp"
-        android:contentDescription="@string/icon_user"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textUserScore"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonsBack"
-        app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@drawable/gamepad" />
-
-    <TextView
-        android:id="@+id/textUserScore"
-        android:layout_width="337dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="672dp"
-        android:clickable="false"
-        android:fontFamily="@font/slackey"
-        android:textAlignment="textStart"
-        android:textColor="#FF5722"
-        android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonsBack" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleScore"
+        android:id="@+id/recyclerViewScore"
         android:layout_width="523dp"
         android:layout_height="271dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="128dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:padding="10dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
