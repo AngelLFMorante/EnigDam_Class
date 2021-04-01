@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         scaleDown = AnimationUtils.loadAnimation(this, R.anim.scale_down);
 
         login.setOnTouchListener((v, event) -> {
-            if(event.getAction() == MotionEvent.ACTION_DOWN){
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 login.startAnimation(scaleUp);
-            }else if(event.getAction() == MotionEvent.ACTION_UP) {
+            } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 login.startAnimation(scaleDown);
 //                    Intent intent = new Intent(MainActivity.this, Login.class);
 //                    startActivity(intent);
@@ -41,22 +41,22 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
         registry.setOnTouchListener((v, event) -> {
-            if(event.getAction() == MotionEvent.ACTION_DOWN){
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 registry.startAnimation(scaleUp);
-            }else if(event.getAction() == MotionEvent.ACTION_UP) {
+            } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 registry.startAnimation(scaleDown);
-//                    Intent intent = new Intent(MainActivity.this, Registry.class);
-//                    startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, Registry.class);
+                startActivity(intent);
             }
             return true;
         });
         scores.setOnTouchListener((v, event) -> {
-            if(event.getAction() == MotionEvent.ACTION_DOWN){
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 scores.startAnimation(scaleUp);
-            }else if(event.getAction() == MotionEvent.ACTION_UP) {
+            } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 scores.startAnimation(scaleDown);
-                    Intent intent = new Intent(MainActivity.this, Scores.class);
-                    startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, Scores.class);
+                startActivity(intent);
             }
             return true;
         });

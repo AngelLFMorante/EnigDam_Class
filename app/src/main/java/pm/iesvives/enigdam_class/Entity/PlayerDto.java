@@ -1,6 +1,8 @@
 package pm.iesvives.enigdam_class.Entity;
 
-public class Player {
+import java.util.List;
+
+public class PlayerDto {
 
     private Integer id;
     private String name;
@@ -9,8 +11,35 @@ public class Player {
     private String username;
     private int hint;
     private boolean verify;
+    private List<Game> games;
+    private String time;
+    private String score;
 
-    public Player() {
+    public PlayerDto() {
+    }
+
+    public List<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(List<Game> games) {
+        this.games = games;
+    }
+
+        public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
     }
 
     public Integer getId() {

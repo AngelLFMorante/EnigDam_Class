@@ -7,4 +7,10 @@
     <string name="score">PUNTUACIÓN</string>
     <string name="back">VOLVER</string>
     <string name="icon_user">icon_user</string>
+    <string name="btn_registry">Registrarse</string>
+    <string name="registry_nombre">Nombre</string>
+    <string name="registry_email">Email</string>
+    <string name="registry_username">Username</string>
+    <string name="registry_password">Password</string>
+    <string name="messageError">Campo obligatorio</string>
 </resources>
