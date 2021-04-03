@@ -11,11 +11,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import pm.iesvives.enigdam_class.R;
+import pm.iesvives.enigdam_class.Service.RetrofitClient;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button login, registry, scores;
     Animation scaleUp, scaleDown;
+
 
     @SuppressLint("ClickableViewAccessibility")
     @Override

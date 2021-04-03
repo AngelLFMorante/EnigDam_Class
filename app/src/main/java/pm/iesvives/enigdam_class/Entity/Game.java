@@ -1,10 +1,16 @@
 package pm.iesvives.enigdam_class.Entity;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Game {
 
+    @SerializedName("id")
     private Integer id;
+    @SerializedName("id_user")
     private int id_user;
+    @SerializedName("time")
     private String time;
+    @SerializedName("score")
     private String score;
 
     public Game() {

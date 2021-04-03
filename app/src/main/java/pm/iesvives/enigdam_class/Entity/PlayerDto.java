@@ -1,18 +1,30 @@
 package pm.iesvives.enigdam_class.Entity;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class PlayerDto {
 
+    @SerializedName("id")
     private Integer id;
+    @SerializedName("name")
     private String name;
+    @SerializedName("email")
     private String email;
+    @SerializedName("password")
     private String password;
+    @SerializedName("username")
     private String username;
+    @SerializedName("hint")
     private int hint;
+    @SerializedName("verify")
     private boolean verify;
+    @SerializedName("games")
     private List<Game> games;
+    @SerializedName("time")
     private String time;
+    @SerializedName("score")
     private String score;
 
     public PlayerDto() {

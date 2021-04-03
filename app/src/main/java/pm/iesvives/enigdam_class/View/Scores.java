@@ -15,7 +15,7 @@ import java.util.List;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
 import pm.iesvives.enigdam_class.Service.ScoresAdapter;
-import pm.iesvives.enigdam_class.Service.RetrofitClient;
+import pm.iesvives.enigdam_class.Utils.Settings;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,7 +25,6 @@ public class Scores extends MainActivity {
     private Button buttonBack;
     private RecyclerView recyclerScore;
     private List<PlayerDto> players = new ArrayList<>();
-    private RetrofitClient client = new RetrofitClient();
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -56,7 +55,7 @@ public class Scores extends MainActivity {
 
     public void ScoreList() {
         //petición, lo que nos devuelve.
-        client.getService().getAllScores().enqueue(new Callback<List<PlayerDto>>() {
+        Settings.RESPONSE_CLIENT.getService().getAllScores().enqueue(new Callback<List<PlayerDto>>() {
             @Override
             public void onResponse(Call<List<PlayerDto>> call, Response<List<PlayerDto>> response) {
                 players = response.body();

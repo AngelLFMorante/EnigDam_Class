@@ -50,7 +50,7 @@
         android:layout_marginStart="62dp"
         android:layout_marginTop="140dp"
         android:fontFamily="@font/slackey"
-        android:text="@string/registry_nombre"
+        android:text="@string/registry_name"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/registerName"
         app:layout_constraintHorizontal_bias="0.0"
