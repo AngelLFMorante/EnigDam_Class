@@ -18,4 +18,15 @@
     <string name="messageErrorEmail">Email no valido!</string>
     <string name="messageErrorUsername">Nombre usuario ya resgistrado!</string>
     <string name="messageErrorEmailRegister">Email ya resgistrado!</string>
+    <string name="jugador_score">Jugador</string>
+    <string name="tiempo_score">Tiempo</string>
+    <string name="puntuacion_score">Puntuación</string>
+    <string name="name_user">Nombre usuario</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="username">UserName</string>
+    <string name="password">Password</string>
+    <string name="playerExistsMessage">Usuario o contraseña es Incorrecto!!</string>
+    <string name="titlePlayerExistMessage">Login mensaje</string>
+    <string name="titlePlayerRegistryMessage">Registrarse mensaje</string>
+    <string name="isVerify">Debes verificar usuario!!</string>
 </resources>

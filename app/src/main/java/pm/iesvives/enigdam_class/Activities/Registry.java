@@ -1,18 +1,25 @@
-package pm.iesvives.enigdam_class.View;
+package pm.iesvives.enigdam_class.Activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.util.Base64;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import java.nio.charset.StandardCharsets;
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
 import pm.iesvives.enigdam_class.Utils.Settings;
@@ -35,9 +42,13 @@ public class Registry extends MainActivity {
     private String messageEmailRegiter;
     private String messageRegistry;
     private String messageRegistryError;
+    private String encryptPassword;
+    private String titleMessageRegis;
     private int usernameRegister = 0;
     private int emailRegister = 0;
     private List<PlayerDto> players = new ArrayList<>();
+    private boolean add = true;
+    private SweetAlertDialog pDialog;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -57,6 +68,7 @@ public class Registry extends MainActivity {
         messageEmailRegiter = getResources().getString(R.string.messageErrorEmailRegister);
         messageRegistry = getResources().getString(R.string.addPlayer);
         messageRegistryError = getResources().getString(R.string.addPlayerError);
+        titleMessageRegis = getResources().getString(R.string.titlePlayerRegistryMessage);
 
         //we retrieve user data from the database
         checkUser();
@@ -67,6 +79,8 @@ public class Registry extends MainActivity {
                     if (player.getEmail().equals(regEmail.getText().toString().trim())) {
                         regEmail.setError(messageEmailRegiter);
                         emailRegister = 1;
+                    } else {
+                        emailRegister = 0;
                     }
                 }
             }
@@ -77,6 +91,8 @@ public class Registry extends MainActivity {
                     if (player.getUsername().equals(regUsername.getText().toString().trim())) {
                         regUsername.setError(messageUsername);
                         usernameRegister = 1;
+                    } else {
+                        usernameRegister = 0;
                     }
                 }
             }
@@ -106,14 +122,38 @@ public class Registry extends MainActivity {
                 buttonRegister.startAnimation(scaleDown);
 
                 if (authenticateUser()) {
-                    player = new PlayerDto();
-                    player.setName(regName.getText().toString());
-                    player.setEmail(regEmail.getText().toString());
-                    player.setUsername(regUsername.getText().toString());
-                    player.setPassword(regPassword.getText().toString());
-                    addNewPlayer(player);
-                    Intent intent = new Intent(Registry.this, MainActivity.class);
-                    startActivity(intent);
+                    try {
+                        player = new PlayerDto();
+                        player.setName(regName.getText().toString());
+                        player.setEmail(regEmail.getText().toString());
+                        player.setUsername(regUsername.getText().toString());
+                        encryptPassword = encryptPassword(regPassword.getText().toString());
+                        player.setPassword(encryptPassword);
+                        pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE)
+                                .setTitleText("Loading");
+                        pDialog.show();
+                        pDialog.setCancelable(false);
+                        new CountDownTimer(800 * 7, 800) {
+                            public void onTick(long millisUntilFinished) {
+
+                            }
+                            public void onFinish() {
+                                if (addNewPlayer(player)) {
+                                    pDialog.setTitleText("Success!")
+                                            .setContentText(messageRegistry)
+                                            .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+                                    Intent intent = new Intent(Registry.this, MainActivity.class);
+                                    startActivity(intent);
+                                } else {
+                                    pDialog.setTitleText(titleMessageRegis)
+                                            .setContentText(messageRegistryError)
+                                            .changeAlertType(SweetAlertDialog.ERROR_TYPE);
+                                }
+                            }
+                        }.start();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 } else {
                     return false;
                 }
@@ -128,20 +168,26 @@ public class Registry extends MainActivity {
      *
      * @param player player object
      */
-    private void addNewPlayer(PlayerDto player) {
-        Settings.RESPONSE_CLIENT.getService().addPlayer(player).enqueue(new Callback<PlayerDto>() {
+    private boolean addNewPlayer(PlayerDto player) {
+
+        Settings.RESPONSE_CLIENT.getService().addPlayer(player).enqueue(new Callback<Map<String, String>>() {
             @Override
-            public void onResponse(Call<PlayerDto> call, Response<PlayerDto> response) {
-                Toast.makeText(Registry.this, messageRegistry, Toast.LENGTH_LONG).show();
+            public void onResponse(Call<Map<String, String>> call, Response<Map<String, String>> response) {
+                Map<String, String> res = response.body();
+                if(!res.values().equals("Registry success")){
+                    add = false;
+                }
+
             }
 
             @Override
-            public void onFailure(Call<PlayerDto> call, Throwable t) {
-                Toast.makeText(Registry.this, messageRegistryError, Toast.LENGTH_LONG).show();
+            public void onFailure(Call<Map<String, String>> call, Throwable t) {
                 Log.e("Error: ", t.getMessage());
+
             }
         });
-
+        Log.i("retorno: ", String.valueOf(add));
+        return add;
     }
 
     /**
@@ -215,5 +261,24 @@ public class Registry extends MainActivity {
         pattern = Pattern.compile(patternEmail);
         matcher = pattern.matcher(email);
         return matcher.matches();
+    }
+
+    /**
+     * encrypt user password
+     *
+     * @param password player
+     * @return password encrypted
+     * @throws Exception Cipher
+     */
+    private String encryptPassword(String password) throws Exception {
+        Key key = generateKey();
+        Cipher cipher = Cipher.getInstance(Settings.ALGORITHM);
+        cipher.init(Cipher.ENCRYPT_MODE, key);
+        byte[] encrypted = cipher.doFinal(password.getBytes(StandardCharsets.UTF_8));
+        return new String(Base64.encode(encrypted, Base64.DEFAULT));
+    }
+
+    private Key generateKey() {
+        return new SecretKeySpec(Settings.ENCRYPT_KEY.getBytes(), Settings.ALGORITHM);
     }
 }

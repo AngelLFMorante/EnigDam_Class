@@ -1,6 +1,8 @@
 package pm.iesvives.enigdam_class.Dao;
 
 import java.util.List;
+import java.util.Map;
+
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -20,7 +22,7 @@ public interface IPlayerDao {
     Call<List<PlayerDto>> allPlayers();
 
     @POST("add")
-    Call<PlayerDto> addPlayer(@Body PlayerDto player);
+    Call<Map<String, String>> addPlayer(@Body PlayerDto player);
 
 
 

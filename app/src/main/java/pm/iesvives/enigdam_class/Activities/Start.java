@@ -1,4 +1,4 @@
-package pm.iesvives.enigdam_class.View;
+package pm.iesvives.enigdam_class.Activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

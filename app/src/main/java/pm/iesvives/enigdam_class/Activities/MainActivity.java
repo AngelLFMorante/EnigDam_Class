@@ -1,4 +1,4 @@
-package pm.iesvives.enigdam_class.View;
+package pm.iesvives.enigdam_class.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import pm.iesvives.enigdam_class.R;
-import pm.iesvives.enigdam_class.Service.RetrofitClient;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 login.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 login.startAnimation(scaleDown);
-//                    Intent intent = new Intent(MainActivity.this, Login.class);
-//                    startActivity(intent);
+                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    startActivity(intent);
             }
             return true;
         });

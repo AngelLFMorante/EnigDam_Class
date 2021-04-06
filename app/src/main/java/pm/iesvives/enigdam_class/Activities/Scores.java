@@ -1,4 +1,4 @@
-package pm.iesvives.enigdam_class.View;
+package pm.iesvives.enigdam_class.Activities;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;

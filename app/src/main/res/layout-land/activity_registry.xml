@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context=".View.Registry">
+    tools:context=".Activities.Registry">
 
     <ImageView
         android:id="@+id/title"
@@ -105,6 +105,7 @@
         android:layout_marginTop="130dp"
         android:layout_marginEnd="64dp"
         android:background="#FFFFFF"
+        android:inputType="textPersonName"
         android:fontFamily="@font/slackey"
         android:padding="10dp"
         android:textColor="#000000"
@@ -121,6 +122,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="66dp"
         android:background="#FFFFFF"
+        android:inputType="textEmailAddress"
         android:fontFamily="@font/slackey"
         android:padding="10dp"
         android:textColor="#000000"
@@ -136,6 +138,7 @@
         android:layout_height="42dp"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="66dp"
+        android:inputType="textPersonName"
         android:background="#FFFFFF"
         android:fontFamily="@font/slackey"
         android:padding="10dp"
