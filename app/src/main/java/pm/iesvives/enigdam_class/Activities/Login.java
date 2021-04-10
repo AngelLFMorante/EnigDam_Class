@@ -10,15 +10,12 @@ import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
-
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
@@ -36,8 +33,9 @@ public class Login extends MainActivity {
     private String playerExistsMessage;
     private String titlePlayerExistMessage;
     private String isVerifyMessage;
-    private int aux = 1;
+    private int verify;
     private List<PlayerDto> players = new ArrayList<>();
+    private PlayerDto playerData;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -78,9 +76,10 @@ public class Login extends MainActivity {
                 if (!playerExists(userName.getText().toString().trim(), password.getText().toString().trim())) {
                     return false;
                 } else {
-                    //TODO Llevar datos al intent como usuario logeado. Mirar el shared si no pasamos parametros entre actividades.
-//                Intent intent = new Intent(Login.this, Lobby.class);
-//                startActivity(intent);
+                Intent intent = new Intent(Login.this, Lobby.class);
+                intent.putExtra("id", playerData.getId());
+                intent.putExtra("username", playerData.getUsername());
+                startActivity(intent);
                 }
             }
             return true;
@@ -103,11 +102,9 @@ public class Login extends MainActivity {
         pDialog.show();
         pDialog.setCancelable(false);
         new CountDownTimer(800 * 7, 800) {
-            public void onTick(long millisUntilFinished) {
-                checkUser();
-            }
-
+            public void onTick(long millisUntilFinished) { checkUser(); }
             public void onFinish() {
+                verify = 1;
                 try {
                     for (PlayerDto player : players) {
                         if (player.getUsername().equals(username)) {
@@ -116,15 +113,20 @@ public class Login extends MainActivity {
                                 pDialog.setTitleText(titlePlayerExistMessage)
                                         .setContentText(playerExistsMessage)
                                         .changeAlertType(SweetAlertDialog.ERROR_TYPE);
-                            } else if (!player.isVerify()) {
+                            } else if (!player.isVerified()) {
                                 pDialog.setTitleText(titlePlayerExistMessage)
                                         .setContentText(isVerifyMessage)
                                         .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                             } else {
                                 pDialog.setTitleText("Success!")
                                         .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
-                                aux = 0;
+                                verify  = 0;
+                                playerData = player;
                             }
+                        }else{
+                            pDialog.setTitleText(titlePlayerExistMessage)
+                                    .setContentText(playerExistsMessage)
+                                    .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                         }
                     }
                 } catch (Exception e) {
@@ -133,7 +135,7 @@ public class Login extends MainActivity {
             }
         }.start();
         //check if the data is correct
-        if (aux == 0) {
+        if (verify  == 0) {
             return true;
         } else {
             return false;

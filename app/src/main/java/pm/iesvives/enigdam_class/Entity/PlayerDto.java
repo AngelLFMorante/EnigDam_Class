@@ -16,10 +16,8 @@ public class PlayerDto {
     private String password;
     @SerializedName("username")
     private String username;
-    @SerializedName("hint")
-    private int hint;
-    @SerializedName("verify")
-    private boolean verify;
+    @SerializedName("verified")
+    private boolean verified;
     @SerializedName("games")
     private List<Game> games;
     @SerializedName("time")
@@ -94,19 +92,11 @@ public class PlayerDto {
         this.username = username;
     }
 
-    public int getHint() {
-        return hint;
+    public boolean isVerified() {
+        return verified;
     }
 
-    public void setHint(int hint) {
-        this.hint = hint;
-    }
-
-    public boolean isVerify() {
-        return verify;
-    }
-
-    public void setVerify(boolean verify) {
-        this.verify = verify;
+    public void setVerified(boolean verified) {
+        this.verified = verified;
     }
 }

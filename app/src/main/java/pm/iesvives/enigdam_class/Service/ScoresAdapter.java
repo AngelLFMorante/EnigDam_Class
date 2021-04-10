@@ -53,7 +53,7 @@ public class ScoresAdapter extends RecyclerView.Adapter<ScoresAdapter.ViewHolder
             if(username.length() > 8){
                 username = username.substring(0,8);
             }
-            txtUserPlayerScore.setText(String.format("%-8s %s-- %s", username, player.getTime(), player.getScore()));
+            txtUserPlayerScore.setText(String.format("%-8s       %s             %s", username, player.getTime(), player.getScore()));
         }
     }
 

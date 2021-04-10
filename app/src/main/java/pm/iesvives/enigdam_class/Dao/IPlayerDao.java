@@ -24,6 +24,4 @@ public interface IPlayerDao {
     @POST("add")
     Call<Map<String, String>> addPlayer(@Body PlayerDto player);
 
-
-
 }
