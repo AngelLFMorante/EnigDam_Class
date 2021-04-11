@@ -10,12 +10,15 @@ import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
@@ -35,7 +38,6 @@ public class Login extends MainActivity {
     private String isVerifyMessage;
     private int verify;
     private List<PlayerDto> players = new ArrayList<>();
-    private PlayerDto playerData;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -75,11 +77,6 @@ public class Login extends MainActivity {
                 }
                 if (!playerExists(userName.getText().toString().trim(), password.getText().toString().trim())) {
                     return false;
-                } else {
-                Intent intent = new Intent(Login.this, Lobby.class);
-                intent.putExtra("id", playerData.getId());
-                intent.putExtra("username", playerData.getUsername());
-                startActivity(intent);
                 }
             }
             return true;
@@ -120,13 +117,12 @@ public class Login extends MainActivity {
                             } else {
                                 pDialog.setTitleText("Success!")
                                         .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
-                                verify  = 0;
-                                playerData = player;
+                                verify = 0;
+                                Intent intent = new Intent(Login.this, Lobby.class);
+                                intent.putExtra("id", player.getId());
+                                intent.putExtra("username", player.getUsername());
+                                startActivity(intent);
                             }
-                        }else{
-                            pDialog.setTitleText(titlePlayerExistMessage)
-                                    .setContentText(playerExistsMessage)
-                                    .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                         }
                     }
                 } catch (Exception e) {
@@ -135,7 +131,7 @@ public class Login extends MainActivity {
             }
         }.start();
         //check if the data is correct
-        if (verify  == 0) {
+        if (verify == 0) {
             return true;
         } else {
             return false;
@@ -167,7 +163,6 @@ public class Login extends MainActivity {
     private Key generateKey() {
         return new SecretKeySpec(Settings.ENCRYPT_KEY.getBytes(), Settings.ALGORITHM);
     }
-
 
     /**
      * We check if the user name exists in the database.

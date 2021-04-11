@@ -96,7 +96,7 @@ public class PlayerDto {
         return verified;
     }
 
-    public void setVerified(boolean verified) {
+    public void setVerified(boolean verify) {
         this.verified = verified;
     }
 }
