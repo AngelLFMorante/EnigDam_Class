@@ -4,7 +4,7 @@
     <string name="entrar">Entrar</string>
     <string name="login">LOGIN</string>
     <string name="registry">REGISTRARSE</string>
-    <string name="score">PUNTUACIÓN</string>
+    <string name="score">PUNTUACIONES</string>
     <string name="back">VOLVER</string>
     <string name="icon_user">icon_user</string>
     <string name="btn_registry">Registrarse</string>
@@ -29,4 +29,7 @@
     <string name="titlePlayerExistMessage">Login mensaje</string>
     <string name="titlePlayerRegistryMessage">Registrarse mensaje</string>
     <string name="isVerify">Debes verificar usuario!!</string>
+    <string name="profile">Perfil</string>
+    <string name="history">Historia</string>
+    <string name="welcome">BIENVENIDO:</string>
 </resources>

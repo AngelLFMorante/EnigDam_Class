@@ -4,6 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_background"
     tools:context=".Activities.Lobby">
+
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="908dp"
+        android:layout_height="210dp"
+        android:background="@drawable/tittle"
+        android:contentDescription="@string/game_tittle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.091" />
+
+    <Button
+        android:id="@+id/buttonsBack"
+        android:layout_width="94dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="276dp"
+        android:background="@drawable/button_exit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonStart"
+        android:layout_width="308dp"
+        android:layout_height="253dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/button_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnScore" />
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="250dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/buttons_default"
+        android:elevation="10dp"
+        android:fontFamily="@font/slackey"
+        android:text="@string/profile"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textUsername" />
+
+    <Button
+        android:id="@+id/btnScore"
+        android:layout_width="250dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/buttons_default"
+        android:elevation="10dp"
+        android:fontFamily="@font/slackey"
+        android:text="@string/score"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHistory" />
+
+    <Button
+        android:id="@+id/btnHistory"
+        android:layout_width="250dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/buttons_default"
+        android:elevation="10dp"
+        android:fontFamily="@font/slackey"
+        android:text="@string/history"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnProfile" />
+
+    <Button
+        android:id="@+id/buttonsSound"
+        android:layout_width="94dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_music_on"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.919"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonStart" />
+
+    <TextView
+        android:id="@+id/textWelcom"
+        android:layout_width="270dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/slackey"
+        android:text="@string/welcome"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toStartOf="@+id/textUsername"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/textUsername"
+        android:layout_width="397dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="136dp"
+        android:fontFamily="@font/slackey"
+        android:textAlignment="viewStart"
+        android:textColor="#FF5722"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

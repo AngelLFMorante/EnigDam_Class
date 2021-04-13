@@ -24,6 +24,9 @@ public class Scores extends MainActivity {
 
     private Button buttonBack;
     private RecyclerView recyclerScore;
+    private boolean session;
+    private int id;
+    private String username;
     private List<PlayerDto> players = new ArrayList<>();
 
     @SuppressLint("ClickableViewAccessibility")
@@ -34,6 +37,16 @@ public class Scores extends MainActivity {
         buttonBack = findViewById(R.id.buttonsBack);
         recyclerScore = findViewById(R.id.recyclerViewScore);
         recyclerScore.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        Intent intentSession = getIntent();
+        Bundle bundle = intentSession.getExtras();
+        if(bundle == null){
+            ScoreList();
+        }else{
+            id = bundle.getInt("id");
+            username = bundle.getString("username");
+            session = bundle.getBoolean("session");
+        }
 
         ScoreList();
 
@@ -46,7 +59,15 @@ public class Scores extends MainActivity {
                 buttonBack.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 buttonBack.startAnimation(scaleDown);
-                Intent intent = new Intent(Scores.this, MainActivity.class);
+                Intent intent;
+                if(session){
+                    intent = new Intent(Scores.this, Lobby.class);
+                    intent.putExtra("id", id);
+                    intent.putExtra("username", username);
+                    intent.putExtra("session", session);
+                }else{
+                    intent = new Intent(Scores.this, MainActivity.class);
+                }
                 startActivity(intent);
             }
             return true;
@@ -54,7 +75,7 @@ public class Scores extends MainActivity {
     }
 
     public void ScoreList() {
-        //petición, lo que nos devuelve.
+        //request for scores.
         Settings.RESPONSE_CLIENT.getService().getAllScores().enqueue(new Callback<List<PlayerDto>>() {
             @Override
             public void onResponse(Call<List<PlayerDto>> call, Response<List<PlayerDto>> response) {
