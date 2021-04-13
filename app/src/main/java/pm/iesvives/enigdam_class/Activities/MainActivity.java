@@ -15,8 +15,7 @@ import pm.iesvives.enigdam_class.R;
 public class MainActivity extends AppCompatActivity {
 
     private Button login, registry, scores;
-    Animation scaleUp, scaleDown;
-
+    protected Animation scaleUp, scaleDown;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
