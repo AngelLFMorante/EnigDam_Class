@@ -2,9 +2,10 @@ package pm.iesvives.enigdam_class.Entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PlayerDto {
+public class PlayerDto implements Serializable {
 
     @SerializedName("id")
     private Integer id;
@@ -96,7 +97,7 @@ public class PlayerDto {
         return verified;
     }
 
-    public void setVerified(boolean verify) {
+    public void setVerified(boolean verified) {
         this.verified = verified;
     }
 }

@@ -25,8 +25,8 @@ public class Scores extends MainActivity {
     private Button buttonBack;
     private RecyclerView recyclerScore;
     private boolean session;
-    private int id;
-    private String username;
+    private PlayerDto player = new PlayerDto();
+
     private List<PlayerDto> players = new ArrayList<>();
 
     @SuppressLint("ClickableViewAccessibility")
@@ -40,12 +40,12 @@ public class Scores extends MainActivity {
 
         Intent intentSession = getIntent();
         Bundle bundle = intentSession.getExtras();
+        Log.i("budnle", String.valueOf(bundle == null));
         if(bundle == null){
             ScoreList();
         }else{
-            id = bundle.getInt("id");
-            username = bundle.getString("username");
             session = bundle.getBoolean("session");
+            player = (PlayerDto) bundle.getSerializable("player");
         }
 
         ScoreList();
@@ -62,9 +62,7 @@ public class Scores extends MainActivity {
                 Intent intent;
                 if(session){
                     intent = new Intent(Scores.this, Lobby.class);
-                    intent.putExtra("id", id);
-                    intent.putExtra("username", username);
-                    intent.putExtra("session", session);
+                    intent.putExtra("player", player);
                 }else{
                     intent = new Intent(Scores.this, MainActivity.class);
                 }
@@ -90,8 +88,6 @@ public class Scores extends MainActivity {
                 Log.e("Error: ", t.getMessage());
             }
         });
-
-
     }
 
 }

@@ -32,4 +32,9 @@
     <string name="profile">Perfil</string>
     <string name="history">Historia</string>
     <string name="welcome">BIENVENIDO:</string>
+    <string name="edit">Editar</string>
+    <string name="remove">Eliminar</string>
+    <string name="player_text">Player</string>
+    <string name="time_default">00:00</string>
+    <string name="score_default">0000</string>
 </resources>

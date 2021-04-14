@@ -119,8 +119,7 @@ public class Login extends MainActivity {
                                         .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
                                 verify = 0;
                                 Intent intent = new Intent(Login.this, Lobby.class);
-                                intent.putExtra("id", player.getId());
-                                intent.putExtra("username", player.getUsername());
+                                intent.putExtra("player", player);
                                 startActivity(intent);
                             }
                         }

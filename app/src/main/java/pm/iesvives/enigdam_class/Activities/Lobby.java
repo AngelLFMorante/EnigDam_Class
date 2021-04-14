@@ -11,16 +11,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
+import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
 
 public class Lobby extends MainActivity {
 
     private Button btnExit, btnProfile, btnHistory, btnScores, btnMusic, btnStart;
-    private String username;
-    private int id;
     private boolean session = false;
     private  SharedPreferences preferences;
     private SharedPreferences.Editor editorShared ;
+    private PlayerDto player = new PlayerDto();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,24 +37,22 @@ public class Lobby extends MainActivity {
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
+        player  = (PlayerDto) bundle.getSerializable("player");
 
         //we collect data from logged-in users
-        id = bundle.getInt("id");
-        username = bundle.getString("username");
-        welcome.setText(username);
+        welcome.setText(player.getUsername());
 
         preferences = getSharedPreferences("session", Context.MODE_PRIVATE);
         editorShared = preferences.edit();
-
-        if(!initialSession()){
+        Log.i("session: ",String.valueOf(session));
+        if(!session && !initialSession()){
             //we save session data, in sharedPreferences
-            editorShared.putString("username", username);
-            editorShared.putInt("id", id);
+            editorShared.putString("username", player.getUsername());
+            editorShared.putInt("id", player.getId());
             editorShared.commit();
-        }else {
             session = true;
         }
-
+        Log.i("session: ",String.valueOf(session));
         //this is a small animation for the button
         scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(this, R.anim.scale_down);
@@ -88,8 +86,9 @@ public class Lobby extends MainActivity {
                 btnProfile.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnProfile.startAnimation(scaleDown);
-/*                Intent intent = new Intent(Lobby.this, Profile.class);
-                startActivity(intent);*/
+                Intent intent = new Intent(Lobby.this, Profile.class);
+                intent.putExtra("player", player);
+                startActivity(intent);
             }
             return true;
         });
@@ -110,8 +109,7 @@ public class Lobby extends MainActivity {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnScores.startAnimation(scaleDown);
                 Intent intent = new Intent(Lobby.this, Scores.class);
-                intent.putExtra("id", id);
-                intent.putExtra("username", username);
+                intent.putExtra("player", player);
                 intent.putExtra("session", session);
                 startActivity(intent);
             }
@@ -125,8 +123,7 @@ public class Lobby extends MainActivity {
                 btnStart.startAnimation(scaleDown);
                 //TODO hacer para que llege a la lógica del juego.
 //                Intent intent = new Intent(Lobby.this, Game.class);
-//                intent.putExtra("id", id);
-//                intent.putExtra("username", username);
+//                intent.putExtra("player", player);
 //                startActivity(intent);
             }
             return true;

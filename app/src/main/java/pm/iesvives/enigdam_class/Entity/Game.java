@@ -2,7 +2,9 @@ package pm.iesvives.enigdam_class.Entity;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Game {
+import java.io.Serializable;
+
+public class Game implements Serializable {
 
     @SerializedName("id")
     private Integer id;
