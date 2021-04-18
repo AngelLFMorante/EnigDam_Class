@@ -37,4 +37,12 @@
     <string name="player_text">Player</string>
     <string name="time_default">00:00</string>
     <string name="score_default">0000</string>
+    <string name="editTitle">Nombre de usuario</string>
+    <string name="editMessage">Nuevo nombre de usuario: </string>
+    <string name="btnOk">Aceptar</string>
+    <string name="btnCancel">Cancelar</string>
+    <string name="success">Correcto!</string>
+    <string name="titleEditPlayer">Nombre de usuario</string>
+    <string name="messageEditPlayerNoEdit">No se ha podido editar!</string>
+    <string name="loading">Cargando…</string>
 </resources>

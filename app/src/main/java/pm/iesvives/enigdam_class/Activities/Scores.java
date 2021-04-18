@@ -40,7 +40,7 @@ public class Scores extends MainActivity {
 
         Intent intentSession = getIntent();
         Bundle bundle = intentSession.getExtras();
-        Log.i("budnle", String.valueOf(bundle == null));
+
         if(bundle == null){
             ScoreList();
         }else{

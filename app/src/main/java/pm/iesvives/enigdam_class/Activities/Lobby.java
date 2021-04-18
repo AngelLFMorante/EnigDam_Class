@@ -10,7 +10,6 @@ import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
-
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
 
@@ -44,15 +43,15 @@ public class Lobby extends MainActivity {
 
         preferences = getSharedPreferences("session", Context.MODE_PRIVATE);
         editorShared = preferences.edit();
-        Log.i("session: ",String.valueOf(session));
+
         if(!session && !initialSession()){
             //we save session data, in sharedPreferences
             editorShared.putString("username", player.getUsername());
             editorShared.putInt("id", player.getId());
-            editorShared.commit();
+            editorShared.apply();
             session = true;
         }
-        Log.i("session: ",String.valueOf(session));
+
         //this is a small animation for the button
         scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(this, R.anim.scale_down);
@@ -76,7 +75,7 @@ public class Lobby extends MainActivity {
                 btnExit.startAnimation(scaleDown);
                 editorShared.clear();
                 editorShared.commit();
-                Intent intent = new Intent(Lobby.this, MainActivity.class);
+                Intent intent = new Intent(Lobby.this, Start.class);
                 startActivity(intent);
             }
             return true;

@@ -36,6 +36,7 @@ public class Login extends MainActivity {
     private String playerExistsMessage;
     private String titlePlayerExistMessage;
     private String isVerifyMessage;
+    private String titleSuccess;
     private int verify;
     private List<PlayerDto> players = new ArrayList<>();
 
@@ -51,6 +52,7 @@ public class Login extends MainActivity {
         playerExistsMessage = getResources().getString(R.string.playerExistsMessage);
         titlePlayerExistMessage = getResources().getString(R.string.titlePlayerExistMessage);
         isVerifyMessage = getResources().getString(R.string.isVerify);
+        titleSuccess = getResources().getString(R.string.success);
 
         //this is a small animation for the button
         scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
@@ -94,8 +96,10 @@ public class Login extends MainActivity {
     private boolean playerExists(String username, String password) {
 
         checkUser();
+        String loadingText = getResources().getString(R.string.loading);
+
         SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE)
-                .setTitleText("Loading");
+                .setTitleText(loadingText);
         pDialog.show();
         pDialog.setCancelable(false);
         new CountDownTimer(800 * 7, 800) {
@@ -115,13 +119,18 @@ public class Login extends MainActivity {
                                         .setContentText(isVerifyMessage)
                                         .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                             } else {
-                                pDialog.setTitleText("Success!")
+                                pDialog.setTitleText(titleSuccess)
+                                        .setContentText("")
                                         .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
                                 verify = 0;
                                 Intent intent = new Intent(Login.this, Lobby.class);
                                 intent.putExtra("player", player);
                                 startActivity(intent);
                             }
+                        }else{
+                            pDialog.setTitleText(titlePlayerExistMessage)
+                                    .setContentText(playerExistsMessage)
+                                    .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                         }
                     }
                 } catch (Exception e) {
