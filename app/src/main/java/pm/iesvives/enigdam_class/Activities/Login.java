@@ -127,7 +127,8 @@ public class Login extends MainActivity {
                                 intent.putExtra("player", player);
                                 startActivity(intent);
                             }
-                        }else{
+                        }
+                        if(verify != 0){
                             pDialog.setTitleText(titlePlayerExistMessage)
                                     .setContentText(playerExistsMessage)
                                     .changeAlertType(SweetAlertDialog.ERROR_TYPE);

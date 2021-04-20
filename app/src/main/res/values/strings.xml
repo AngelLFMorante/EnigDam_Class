@@ -45,4 +45,8 @@
     <string name="titleEditPlayer">Nombre de usuario</string>
     <string name="messageEditPlayerNoEdit">No se ha podido editar!</string>
     <string name="loading">Cargando…</string>
+    <string name="deleteTitle">Borrar jugador</string>
+    <string name="deleteMessage">¿ Estás seguro de que quieres borrar al jugador ?</string>
+    <string name="successDelete">Jugador eliminado</string>
+    <string name="notSuccessDelete">No se ha eliminado</string>
 </resources>

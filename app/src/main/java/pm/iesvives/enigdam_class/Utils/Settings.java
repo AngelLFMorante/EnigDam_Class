@@ -4,7 +4,7 @@ import pm.iesvives.enigdam_class.Service.RetrofitClient;
 
 public class Settings {
     //Enter the url of the end point
-    public static final String URL = "http://192.168.1.138:8080/game/";
+    public static final String URL = "http://192.168.1.134:8080/game/";
     /*192.168.1.138 ip noemi*/
     /*192.168.1.134 ip angel*/
     //Response client of retrofit

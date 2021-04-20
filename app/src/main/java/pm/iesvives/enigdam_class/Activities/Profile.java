@@ -1,30 +1,58 @@
 package pm.iesvives.enigdam_class.Activities;
 
-
-
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import pm.iesvives.enigdam_class.Entity.Game;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
+import pm.iesvives.enigdam_class.Utils.Settings;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class Profile extends MainActivity{
+public class Profile extends MainActivity implements DialogEditPlayer.OnInputListener {
+
+    /*We retrieve the parameters we received from the DialogFragment*/
+    @Override
+    public void sendInput(PlayerDto playerInput, String usernameInput) {
+        username = usernameInput;
+        player = playerInput;
+        setInputToTextView();
+    }
+
+    private void setInputToTextView() {
+        usernameText.setText(username);
+    }
 
     private Button btnEdit, btnDelete, btnBack;
-    private TextView usernameText,bestTime,bestScore;
+    private TextView bestTime, bestScore;
     private Bundle bundle;
-    private int id;
     private String username;
     private String time;
     private String score;
-    public PlayerDto player = new PlayerDto();
-
+    private String deleteTitle;
+    private String deleteMessage;
+    private String titleSuccess;
+    private String titleNotSuccess;
+    private boolean delete = true;
+    private TextView usernameText;
+    private PlayerDto player = new PlayerDto();
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editorShared;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,24 +67,32 @@ public class Profile extends MainActivity{
         usernameText = findViewById(R.id.profilePlayer);
         bestTime = findViewById(R.id.profileTime);
         bestScore = findViewById(R.id.profileScore);
+        deleteTitle = getResources().getString(R.string.deleteTitle);
+        deleteMessage = getResources().getString(R.string.deleteMessage);
+        titleSuccess = getResources().getString(R.string.successDelete);
+        titleNotSuccess = getResources().getString(R.string.notSuccessDelete);
 
-        player  = (PlayerDto) bundle.getSerializable("player");
-        id = bundle.getInt("id");
-        username = bundle.getString("username");
+        player = (PlayerDto) bundle.getSerializable("player");
         usernameText.setText(player.getUsername());
+
+        preferences = getSharedPreferences("session", Context.MODE_PRIVATE);
+        editorShared = preferences.edit();
 
         int high = 0;
         int low = 0;
-        for(Game best : player.getGames()){
+        for (Game best : player.getGames()) {
             low = Integer.parseInt(best.getScore());
-            if(low > high){
+            if (low > high) {
                 high = low;
                 time = best.getTime();
-                score = ""+high;
+                score = "" + high;
             }
         }
-        bestTime.setText(time);
-        bestScore.setText(score);
+
+        if (time != null && score != null) {
+            bestTime.setText(time);
+            bestScore.setText(score);
+        }
 
         //this is a small animation for the button
         scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
@@ -64,7 +100,6 @@ public class Profile extends MainActivity{
 
         ActionsButtons();
     }
-
 
     @SuppressLint("ClickableViewAccessibility")
     private void ActionsButtons() {
@@ -88,11 +123,58 @@ public class Profile extends MainActivity{
                 DialogEditPlayer dialog = new DialogEditPlayer();
                 dialog.setArguments(bundle);
                 dialog.show(getSupportFragmentManager(), "Dialog edit player");
-/*              Intent intent = new Intent(Profile.this, DialogEditPlayer.class);
-                intent.putExtra("player", player);
-                startActivity(intent);*/
+            }
+            return true;
+        });
+
+        btnDelete.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                btnDelete.startAnimation(scaleUp);
+            } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                btnDelete.startAnimation(scaleDown);
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.setTitle(deleteTitle);
+                alert.setMessage(deleteMessage);
+                alert.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                        deletePlayer(player.getId());
+                    }
+                });
+                alert.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // close dialog
+                        dialog.cancel();
+                    }
+                });
+                alert.show();
             }
             return true;
         });
     }
+
+    private void deletePlayer(Integer id) {
+
+        Settings.RESPONSE_CLIENT.getService().deletePlayer(id).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                delete = response.isSuccessful();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.e("Error: ", t.getMessage());
+                delete = false;
+            }
+        });
+
+        if (delete) {
+            editorShared.clear();
+            editorShared.apply();
+            Intent intent = new Intent(Profile.this, Start.class);
+            startActivity(intent);
+        }
+    }
+
 }

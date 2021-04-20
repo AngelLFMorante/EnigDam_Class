@@ -7,6 +7,7 @@ import pm.iesvives.enigdam_class.Entity.Game;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
@@ -31,5 +32,8 @@ public interface IPlayerDao {
 
     @PUT("editPlayer")
     Call<PlayerDto> editPlayer(@Query(value="id", encoded=true) int id, @Body PlayerDto player);
+
+    @DELETE("deletePlayer")
+    Call<Void> deletePlayer(@Query(value="id", encoded=true) int id);
 
 }

@@ -10,7 +10,6 @@ import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -26,6 +25,11 @@ import retrofit2.Response;
 
 public class DialogEditPlayer extends DialogFragment {
 
+    public interface OnInputListener{
+        void sendInput(PlayerDto player, String input);
+    }
+    public OnInputListener mOnInputListener;
+
     private View view;
     private String titleUsername;
     private String messageUserExist;
@@ -33,13 +37,9 @@ public class DialogEditPlayer extends DialogFragment {
     private String usernameNoEdit;
     private String loadingText;
     private String usernameEdited;
-    private TextView usernameProfile;
     private EditText usernameTextField;
-
-    private Boolean usernameExist;
     private int typeError;
     private int id;
-    private boolean isCorrect;
     private SharedPreferences.Editor editorShared;
     private SweetAlertDialog pDialog;
     private PlayerDto editedPlayer = new PlayerDto();
@@ -59,7 +59,6 @@ public class DialogEditPlayer extends DialogFragment {
         usernameNoEdit = getResources().getString(R.string.messageEditPlayerNoEdit);
         loadingText = getResources().getString(R.string.loading);
         view = getActivity().getLayoutInflater().inflate(R.layout.edit_player, null);
-        usernameProfile = view.findViewById(R.id.profilePlayer);
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("session", Context.MODE_PRIVATE);
         id = sharedPreferences.getInt("id", 0);
@@ -90,9 +89,7 @@ public class DialogEditPlayer extends DialogFragment {
     private void EditedPlayer(SharedPreferences sharedPreferences) {
         new CountDownTimer(800 * 7, 800) {
             public void onTick(long millisUntilFinished) {
-                /**
-                 * We check if the user name exists in the database.
-                 */
+                /*We check if the user name exists in the database.*/
                 Settings.RESPONSE_CLIENT.getService().allPlayers().enqueue(new Callback<List<PlayerDto>>() {
                     @Override
                     public void onResponse(Call<List<PlayerDto>> call, Response<List<PlayerDto>> response) {
@@ -140,9 +137,8 @@ public class DialogEditPlayer extends DialogFragment {
                         editorShared = sharedPreferences.edit();
                         editorShared.putString("username", editedPlayer.getUsername());
                         editorShared.putInt("id", editedPlayer.getId());
+                        mOnInputListener.sendInput(editedPlayer, editedPlayer.getUsername());
                         editorShared.apply();
-                        Profile profile = new Profile();
-                        profile.player = editedPlayer;
                         break;
                     case 1:
                         pDialog.setTitleText(titleUsername)
@@ -157,6 +153,16 @@ public class DialogEditPlayer extends DialogFragment {
                 }
             }
         }.start();
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try{
+            mOnInputListener = (OnInputListener) getActivity();
+        }catch (ClassCastException e){
+            Log.e("Error: ", "onAttach: ClassCastException: "+e.getMessage());
+        }
     }
 }
 
