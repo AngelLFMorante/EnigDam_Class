@@ -7,8 +7,7 @@
 
 1. Se realizará en la plataforma de android studio
 2. Api/Rest con SpringBoot y RetroFit
-3. Chat general
-4. Interfaz interactivo
+3. Interfaz interactivo
 
 **Son puntos que he realizado en el curso del mismo,  
 quitando SpringBoot y RetroFit,  
