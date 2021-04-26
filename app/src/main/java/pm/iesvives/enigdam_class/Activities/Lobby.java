@@ -5,20 +5,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
+import pm.iesvives.enigdam_class.HistoryFragment;
 import pm.iesvives.enigdam_class.R;
 
-public class Lobby extends MainActivity {
+public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInteractionListener {
 
+    private FrameLayout fragmentContainer;
     private Button btnExit, btnProfile, btnHistory, btnScores, btnMusic, btnStart;
     private boolean session = false;
     private  SharedPreferences preferences;
-    private SharedPreferences.Editor editorShared ;
+    private SharedPreferences.Editor editorShared;
     private PlayerDto player = new PlayerDto();
 
     @Override
@@ -33,6 +37,7 @@ public class Lobby extends MainActivity {
         btnMusic = findViewById(R.id.buttonsSound);
         btnStart = findViewById(R.id.buttonStart);
         TextView welcome = findViewById(R.id.textUsername);
+        fragmentContainer = findViewById(R.id.fragment_container);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -96,9 +101,7 @@ public class Lobby extends MainActivity {
                 btnHistory.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnHistory.startAnimation(scaleDown);
-                //TODO mirar a ver si puedo sacar un aler dialog con la historia con scroll.
-/*                Intent intent = new Intent(Lobby.this, MainActivity.class);
-                startActivity(intent);*/
+                openFragment();
             }
             return true;
         });
@@ -138,5 +141,19 @@ public class Lobby extends MainActivity {
             }
             return true;
         });
+    }
+
+    private void openFragment() {
+        HistoryFragment fragment = HistoryFragment.newInstance();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_right);
+        transaction.addToBackStack(null).setReorderingAllowed(true);
+        transaction.add(R.id.fragment_container, fragment, "HISTORY_FRAGMENT").commit();
+    }
+
+    @Override
+    public void onFragmentInteraction() {
+        onBackPressed();
     }
 }

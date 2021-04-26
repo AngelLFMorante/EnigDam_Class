@@ -49,7 +49,6 @@
         android:layout_marginTop="92dp"
         android:layout_marginEnd="26dp"
         android:background="@drawable/buttons_default"
-        android:elevation="10dp"
         android:fontFamily="@font/slackey"
         android:text="@string/profile"
         android:textSize="24sp"
@@ -64,7 +63,6 @@
         android:layout_marginTop="93dp"
         android:layout_marginEnd="26dp"
         android:background="@drawable/buttons_default"
-        android:elevation="10dp"
         android:fontFamily="@font/slackey"
         android:text="@string/score"
         android:textSize="24sp"
@@ -78,7 +76,6 @@
         android:layout_marginTop="92dp"
         android:layout_marginEnd="152dp"
         android:background="@drawable/buttons_default"
-        android:elevation="10dp"
         android:fontFamily="@font/slackey"
         android:text="@string/history"
         android:textSize="24sp"
@@ -122,6 +119,12 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="2dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

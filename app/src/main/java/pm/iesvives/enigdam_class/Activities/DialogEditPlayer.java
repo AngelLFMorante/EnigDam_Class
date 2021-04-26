@@ -118,7 +118,7 @@ public class DialogEditPlayer extends DialogFragment {
                     case 0:
                         /* edit the player with the new username*/
                         Settings.RESPONSE_CLIENT.getService()
-                                .editPlayer(53, editedPlayer)
+                                .editPlayer(id, editedPlayer)
                                 .enqueue(new Callback<PlayerDto>() {
                                     @Override
                                     public void onResponse(Call<PlayerDto> call, Response<PlayerDto> response) {

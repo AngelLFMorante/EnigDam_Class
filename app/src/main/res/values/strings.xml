@@ -49,4 +49,24 @@
     <string name="deleteMessage">¿ Estás seguro de que quieres borrar al jugador ?</string>
     <string name="successDelete">Jugador eliminado</string>
     <string name="notSuccessDelete">No se ha eliminado</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="history_logo">history_logo</string>
+    <string name="history_enigdam">09:00 am Domingo 13 de Junio del 2021\n\n
+.- Bienvenido al departamento tecnológico en ciberseguridad del CNI,
+hemos recibido un mensaje de un posible ataque informático en concreto,
+un video del presunto “Hacker” sobre las 03:15 am,
+indicando que dentro de 2 horas desactivará toda red informática para crear una crisis financiera,
+liquidando toda deuda pública a todos los ciudadanos,
+quitando todo dinero virtual de España.\n
+Creemos que actuará sobre las 11:00 am,
+que es cuando mas tráfico financiero se mueve virtualmente.\n
+Con lo que nos deja un margen de 2 horas para parar el ataque.\n
+No podemos alertar a la población de un posible ataque cibernético que destruiría la economía tal y como la conocemos.\n
+Si avisamos a los ciudadanos de que sustraigan todos sus ahorros de sus bancos,
+crearemos una crisis económica, ya no estatal sino mundial, que no podremos controlar.\n
+Hemos pensado en ti por tus referencias extraordinarias como programador, lucha de espejo entre programadores.\n
+Si consigues frenar el ataque, obtendrás un puesto de trabajo en el departamento de ciberseguridad del CNI.\n\n
+Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás de este ataque y donde se ubica el infractor.\n
+¡Mucha Suerte! (Nombre del Virus informático del posible ataque : <b>MORRIS 2N88</b>)
+    </string>
 </resources>
