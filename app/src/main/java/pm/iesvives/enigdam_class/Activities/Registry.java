@@ -170,23 +170,20 @@ public class Registry extends MainActivity {
      */
     private boolean addNewPlayer(PlayerDto player) {
 
-        Settings.RESPONSE_CLIENT.getService().addPlayer(player).enqueue(new Callback<Map<String, String>>() {
+        Settings.RESPONSE_CLIENT.getService().addPlayer(player).enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<Map<String, String>> call, Response<Map<String, String>> response) {
-                Map<String, String> res = response.body();
-                if(!res.values().equals("Registry success")){
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(!response.isSuccessful()){
                     add = false;
                 }
-
             }
 
             @Override
-            public void onFailure(Call<Map<String, String>> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 Log.e("Error: ", t.getMessage());
-
             }
         });
-        Log.i("retorno: ", String.valueOf(add));
+
         return add;
     }
 

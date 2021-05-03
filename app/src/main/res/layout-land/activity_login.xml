@@ -9,33 +9,34 @@
 
     <ImageView
         android:id="@+id/title"
-        android:layout_width="908dp"
-        android:layout_height="210dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:background="@drawable/tittle"
         android:contentDescription="@string/game_tittle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintVertical_bias="0.029" />
 
     <Button
         android:id="@+id/buttonsBack"
-        android:layout_width="94dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="84dp"
         android:background="@drawable/button_x"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <ImageView
         android:id="@+id/singinImg"
-        android:layout_width="663dp"
-        android:layout_height="482dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginEnd="150dp"
         android:background="@drawable/singin_popup"
         android:contentDescription="@string/game_tittle"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,90 +45,102 @@
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintVertical_bias="0.186" />
 
-    <TextView
-        android:id="@+id/loginPlayertxt"
-        android:layout_width="204dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="177dp"
-        android:fontFamily="@font/slackey"
-        android:padding="10dp"
-        android:text="@string/name_user"
-        android:textAlignment="center"
-        android:textColor="#FF5722"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/loginUserName"
-        app:layout_constraintStart_toStartOf="@+id/singinImg"
-        app:layout_constraintTop_toTopOf="@+id/singinImg" />
-
-    <TextView
-        android:id="@+id/loginPasswordtxt"
-        android:layout_width="190dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="14dp"
-        android:fontFamily="@font/slackey"
-        android:padding="10dp"
-        android:text="@string/password"
-        android:textAlignment="center"
-        android:textColor="#FF5722"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/loginPassword"
-        app:layout_constraintStart_toStartOf="@+id/singinImg"
-        app:layout_constraintTop_toBottomOf="@+id/loginPlayertxt" />
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="181dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="182dp"
-        android:layout_marginBottom="93dp"
-        android:background="@drawable/buttons_default"
-        android:elevation="10dp"
-        android:fontFamily="@font/slackey"
-        android:text="@string/iniciar_sesion"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/singinImg"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="200dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="@+id/singinImg"
+        app:layout_constraintHorizontal_bias="0.633"
         app:layout_constraintStart_toStartOf="@+id/singinImg"
-        app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
+        app:layout_constraintTop_toTopOf="@+id/singinImg">
 
-    <EditText
-        android:id="@+id/loginUserName"
-        android:layout_width="339dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="177dp"
-        android:layout_marginEnd="98dp"
-        android:autofillHints="Username"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:fontFamily="@font/slackey"
-        android:hint="@string/username"
-        android:inputType="textPersonName|text"
-        android:padding="10dp"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/singinImg"
-        app:layout_constraintTop_toTopOf="@+id/singinImg" />
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/loginPassword"
-        android:layout_width="339dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="98dp"
-        android:autofillHints="Password"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/singinImg"
-        app:layout_constraintTop_toBottomOf="@+id/loginUserName"
-        android:hint="@string/password"/>
+            <TextView
+                android:id="@+id/loginPlayertxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="0"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/slackey"
+                android:gravity="start"
+                android:padding="5dp"
+                android:text="@string/name_user"
+                android:textColor="#FF5722"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/loginUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:gravity="start"
+                android:layout_marginBottom="5dp"
+                android:autofillHints="Username"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:fontFamily="@font/slackey"
+                android:hint="@string/username"
+                android:inputType="textPersonName|text"
+                android:padding="5dp"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/loginPasswordtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:gravity="start"
+                android:fontFamily="@font/slackey"
+                android:padding="5dp"
+                android:text="@string/password"
+                android:textColor="#FF5722"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/loginPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:autofillHints="Password"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:gravity="start"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:padding="5dp"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </GridLayout>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/buttons_default"
+            android:elevation="10dp"
+            android:fontFamily="@font/slackey"
+            android:text="@string/iniciar_sesion"
+            android:textSize="18sp" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

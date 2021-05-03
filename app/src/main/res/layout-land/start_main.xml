@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="1079dp"
-        android:layout_height="299dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:background="@drawable/tittle"
         android:contentDescription="@string/game_tittle"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,7 +23,8 @@
     <Button
         android:id="@+id/getIn"
         android:layout_width="462dp"
-        android:layout_height="82dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:background="@drawable/buttons_default"
         android:elevation="10dp"
         android:fontFamily="@font/slackey"

@@ -12,6 +12,6 @@
         android:fontFamily="@font/slackey"
         android:textAlignment="center"
         android:textColor="#FF5722"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
 </LinearLayout>

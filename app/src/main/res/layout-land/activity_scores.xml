@@ -7,69 +7,76 @@
     android:background="@drawable/main_background"
     tools:context=".Activities.Scores">
 
-
     <ImageView
         android:id="@+id/title"
-        android:layout_width="908dp"
-        android:layout_height="210dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:background="@drawable/tittle"
         android:contentDescription="@string/game_tittle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintVertical_bias="0.051" />
 
     <Button
         android:id="@+id/buttonsBack"
-        android:layout_width="94dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="92dp"
         android:background="@drawable/button_x"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintHorizontal_bias="0.925"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/scoresListImg"
-        android:layout_width="663dp"
-        android:layout_height="482dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="150dp"
         android:background="@drawable/score_popup"
         android:contentDescription="@string/game_tittle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintVertical_bias="0.0" />
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewScore"
-        android:layout_width="521dp"
-        android:layout_height="197dp"
-        android:layout_marginTop="196dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="40dp"
         android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintBottom_toBottomOf="@+id/scoresListImg"
+        app:layout_constraintEnd_toEndOf="@+id/scoresListImg"
+        app:layout_constraintStart_toStartOf="@+id/scoresListImg"
+        app:layout_constraintTop_toTopOf="@+id/scoresListImg"
+        app:layout_constraintVertical_bias="0.9" />
 
     <TextView
         android:id="@+id/textViewPlayerScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="142dp"
-        android:layout_marginEnd="46dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginBottom="7dp"
         android:fontFamily="@font/slackey"
-        android:padding="10dp"
+        android:padding="5dp"
         android:text="@string/jugador_score"
         android:textAlignment="center"
         android:textColor="#FF5722"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewScore"
-        app:layout_constraintEnd_toStartOf="@+id/textViewTimeScore"
         app:layout_constraintStart_toStartOf="@+id/scoresListImg"
         app:layout_constraintTop_toTopOf="@+id/scoresListImg" />
 
@@ -77,30 +84,33 @@
         android:id="@+id/textViewTimeScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="142dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginBottom="7dp"
         android:fontFamily="@font/slackey"
-        android:padding="10dp"
+        android:padding="5dp"
         android:text="@string/tiempo_score"
         android:textAlignment="center"
         android:textColor="#FF5722"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewScore"
         app:layout_constraintEnd_toStartOf="@+id/textViewScoreScore"
+        app:layout_constraintHorizontal_bias="0.653"
+        app:layout_constraintStart_toEndOf="@+id/textViewPlayerScore"
         app:layout_constraintTop_toTopOf="@+id/scoresListImg" />
 
     <TextView
         android:id="@+id/textViewScoreScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="142dp"
-        android:layout_marginEnd="71dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/slackey"
-        android:padding="10dp"
+        android:padding="5dp"
         android:text="@string/puntuacion_score"
         android:textAlignment="center"
         android:textColor="#FF5722"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewScore"
         app:layout_constraintEnd_toEndOf="@+id/scoresListImg"
         app:layout_constraintTop_toTopOf="@+id/scoresListImg" />

@@ -8,7 +8,7 @@
         android:id="@+id/zone1"
         android:name="pm.iesvives.enigdam_class.Game.Zone1"
         android:label="fragment_zone1"
-        tools:layout="@layout/fragment_zone1" >
+        tools:layout="@layout/fragment_zone1">
         <action
             android:id="@+id/action_zone1_to_zone2"
             app:destination="@id/zone2" />
@@ -20,7 +20,7 @@
         android:id="@+id/zone2"
         android:name="pm.iesvives.enigdam_class.Game.Zone2"
         android:label="fragment_zone2"
-        tools:layout="@layout/fragment_zone2" >
+        tools:layout="@layout/fragment_zone2">
         <action
             android:id="@+id/action_zone2_to_zone1"
             app:destination="@id/zone1" />
@@ -32,7 +32,7 @@
         android:id="@+id/zone3"
         android:name="pm.iesvives.enigdam_class.Game.Zone3"
         android:label="fragment_zone3"
-        tools:layout="@layout/fragment_zone3" >
+        tools:layout="@layout/fragment_zone3">
         <action android:id="@+id/action_zone3_to_zone2" />
         <action
             android:id="@+id/action_zone3_to_zone4"
@@ -42,7 +42,7 @@
         android:id="@+id/zone4"
         android:name="pm.iesvives.enigdam_class.Game.Zone4"
         android:label="fragment_zone4"
-        tools:layout="@layout/fragment_zone4" >
+        tools:layout="@layout/fragment_zone4">
         <action
             android:id="@+id/action_zone4_to_zone1"
             app:destination="@id/zone1" />

@@ -123,10 +123,9 @@ public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInt
                 btnStart.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnStart.startAnimation(scaleDown);
-                //TODO hacer para que llege a la lógica del juego.
-//                Intent intent = new Intent(Lobby.this, Game.class);
-//                intent.putExtra("player", player);
-//                startActivity(intent);
+                Intent intent = new Intent(Lobby.this, Difficulty.class);
+                intent.putExtra("player", player);
+                startActivity(intent);
             }
             return true;
         });

@@ -28,7 +28,7 @@ public interface IPlayerDao {
     Call<List<PlayerDto>> allPlayers();
 
     @POST("add")
-    Call<Map<String, String>> addPlayer(@Body PlayerDto player);
+    Call<Void> addPlayer(@Body PlayerDto player);
 
     @PUT("editPlayer")
     Call<PlayerDto> editPlayer(@Query(value="id", encoded=true) int id, @Body PlayerDto player);

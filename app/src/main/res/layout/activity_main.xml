@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/title"
-        android:layout_width="748dp"
+        android:layout_width="match_parent"
         android:layout_height="294dp"
         android:background="@drawable/tittle"
         android:contentDescription="@string/game_tittle"
@@ -21,9 +21,10 @@
 
     <Button
         android:id="@+id/login"
-        android:layout_width="462dp"
+        android:layout_width="match_parent"
         android:layout_height="82dp"
         android:layout_marginTop="100dp"
+        android:layout_margin="10dp"
         android:background="@drawable/buttons_default"
         android:elevation="10dp"
         android:fontFamily="@font/slackey"
@@ -35,9 +36,10 @@
 
     <Button
         android:id="@+id/registry"
-        android:layout_width="462dp"
+        android:layout_width="match_parent"
         android:layout_height="82dp"
         android:layout_marginTop="16dp"
+        android:layout_margin="10dp"
         android:background="@drawable/buttons_default"
         android:elevation="10dp"
         android:fontFamily="@font/slackey"
@@ -49,8 +51,9 @@
 
     <Button
         android:id="@+id/scores"
-        android:layout_width="462dp"
+        android:layout_width="match_parent"
         android:layout_height="82dp"
+        android:layout_margin="10dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/buttons_default"
         android:elevation="10dp"

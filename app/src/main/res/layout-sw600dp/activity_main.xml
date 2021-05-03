@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/title"
-        android:layout_width="748dp"
+        android:layout_width="match_parent"
         android:layout_height="294dp"
         android:background="@drawable/tittle"
         android:contentDescription="@string/game_tittle"
@@ -21,37 +21,28 @@
 
     <Button
         android:id="@+id/login"
-        android:layout_width="462dp"
+        android:layout_width="match_parent"
         android:layout_height="82dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="250dp"
         android:background="@drawable/buttons_default"
         android:elevation="10dp"
         android:fontFamily="@font/slackey"
         android:text="@string/login"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Button
-        android:id="@+id/registry"
-        android:layout_width="462dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/buttons_default"
-        android:elevation="10dp"
-        android:fontFamily="@font/slackey"
-        android:text="@string/registry"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
-
-    <Button
         android:id="@+id/scores"
-        android:layout_width="462dp"
+        android:layout_width="match_parent"
         android:layout_height="82dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="250dp"
         android:background="@drawable/buttons_default"
         android:elevation="10dp"
         android:fontFamily="@font/slackey"
@@ -59,9 +50,27 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registry"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.076" />
+
+    <Button
+        android:id="@+id/registry"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="250dp"
+        android:background="@drawable/buttons_default"
+        android:elevation="10dp"
+        android:fontFamily="@font/slackey"
+        android:text="@string/registry"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

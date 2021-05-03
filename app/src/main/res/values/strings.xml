@@ -8,10 +8,10 @@
     <string name="back">VOLVER</string>
     <string name="icon_user">icon_user</string>
     <string name="btn_registry">Registrarse</string>
-    <string name="registry_name">Nombre</string>
-    <string name="registry_email">Email</string>
-    <string name="registry_username">Username</string>
-    <string name="registry_password">Password</string>
+    <string name="registry_name">Nombre: </string>
+    <string name="registry_email">Email: </string>
+    <string name="registry_username">Username: </string>
+    <string name="registry_password">Password: </string>
     <string name="addPlayer">Usuario registrado!</string>
     <string name="addPlayerError">No se ha podido registrar usuario!</string>
     <string name="messageError">Campo obligatorio</string>
@@ -69,4 +69,11 @@ Si consigues frenar el ataque, obtendrás un puesto de trabajo en el departament
 Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás de este ataque y donde se ubica el infractor.\n
 ¡Mucha Suerte! (Nombre del Virus informático del posible ataque : <b>MORRIS 2N88</b>)
     </string>
+    <string name="Difficulty">Difficulty</string>
+    <string name="difficulty_easy">Fácil</string>
+    <string name="difficulty_medium">Medio</string>
+    <string name="difficulty_hard">Difícil</string>
+    <string name="text_difficulty">Dificultad</string>
+    <string name="image_difficulty">imagen_dificultad</string>
+    <string name="title_activity_difficulty">difficulty_title</string>
 </resources>

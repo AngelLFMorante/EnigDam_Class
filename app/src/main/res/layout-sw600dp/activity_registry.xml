@@ -9,32 +9,34 @@
 
     <ImageView
         android:id="@+id/title"
-        android:layout_width="908dp"
+        android:layout_width="match_parent"
         android:layout_height="210dp"
         android:background="@drawable/tittle"
         android:contentDescription="@string/game_tittle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <Button
         android:id="@+id/buttonsBack"
-        android:layout_width="94dp"
+        android:layout_width="wrap_content"
         android:layout_height="86dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="192dp"
         android:background="@drawable/button_x"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/registerTitle"
-        android:layout_width="663dp"
+        android:layout_width="match_parent"
         android:layout_height="482dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginEnd="200dp"
         android:background="@drawable/register_popup"
         android:contentDescription="@string/game_tittle"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,139 +46,177 @@
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintVertical_bias="0.158" />
 
-    <TextView
-        android:id="@+id/textRegisterName"
-        android:layout_width="124dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="140dp"
-        android:fontFamily="@font/slackey"
-        android:text="@string/registry_name"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/registerName"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/registerTitle"
-        app:layout_constraintTop_toTopOf="@+id/registerTitle" />
-
-    <TextView
-        android:id="@+id/textRegisterEmail"
-        android:layout_width="124dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/slackey"
-        android:text="@string/registry_email"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/registerEmail"
-        app:layout_constraintStart_toStartOf="@+id/registerTitle"
-        app:layout_constraintTop_toBottomOf="@+id/registerName" />
-
-
-    <TextView
-        android:id="@+id/textRegsiterUsername"
-        android:layout_width="124dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/slackey"
-        android:text="@string/registry_username"
-        android:textSize="19sp"
-        app:layout_constraintEnd_toStartOf="@+id/regsiterUsername"
-        app:layout_constraintStart_toStartOf="@+id/registerTitle"
-        app:layout_constraintTop_toBottomOf="@+id/registerEmail" />
-
-    <TextView
-        android:id="@+id/textRegsiterPass"
-        android:layout_width="124dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="21dp"
-        android:fontFamily="@font/slackey"
-        android:text="@string/registry_password"
-        android:textSize="19sp"
-        app:layout_constraintEnd_toStartOf="@+id/regsiterPass"
-        app:layout_constraintStart_toStartOf="@+id/registerTitle"
-        app:layout_constraintTop_toBottomOf="@+id/regsiterUsername" />
-
-
-    <EditText
-        android:id="@+id/registerName"
-        android:layout_width="411dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginEnd="64dp"
-        android:background="#FFFFFF"
-        android:fontFamily="@font/slackey"
-        android:padding="10dp"
-        android:textColor="#000000"
-        android:textSize="18sp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="121dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginBottom="110dp"
+        android:orientation="vertical"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/registerTitle"
         app:layout_constraintEnd_toEndOf="@+id/registerTitle"
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toStartOf="@+id/registerTitle"
         app:layout_constraintTop_toTopOf="@+id/registerTitle"
-        android:autofillHints="Name"/>
+        app:layout_constraintVertical_bias="0.333">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:padding="0dp"
+            android:rowCount="4">
+
+            <TextView
+                android:id="@+id/textRegisterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="0"
+                android:layout_columnWeight="1"
+                android:gravity="start"
+                android:layout_gravity="fill"
+                android:padding="0dp"
+                android:fontFamily="@font/slackey"
+                android:text="@string/registry_name"
+                android:textSize="34sp" />
+
+            <EditText
+                android:id="@+id/registerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:layout_columnWeight="1"
+                android:gravity="start"
+                android:layout_gravity="fill"
+                android:layout_margin="2dp"
+                android:autofillHints="Name"
+                android:padding="10dp"
+                android:ems="10"
+                android:background="#FFFFFF"
+                android:fontFamily="@font/slackey"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/textRegisterEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:layout_columnWeight="1"
+                android:gravity="start"
+                android:layout_gravity="fill"
+                android:fontFamily="@font/slackey"
+                android:text="@string/registry_email"
+                android:textSize="34sp" />
+
+            <EditText
+                android:id="@+id/registerEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:layout_columnWeight="1"
+                android:gravity="start"
+                android:layout_gravity="fill"
+                android:layout_margin="2dp"
+                android:autofillHints="Email"
+                android:background="#FFFFFF"
+                android:ems="15"
+                android:fontFamily="@font/slackey"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/textRegsiterUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="2"
+                android:layout_columnWeight="1"
+                android:gravity="start"
+                android:layout_gravity="fill"
+                android:fontFamily="@font/slackey"
+                android:text="@string/registry_username"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/regsiterUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="2"
+                android:layout_columnWeight="1"
+                android:gravity="start"
+                android:layout_gravity="fill"
+                android:layout_margin="2dp"
+                android:autofillHints="Username"
+                android:background="#FFFFFF"
+                android:ems="15"
+                android:fontFamily="@font/slackey"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
 
 
-    <EditText
-        android:id="@+id/registerEmail"
-        android:layout_width="411dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="66dp"
-        android:background="#FFFFFF"
-        android:fontFamily="@font/slackey"
-        android:padding="10dp"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/registerTitle"
-        app:layout_constraintTop_toBottomOf="@+id/registerName"
-        android:autofillHints="Email"/>
+            <TextView
+                android:id="@+id/textRegsiterPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="3"
+                android:layout_columnWeight="1"
+                android:gravity="start"
+                android:layout_gravity="fill"
+                android:fontFamily="@font/slackey"
+                android:text="@string/registry_password"
+                android:textSize="30sp" />
 
+            <EditText
+                android:id="@+id/regsiterPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="3"
+                android:layout_columnWeight="1"
+                android:gravity="start"
+                android:layout_gravity="fill"
+                android:layout_margin="2dp"
+                android:background="#FFFFFF"
+                android:ems="15"
+                android:inputType="textPassword"
+                android:labelFor="@id/textRegsiterPass"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+        </GridLayout>
 
-    <EditText
-        android:id="@+id/regsiterUsername"
-        android:layout_width="411dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="66dp"
-        android:background="#FFFFFF"
-        android:fontFamily="@font/slackey"
-        android:padding="10dp"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/registerTitle"
-        app:layout_constraintTop_toBottomOf="@+id/registerEmail"
-        android:autofillHints="Username"/>
+        <Button
+            android:id="@+id/btnRegistry"
+            android:layout_width="406dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="148dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="109dp"
+            android:background="@drawable/buttons_default"
+            android:elevation="10dp"
+            android:fontFamily="@font/slackey"
+            android:text="@string/btn_registry"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/registerTitle"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintStart_toStartOf="@+id/registerTitle"
+            app:layout_constraintTop_toBottomOf="@+id/regsiterPass" />
 
-
-    <EditText
-        android:id="@+id/regsiterPass"
-        android:layout_width="411dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="66dp"
-        android:layout_weight="1"
-        android:background="#FFFFFF"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/registerTitle"
-        app:layout_constraintTop_toBottomOf="@+id/regsiterUsername"
-        android:autofillHints="Password" />
-
-    <Button
-        android:id="@+id/btnRegistry"
-        android:layout_width="406dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="109dp"
-        android:background="@drawable/buttons_default"
-        android:elevation="10dp"
-        android:fontFamily="@font/slackey"
-        android:text="@string/btn_registry"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/registerTitle"
-        app:layout_constraintStart_toStartOf="@+id/registerTitle"
-        app:layout_constraintTop_toBottomOf="@+id/regsiterPass" />
-
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
