@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ffffff"
-    tools:context=".HistoryFragment">
+    tools:context=".Fragments.HistoryFragment">
 
 
     <TextView
@@ -40,10 +40,10 @@
         android:id="@+id/buttonsBack"
         android:layout_width="94dp"
         android:layout_height="86dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="132dp"
         android:background="@drawable/button_x"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.883"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -13,13 +13,13 @@ import android.widget.TextView;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
-import pm.iesvives.enigdam_class.HistoryFragment;
+import pm.iesvives.enigdam_class.Fragments.HistoryFragment;
 import pm.iesvives.enigdam_class.R;
 
 public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInteractionListener {
 
     private FrameLayout fragmentContainer;
-    private Button btnExit, btnProfile, btnHistory, btnScores, btnMusic, btnStart;
+    private Button btnExit, btnProfile, btnHistory, btnScores, btnStart;
     private boolean session = false;
     private  SharedPreferences preferences;
     private SharedPreferences.Editor editorShared;
@@ -34,7 +34,6 @@ public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInt
         btnProfile = findViewById(R.id.btnProfile);
         btnHistory = findViewById(R.id.btnHistory);
         btnScores = findViewById(R.id.btnScore);
-        btnMusic = findViewById(R.id.buttonsSound);
         btnStart = findViewById(R.id.buttonStart);
         TextView welcome = findViewById(R.id.textUsername);
         fragmentContainer = findViewById(R.id.fragment_container);
@@ -129,17 +128,7 @@ public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInt
             }
             return true;
         });
-        btnMusic.setOnTouchListener((v, event) -> {
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                btnMusic.startAnimation(scaleUp);
-            } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                btnMusic.startAnimation(scaleDown);
-                //TODO parar la musica y si le vuelve a dar que se encienda la música
-/*                Intent intent = new Intent(Lobby.this, MainActivity.class);
-                startActivity(intent);*/
-            }
-            return true;
-        });
+
     }
 
     private void openFragment() {

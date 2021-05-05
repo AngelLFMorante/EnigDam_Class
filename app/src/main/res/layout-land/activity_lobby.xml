@@ -9,116 +9,120 @@
 
     <ImageView
         android:id="@+id/title"
-        android:layout_width="908dp"
-        android:layout_height="210dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:background="@drawable/tittle"
         android:contentDescription="@string/game_tittle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.091" />
+        app:layout_constraintVertical_bias="0.000" />
 
     <Button
         android:id="@+id/buttonsBack"
-        android:layout_width="94dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="184dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="108dp"
         android:background="@drawable/button_exit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.919"
+        app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonStart"
-        android:layout_width="211dp"
-        android:layout_height="165dp"
-        android:layout_marginTop="33dp"
-        android:background="@drawable/button_start"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnScore" />
 
     <Button
         android:id="@+id/btnProfile"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="26dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="300dp"
         android:background="@drawable/buttons_default"
         android:fontFamily="@font/slackey"
         android:text="@string/profile"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnScore"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textWelcom" />
-
-    <Button
-        android:id="@+id/btnScore"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="93dp"
-        android:layout_marginEnd="26dp"
-        android:background="@drawable/buttons_default"
-        android:fontFamily="@font/slackey"
-        android:text="@string/score"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnHistory"
-        app:layout_constraintTop_toBottomOf="@+id/textUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Button
         android:id="@+id/btnHistory"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="152dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="300dp"
         android:background="@drawable/buttons_default"
         android:fontFamily="@font/slackey"
         android:text="@string/history"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textUsername" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnProfile" />
 
     <Button
-        android:id="@+id/buttonsSound"
-        android:layout_width="94dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/button_music_on"
+        android:id="@+id/btnScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/buttons_default"
+        android:fontFamily="@font/slackey"
+        android:text="@string/score"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.919"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonStart" />
+        app:layout_constraintTop_toBottomOf="@+id/btnHistory" />
+
+
+    <Button
+        android:id="@+id/buttonStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="88dp"
+        android:background="@drawable/button_start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnHistory"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textWelcom"
-        android:layout_width="240dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="111dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/slackey"
         android:text="@string/welcome"
         android:textColor="@color/black"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/textUsername"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnProfile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toTopOf="@+id/title"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textUsername"
-        android:layout_width="397dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="348dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="111dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/slackey"
         android:textAlignment="viewStart"
-        android:textColor="#FF5722"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        android:textColor="#BC3206"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnProfile"
+        app:layout_constraintStart_toEndOf="@+id/textWelcom"
+        app:layout_constraintTop_toTopOf="@+id/title"
+        app:layout_constraintVertical_bias="1.0" />
 
     <FrameLayout
         android:id="@+id/fragment_container"

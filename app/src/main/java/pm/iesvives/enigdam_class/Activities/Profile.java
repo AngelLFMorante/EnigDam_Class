@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
@@ -15,9 +14,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 
-import cn.pedant.SweetAlert.SweetAlertDialog;
 import pm.iesvives.enigdam_class.Entity.Game;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
+import pm.iesvives.enigdam_class.Fragments.DialogEditPlayer;
 import pm.iesvives.enigdam_class.R;
 import pm.iesvives.enigdam_class.Utils.Settings;
 import retrofit2.Call;

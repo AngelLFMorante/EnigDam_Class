@@ -48,9 +48,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_marginStart="200dp"
+        android:layout_marginStart="190dp"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="200dp"
+        android:layout_marginEnd="190dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="@+id/singinImg"
         app:layout_constraintHorizontal_bias="0.633"
@@ -62,6 +62,7 @@
             android:layout_height="wrap_content"
             android:columnCount="2"
             android:rowCount="2"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
             <TextView
@@ -76,25 +77,26 @@
                 android:padding="5dp"
                 android:text="@string/name_user"
                 android:textColor="#FF5722"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/loginUserName"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
                 android:layout_column="1"
-                android:gravity="start"
                 android:layout_marginBottom="5dp"
+                android:layout_marginEnd="160dp"
                 android:autofillHints="Username"
                 android:background="#FFFFFF"
-                android:ems="10"
+                android:ems="9"
                 android:fontFamily="@font/slackey"
+                android:gravity="start"
                 android:hint="@string/username"
                 android:inputType="textPersonName|text"
                 android:padding="5dp"
                 android:textColor="#000000"
-                android:textSize="16sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/loginPasswordtxt"
@@ -107,12 +109,13 @@
                 android:padding="5dp"
                 android:text="@string/password"
                 android:textColor="#FF5722"
-                android:textSize="16sp" />
+                android:textSize="14sp"/>
 
             <EditText
                 android:id="@+id/loginPassword"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="160dp"
                 android:layout_row="1"
                 android:layout_column="1"
                 android:autofillHints="Password"
@@ -123,17 +126,15 @@
                 android:inputType="textPassword"
                 android:padding="5dp"
                 android:textColor="#000000"
-                android:textSize="16sp" />
+                android:textSize="12sp" />
 
         </GridLayout>
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="60dp"
             android:background="@drawable/buttons_default"
             android:elevation="10dp"
             android:fontFamily="@font/slackey"

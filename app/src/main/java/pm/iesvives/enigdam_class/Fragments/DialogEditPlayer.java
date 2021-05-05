@@ -1,4 +1,4 @@
-package pm.iesvives.enigdam_class.Activities;
+package pm.iesvives.enigdam_class.Fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

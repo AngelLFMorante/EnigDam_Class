@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="280dp"
-        android:layout_marginTop="121dp"
+        android:layout_marginTop="130dp"
         android:layout_marginEnd="280dp"
         android:layout_marginBottom="110dp"
         android:orientation="vertical"
@@ -80,10 +80,11 @@
                 android:layout_columnWeight="1"
                 android:gravity="start"
                 android:layout_gravity="fill"
+                android:layout_marginTop="10dp"
                 android:padding="0dp"
                 android:fontFamily="@font/slackey"
                 android:text="@string/registry_name"
-                android:textSize="34sp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/registerName"
@@ -113,9 +114,10 @@
                 android:layout_columnWeight="1"
                 android:gravity="start"
                 android:layout_gravity="fill"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/slackey"
                 android:text="@string/registry_email"
-                android:textSize="34sp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/registerEmail"
@@ -145,9 +147,10 @@
                 android:layout_columnWeight="1"
                 android:gravity="start"
                 android:layout_gravity="fill"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/slackey"
                 android:text="@string/registry_username"
-                android:textSize="30sp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/regsiterUsername"
@@ -178,9 +181,10 @@
                 android:layout_columnWeight="1"
                 android:gravity="start"
                 android:layout_gravity="fill"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/slackey"
                 android:text="@string/registry_password"
-                android:textSize="30sp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/regsiterPass"

@@ -38,22 +38,31 @@ public class ScoresAdapter extends RecyclerView.Adapter<ScoresAdapter.ViewHolder
         return players.size();
     }
 
-    public class ViewHolderGame extends RecyclerView.ViewHolder {
+    public static class ViewHolderGame extends RecyclerView.ViewHolder {
 
-        TextView txtUserPlayerScore;
+        TextView txtUserPlayerNameScore;
+        TextView txtUserPlayerTimeScore;
+        TextView txtUserPlayerScoreScore;
+
 
         public ViewHolderGame(@NonNull View itemView) {
             super(itemView);
-            txtUserPlayerScore = (TextView) itemView.findViewById(R.id.userPlayerScore);
+            txtUserPlayerNameScore = (TextView) itemView.findViewById(R.id.userPlayerNameScore);
+            txtUserPlayerTimeScore = (TextView) itemView.findViewById(R.id.userPlayerTimeScore);
+            txtUserPlayerScoreScore = (TextView) itemView.findViewById(R.id.userPlayerScoreScore);
         }
 
 
         public void assignData(PlayerDto player) {
             String username = player.getUsername();
+
             if(username.length() > 8){
                 username = username.substring(0,8);
             }
-            txtUserPlayerScore.setText(String.format("%-8s       %s             %s", username, player.getTime(), player.getScore()));
+            txtUserPlayerNameScore.setText(String.format("%-8s", username));
+            txtUserPlayerTimeScore.setText(String.format("%s",player.getTime()));
+            txtUserPlayerScoreScore.setText(String.format("%s", player.getScore()));
+
         }
     }
 

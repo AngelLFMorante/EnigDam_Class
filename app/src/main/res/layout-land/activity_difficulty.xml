@@ -9,102 +9,93 @@
 
     <ImageView
         android:id="@+id/imageViewDifficulty"
-        android:layout_width="802dp"
-        android:layout_height="271dp"
-        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="300dp"
         android:contentDescription="@string/image_difficulty"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.353"
         app:srcCompat="@drawable/difficulty" />
 
     <Button
         android:id="@+id/buttonsBack"
-        android:layout_width="wrap_content"
-        android:layout_height="63dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="72dp"
         android:background="@drawable/button_x"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDifficulty"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnEasy"
-        android:layout_width="262dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="86dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="86dp"
-        android:background="@drawable/buttons_default"
-        android:elevation="10dp"
-        android:fontFamily="@font/slackey"
-        android:text="@string/difficulty_easy"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewDifficulty"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/imageViewDifficulty"
-        app:layout_constraintTop_toTopOf="@+id/imageViewDifficulty" />
-
-    <Button
-        android:id="@+id/btnMedium"
-        android:layout_width="262dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="86dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="86dp"
-        android:background="@drawable/buttons_default"
-        android:elevation="10dp"
-        android:fontFamily="@font/slackey"
-        android:text="@string/difficulty_medium"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewDifficulty"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/imageViewDifficulty"
-        app:layout_constraintTop_toBottomOf="@+id/btnEasy" />
-
-    <Button
-        android:id="@+id/btnHard"
-        android:layout_width="262dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="86dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="86dp"
-        android:layout_marginBottom="53dp"
-        android:background="@drawable/buttons_default"
-        android:elevation="10dp"
-        android:fontFamily="@font/slackey"
-        android:text="@string/difficulty_hard"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="24sp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginEnd="200dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewDifficulty"
         app:layout_constraintEnd_toEndOf="@+id/imageViewDifficulty"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/imageViewDifficulty"
-        app:layout_constraintTop_toBottomOf="@+id/btnMedium"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewDifficulty">
 
-    <TextView
-        android:id="@+id/textDifficulty"
-        android:layout_width="230dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="135dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="135dp"
-        android:fontFamily="@font/slackey"
-        android:text="@string/text_difficulty"
-        android:textAlignment="viewStart"
-        android:textColor="#FFFFFF"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewDifficulty"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/imageViewDifficulty"
-        app:layout_constraintTop_toTopOf="@+id/imageViewDifficulty" />
+        <TextView
+            android:id="@+id/textDifficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="33dp"
+            android:layout_marginBottom="25dp"
+            android:fontFamily="@font/slackey"
+            android:text="@string/text_difficulty"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/btnEasy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/buttons_default"
+            android:fontFamily="@font/slackey"
+            android:text="@string/difficulty_easy"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/buttons_default"
+            android:fontFamily="@font/slackey"
+            android:text="@string/difficulty_medium"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnHard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttons_default"
+            android:fontFamily="@font/slackey"
+            android:text="@string/difficulty_hard"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

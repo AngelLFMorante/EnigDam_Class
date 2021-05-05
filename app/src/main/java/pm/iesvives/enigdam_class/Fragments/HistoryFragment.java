@@ -1,4 +1,4 @@
-package pm.iesvives.enigdam_class;
+package pm.iesvives.enigdam_class.Fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+
+import pm.iesvives.enigdam_class.R;
 
 /**
  * A simple {@link Fragment} subclass.
