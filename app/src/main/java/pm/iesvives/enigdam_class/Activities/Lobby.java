@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -18,7 +17,6 @@ import pm.iesvives.enigdam_class.R;
 
 public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInteractionListener {
 
-    private FrameLayout fragmentContainer;
     private Button btnExit, btnProfile, btnHistory, btnScores, btnStart;
     private boolean session = false;
     private  SharedPreferences preferences;
@@ -36,7 +34,6 @@ public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInt
         btnScores = findViewById(R.id.btnScore);
         btnStart = findViewById(R.id.buttonStart);
         TextView welcome = findViewById(R.id.textUsername);
-        fragmentContainer = findViewById(R.id.fragment_container);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -53,6 +50,8 @@ public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInt
             editorShared.putString("username", player.getUsername());
             editorShared.putInt("id", player.getId());
             editorShared.apply();
+            session = true;
+        }else if (initialSession()){
             session = true;
         }
 

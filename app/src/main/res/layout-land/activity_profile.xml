@@ -52,23 +52,22 @@
         android:id="@+id/gamepad"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginStart="232dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="28dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/gamepad"
         android:contentDescription="@string/game_tittle"
         app:layout_constraintBottom_toTopOf="@+id/bestScore"
-        app:layout_constraintEnd_toStartOf="@+id/profilePlayer"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/profilePlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="240dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="212dp"
         android:layout_marginBottom="11dp"
         android:fontFamily="@font/slackey"
         android:shadowColor="#090909"
@@ -81,8 +80,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bestScore"
         app:layout_constraintEnd_toStartOf="@+id/buttonsBack"
+        app:layout_constraintStart_toEndOf="@+id/gamepad"
         app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnEdit"
