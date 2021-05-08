@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
+import pm.iesvives.enigdam_class.Game.HowToPlay;
 import pm.iesvives.enigdam_class.R;
 
 public class Difficulty extends MainActivity {
@@ -55,9 +56,10 @@ public class Difficulty extends MainActivity {
                 btnEasy.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnEasy.startAnimation(scaleDown);
-                //TODO llamamos a la primera pantalla pero le pasamos la dificultad facil = todas las pistas
-//                Intent intent = new Intent(Lobby.this, Start.class);
-//                startActivity(intent);
+                Intent intent = new Intent(Difficulty.this, HowToPlay.class);
+                intent.putExtra("player", player);
+                intent.putExtra("difficulty", "easy");
+                startActivity(intent);
             }
             return true;
         });
@@ -66,9 +68,10 @@ public class Difficulty extends MainActivity {
                 btnMedium.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnMedium.startAnimation(scaleDown);
-                //TODO llamamos a la primera pantalla pero le pasamos la dificultad media = pistas.length / 2
-//                Intent intent = new Intent(Lobby.this, Start.class);
-//                startActivity(intent);
+                Intent intent = new Intent(Difficulty.this, HowToPlay.class);
+                intent.putExtra("player", player);
+                intent.putExtra("difficulty", "medium");
+                startActivity(intent);
             }
             return true;
         });
@@ -77,11 +80,14 @@ public class Difficulty extends MainActivity {
                 btnHard.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnHard.startAnimation(scaleDown);
-                //TODO llamamos a la primera pantalla pero le pasamos la dificultad dificil = ninguna pista
-//                Intent intent = new Intent(Lobby.this, Start.class);
-//                startActivity(intent);
+                Intent intent = new Intent(Difficulty.this, HowToPlay.class);
+                intent.putExtra("player", player);
+                intent.putExtra("difficulty", "hard");
+                startActivity(intent);
             }
             return true;
         });
     }
+
+
 }

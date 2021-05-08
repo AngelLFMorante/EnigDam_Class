@@ -13,15 +13,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Activities.Difficulty" android:screenOrientation="landscape"/>
-        <activity android:name=".Game.NavHost" android:screenOrientation="landscape"/>
-        <activity android:name=".Activities.Profile" android:screenOrientation="landscape"/>
-        <activity android:name=".Activities.Lobby" android:screenOrientation="landscape"/>
-        <activity android:name=".Activities.Scores" android:screenOrientation="landscape"/>
-        <activity android:name=".Activities.Registry" android:screenOrientation="landscape"/>
-        <activity android:name=".Activities.Login" android:screenOrientation="landscape"/>
-        <activity android:name=".Activities.MainActivity" android:screenOrientation="landscape" />
-        <activity android:name=".Activities.Start" android:screenOrientation="landscape">
+        <activity
+            android:name=".Game.HowToPlay"
+            android:screenOrientation="landscape"
+            />
+        <activity
+            android:name=".Activities.Difficulty"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Game.StartGame"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Activities.Profile"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Activities.Lobby"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Activities.Scores"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Activities.Registry"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Activities.Login"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Activities.MainActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Activities.Start"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -76,4 +76,20 @@ Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás
     <string name="text_difficulty">Dificultad</string>
     <string name="image_difficulty">imagen_dificultad</string>
     <string name="title_activity_difficulty">difficulty_title</string>
+    <string name="next_fragment">Next fragment</string>
+    <string name="previous_fragment">Previous fragment</string>
+    <string name="how_to_play">Nos encontramos en una sala del CNI de alta seguridad.\n\n
+    El hacker mediante telnet ha recuperado información y sabe que vamos tras el, con lo que nos ha encerrado en esta sala.
+    Por lo que sabemos la puerta de seguridad tiene un código de X cifras que deberemos averiguar si queremos salir de ella.\n
+    Pero para salir antes deberemos saber quien está detrás de todo esto y desde donde lo está haciendo.\n\n
+    <b>Para movernos por la sala lo haremos con las flechas</b> , si vemos algo que podemos creer que es una prueba, deberemos hacer click sobre él.\n
+    Si tenemos una interacción, deberemos averiguar de que se trata para poder avanzar, <b>cada prueba tiene una recompensa, con lo que nos facilitará
+    su nombre y ubicación</b>.\n
+        Dependiendo de la dificultad elegida, obtendremos pistas o no. <b>Las pistas están en la bombillita</b>, nos facilitará siempre la pista de donde está la prueba pero
+    <b>no nos dirá la solución de la misma</b>.\n
+    Sabiendo nuestros cometidos, en cuanto le demos a comenzar, nuestro tiempo se pondrá en marcha.\n\n <b>Tenemos 30 minutos para salir de la sala</b>, si la cuenta se pone en 00:00,
+    el hacker habrá conseguido su propósito y habremos perdido.\n\n
+    Mucha Suerte!!</string>
+    <string name="play_game">Comenzar</string>
+
 </resources>

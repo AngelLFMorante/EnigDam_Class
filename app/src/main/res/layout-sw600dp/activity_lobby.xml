@@ -36,7 +36,7 @@
         android:id="@+id/textWelcom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="216dp"
+        android:layout_marginStart="190dp"
         android:layout_marginTop="44dp"
         android:fontFamily="@font/slackey"
         android:text="@string/welcome"
@@ -49,16 +49,16 @@
         android:id="@+id/textUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="585dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="254dp"
+        android:layout_marginBottom="57dp"
         android:fontFamily="@font/slackey"
         android:textAlignment="viewStart"
         android:textColor="#FF5722"
         android:textSize="36sp"
-        app:layout_constraintEnd_toStartOf="@+id/buttonsBack"
+        app:layout_constraintBottom_toTopOf="@+id/btnProfile"
         app:layout_constraintStart_toEndOf="@+id/textWelcom"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toTopOf="@+id/title" />
 
     <Button
         android:id="@+id/buttonStart"
@@ -116,7 +116,6 @@
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/btnHistory"
         tools:layout_editor_absoluteX="0dp" />
-
 
     <FrameLayout
         android:id="@+id/fragment_container"
