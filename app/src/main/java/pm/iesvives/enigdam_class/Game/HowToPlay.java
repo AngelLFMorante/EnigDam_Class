@@ -7,7 +7,11 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+
+import pm.iesvives.enigdam_class.Activities.Difficulty;
+import pm.iesvives.enigdam_class.Activities.Lobby;
 import pm.iesvives.enigdam_class.Activities.MainActivity;
+import pm.iesvives.enigdam_class.Activities.Start;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
 
@@ -25,13 +29,10 @@ public class HowToPlay extends MainActivity {
 
         btnPlayGame = findViewById(R.id.btnPlayGame);
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
+        Intent i = getIntent();
+        Bundle bundle = i.getExtras();
         player  = (PlayerDto) bundle.getSerializable("player");
         difficulty = bundle.getString("difficulty");
-
-        Log.i("Player name: ", player.getUsername());
-        Log.i("Difficulty: ", difficulty);
 
         scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(this, R.anim.scale_down);
@@ -41,7 +42,10 @@ public class HowToPlay extends MainActivity {
                 btnPlayGame.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnPlayGame.startAnimation(scaleDown);
-                //FRAGMENT ZONA1
+                Intent intent = new Intent(HowToPlay.this, StartGame.class);
+                intent.putExtra("player", player);
+                intent.putExtra("difficulty", difficulty);
+                startActivity(intent);
             }
             return true;
         });
