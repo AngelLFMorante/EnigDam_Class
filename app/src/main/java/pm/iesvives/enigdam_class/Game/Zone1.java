@@ -34,7 +34,7 @@ public class Zone1 extends Fragment {
      *
      * @return A new instance of fragment Zone1.
      */
-    // TODO: Rename and change types and number of parameters
+    // TODO: Rename and change types and number of parameters, TENGO QUE MIRAR BIEN QUE HACE ESTA FUNCION
     public static Zone1 newInstance(PlayerDto player) {
         Zone1 fragment = new Zone1();
         Bundle args = new Bundle();
@@ -46,6 +46,7 @@ public class Zone1 extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //TODO esto es para coger los parametros que recibamos entre fragments.
         getActivity().getSupportFragmentManager().setFragmentResultListener("key", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
