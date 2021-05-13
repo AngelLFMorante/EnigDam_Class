@@ -77,7 +77,7 @@ public class Zone3 extends Fragment {
                 Zone4 z4 = new Zone4();
 //                z4.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
-                fm.beginTransaction().replace(R.id.fragment_nav_game, z4).addToBackStack(null).commit();
+                fm.beginTransaction().add(R.id.fragment_nav_game, z4).addToBackStack(null).commit();
             }
             return true;
         });
@@ -90,7 +90,7 @@ public class Zone3 extends Fragment {
                 Zone2 z2 = new Zone2();
 //                z2.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
-                fm.beginTransaction().replace(R.id.fragment_nav_game, z2).addToBackStack(null).commit();
+                fm.beginTransaction().add(R.id.fragment_nav_game, z2).addToBackStack(null).commit();
             }
             return true;
         });

@@ -91,5 +91,8 @@ Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás
     el hacker habrá conseguido su propósito y habremos perdido.\n\n
     Mucha Suerte!!</string>
     <string name="play_game">Comenzar</string>
+    <string name="test_binary">test_binary</string>
+    <string name="computer_test">computer_test</string>
+    <string name="lamp_hint">lamp_hint</string>
 
 </resources>
