@@ -43,39 +43,4 @@ public class StartGame extends MainActivity {
 
     }
 
-//    private void startTimerMethod() {
-//        countDownTimer = new CountDownTimer(timeLeftInMilliseconds, 1000) {
-//            @Override
-//            public void onTick(long millisUntilFinished) {
-//                timeLeftInMilliseconds = millisUntilFinished;
-//                updateTimer();
-//            }
-//
-//            @Override
-//            public void onFinish() {
-//                Toast.makeText(StartGame.this, "GAME OVER", Toast.LENGTH_LONG).show();
-//            }
-//        }.start();
-//    }
-//
-//    public void pauseTimer(){
-//        countDownTimer.cancel();
-//        Log.i("timer: ", countDownText.getText().toString());
-//    }
-//
-//    private void updateTimer() {
-//        int minutes = (int) timeLeftInMilliseconds / 60000;
-//        int seconds = (int) timeLeftInMilliseconds % 60000 / 1000;
-//
-//        String timeText;
-//
-//        timeText =  "" + minutes;
-//        timeText += ":";
-//        if(seconds < 10) timeText += "0";
-//        timeText += seconds;
-//
-//        countDownText.setText(timeText);
-//    }
-
-
 }

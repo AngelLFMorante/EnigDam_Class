@@ -94,5 +94,7 @@ Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás
     <string name="test_binary">test_binary</string>
     <string name="computer_test">computer_test</string>
     <string name="lamp_hint">lamp_hint</string>
+    <string name="hintTestZone1">"+32.168129, -110.957665"</string>
+    <string name="titleDialogGame">Enigdam-Class</string>
 
 </resources>
