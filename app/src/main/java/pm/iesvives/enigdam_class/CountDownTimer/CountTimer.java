@@ -17,16 +17,14 @@ import pm.iesvives.enigdam_class.Fragments.DialogEditPlayer;
 import pm.iesvives.enigdam_class.Game.HowToPlay;
 import pm.iesvives.enigdam_class.Game.StartGame;
 import pm.iesvives.enigdam_class.R;
+import pm.iesvives.enigdam_class.Utils.Settings;
 
 public class CountTimer extends MainActivity {
 
     private static CountDownTimer countDownTimer;
-    public static long timeLeftInMilliseconds = 6000 * 1; //30mins
     public static String timeText;
-    private boolean timerRunning;
-
+    public static long timeLeftInMilliseconds = Settings.TIME_LEFT_IN_MILLISECONDS;
     public CountTimer() { }
-
 
     public static void startTimerMethod(Activity a) {
         countDownTimer = new CountDownTimer(timeLeftInMilliseconds, 1000) {
