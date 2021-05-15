@@ -1,6 +1,7 @@
 package pm.iesvives.enigdam_class.Game;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -13,7 +14,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import java.util.ArrayList;
@@ -29,6 +29,8 @@ public class Zone1 extends Fragment {
     private String difficulty;
     protected Animation scaleUp, scaleDown;
     private DialogEndZone1 dialog;
+    private SharedPreferences state;
+    private SharedPreferences.Editor stateEdit;
     private LinearLayout linearPuzzle;
     private Button btnNext, btnPrevious, btnBack;
     private Button btnBriefcaseOpen, btnBriefcaseClose, btnBriefcaseVoid;
@@ -58,15 +60,11 @@ public class Zone1 extends Fragment {
         // Inflate the layout for this fragment
          View view = inflater.inflate(R.layout.fragment_zone1, container, false);
 
-        LoadState();
-
+        //load player arguments and difficulty
         bundle = getArguments();
         if (bundle == null) throw new AssertionError();
         player  = (PlayerDto) bundle.getSerializable("player");
         difficulty = bundle.getString("difficulty");
-
-        Log.i("username ", player.getUsername());
-        Log.i("difficulty ", difficulty);
 
         scaleUp = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_down);
@@ -85,14 +83,38 @@ public class Zone1 extends Fragment {
         linearPuzzle = view.findViewById(R.id.linearPuzzle);
         btnBack = view.findViewById(R.id.btnBack);
 
-        puzzleButtons(view);
+        state = getActivity().getSharedPreferences("States", getContext().MODE_PRIVATE);
+        stateEdit = state.edit();
 
+        //load screen status
+        LoadState(state);
+
+        //actions we have with the buttons in the view
         ActionsButtons();
+
+        //fill in the data of the puzzle test
+        puzzleButtons(view);
 
         return view;
     }
 
-    private void LoadState() {
+    private void LoadState(SharedPreferences state) {
+        //VISIBLE == 0 , INVISIBLE == 4, GONE == 8
+        if(state.getInt("z1BtnBriefcaseOpen", 8) == 0 ){
+            btnBriefcaseOpen.setVisibility(View.VISIBLE);
+        }
+        if(state.getInt("z1BtnDrawerOpen", 8) == 0 ){
+            btnDrawerOpen.setVisibility(View.VISIBLE);
+        }
+        if(state.getInt("z1BtnAutowiredDrawer", 8) == 0 ){
+            btnAutowiredDrawer.setVisibility(View.VISIBLE);
+        }
+        if(state.getInt("z1BtnAutowiredConnect", 8) == 0 ){
+            btnAutowiredConnect.setVisibility(View.VISIBLE);
+        }
+        if(state.getInt("z1ScreenComputer", 8) == 0 ){
+            screenComputer.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -147,7 +169,11 @@ public class Zone1 extends Fragment {
             return true;
         });
 
-        btnBriefcaseClose.setOnClickListener(v -> btnBriefcaseOpen.setVisibility(View.VISIBLE));
+        btnBriefcaseClose.setOnClickListener(v -> {
+            btnBriefcaseOpen.setVisibility(View.VISIBLE);
+            stateEdit.putInt("z1BtnBriefcaseOpen", btnBriefcaseOpen.getVisibility());
+            stateEdit.commit();
+        });
         btnBriefcaseOpen.setOnClickListener(v -> {
             binaryTest.setVisibility(View.VISIBLE);
             btnBriefcaseVoid.setVisibility(View.VISIBLE);
@@ -159,11 +185,17 @@ public class Zone1 extends Fragment {
         btnDrawerClose.setOnClickListener(v -> {
             btnDrawerOpen.setVisibility(View.VISIBLE);
             btnAutowiredDrawer.setVisibility(View.VISIBLE);
+            stateEdit.putInt("z1BtnDrawerOpen", btnDrawerOpen.getVisibility());
+            stateEdit.putInt("z1BtnAutowiredDrawer", btnAutowiredDrawer.getVisibility());
+            stateEdit.commit();
         });
         btnAutowiredDrawer.setOnClickListener(v -> {
             btnAutowiredConnect.setVisibility(View.VISIBLE);
             screenComputer.setVisibility(View.VISIBLE);
             btnAutowiredDrawer.setVisibility(View.GONE);
+            stateEdit.putInt("z1BtnAutowiredConnect", btnAutowiredConnect.getVisibility());
+            stateEdit.putInt("z1ScreenComputer", screenComputer.getVisibility());
+            stateEdit.commit();
         });
         screenComputer.setOnClickListener(v -> {
             if(!isComplete){
@@ -181,7 +213,7 @@ public class Zone1 extends Fragment {
 
     private void puzzle(LinearLayout linearPuzzle) {
         pattern = new ArrayList<>();
-
+        //check if it follows the game pattern test buttons
         checkPattern();
 
         btnBack.setOnClickListener(v-> {
