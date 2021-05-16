@@ -57,8 +57,21 @@ public class Profile extends MainActivity implements DialogEditPlayer.OnInputLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        preferences = getSharedPreferences("Session", Context.MODE_PRIVATE);
+        editorShared = preferences.edit();
+
         Intent intentSession = getIntent();
         bundle = intentSession.getExtras();
+
+        if((PlayerDto) bundle.getSerializable("player") == null){
+            editorShared.clear();
+            editorShared.apply();
+            Intent backToHome = new Intent(Profile.this, Start.class);
+            startActivity(backToHome);
+        }else{
+            player  = (PlayerDto) bundle.getSerializable("player");
+        }
 
         btnEdit = findViewById(R.id.btnEdit);
         btnDelete = findViewById(R.id.btnDelete);
@@ -71,11 +84,8 @@ public class Profile extends MainActivity implements DialogEditPlayer.OnInputLis
         titleSuccess = getResources().getString(R.string.successDelete);
         titleNotSuccess = getResources().getString(R.string.notSuccessDelete);
 
-        player = (PlayerDto) bundle.getSerializable("player");
+        Log.i("Hay jugador:", player.getUsername());
         usernameText.setText(player.getUsername());
-
-        preferences = getSharedPreferences("session", Context.MODE_PRIVATE);
-        editorShared = preferences.edit();
 
         int high = 0;
         int low = 0;

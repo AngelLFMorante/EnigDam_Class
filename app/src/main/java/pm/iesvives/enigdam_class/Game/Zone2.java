@@ -41,11 +41,6 @@ public class Zone2 extends Fragment {
 
         //         LoadState();
 
-        bundle = getArguments();
-        if (bundle == null) throw new AssertionError();
-        player  = (PlayerDto) bundle.getSerializable("player");
-
-        Log.i("Zona 2 ", String.valueOf(player.getId()));
 
         scaleUp = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_down);
@@ -80,7 +75,6 @@ public class Zone2 extends Fragment {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnPrevious.startAnimation(scaleDown);
                 Zone1 z1 = new Zone1();
-                z1.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 fm.beginTransaction().add(R.id.fragment_nav_game, z1).addToBackStack(null).commit();
             }

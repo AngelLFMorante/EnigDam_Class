@@ -1,11 +1,13 @@
 package pm.iesvives.enigdam_class.Game;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,35 +15,22 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
+import pm.iesvives.enigdam_class.Activities.Start;
+import pm.iesvives.enigdam_class.CountDownTimer.CountTimer;
 import pm.iesvives.enigdam_class.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Zone3#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Zone3 extends Fragment {
 
     protected Animation scaleUp, scaleDown;
     private Button btnNext, btnPrevious;
-
+    private ImageView roomOpen;
+    private SharedPreferences state;
 
     public Zone3() {
 
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Zone3.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Zone3 newInstance(String param1, String param2) {
-        return new Zone3();
     }
 
     @Override
@@ -54,16 +43,26 @@ public class Zone3 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_zone3, container, false);
+        state = getActivity().getSharedPreferences("States", getContext().MODE_PRIVATE);
 
         scaleUp = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_down);
 
         btnNext = view.findViewById(R.id.btnNext);
         btnPrevious = view.findViewById(R.id.btnPrevious);
+        roomOpen = view.findViewById(R.id.roomExit);
+
+        loadState();
 
         ActionsButtons();
 
         return view;
+    }
+
+    private void loadState() {
+        if(state.getBoolean("z1EndGame", false)){
+            roomOpen.setVisibility(View.VISIBLE);
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -93,6 +92,14 @@ public class Zone3 extends Fragment {
                 fm.beginTransaction().add(R.id.fragment_nav_game, z2).addToBackStack(null).commit();
             }
             return true;
+        });
+
+        //END GAME PROVISIONAL
+        roomOpen.setOnClickListener(v-> {
+            CountTimer.pauseTimer();
+            Intent intentEndGame = new Intent(getActivity().getApplicationContext(), EndGame.class);
+            intentEndGame.putExtra("Time", CountTimer.timeText);
+            getActivity().startActivity(intentEndGame);
         });
     }
 }

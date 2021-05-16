@@ -31,7 +31,6 @@ public class HowToPlay extends MainActivity {
 
         Intent i = getIntent();
         Bundle bundle = i.getExtras();
-        player  = (PlayerDto) bundle.getSerializable("player");
         difficulty = bundle.getString("difficulty");
 
         scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
@@ -43,7 +42,6 @@ public class HowToPlay extends MainActivity {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnPlayGame.startAnimation(scaleDown);
                 Intent intent = new Intent(HowToPlay.this, StartGame.class);
-                intent.putExtra("player", player);
                 intent.putExtra("difficulty", difficulty);
                 startActivity(intent);
             }

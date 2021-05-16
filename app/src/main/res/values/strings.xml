@@ -96,5 +96,8 @@ Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás
     <string name="lamp_hint">lamp_hint</string>
     <string name="hintTestZone1">"+32.168129, -110.957665"</string>
     <string name="titleDialogGame">Enigdam-Class</string>
+    <string name="level_complete">level_complete</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="level_complete_hard">level_complete_hard</string>
 
 </resources>

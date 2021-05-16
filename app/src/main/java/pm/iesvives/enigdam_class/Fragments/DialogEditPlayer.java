@@ -60,7 +60,7 @@ public class DialogEditPlayer extends DialogFragment {
         loadingText = getResources().getString(R.string.loading);
         view = getActivity().getLayoutInflater().inflate(R.layout.edit_player, null);
 
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("session", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Session", Context.MODE_PRIVATE);
         id = sharedPreferences.getInt("id", 0);
         String playerUsername = sharedPreferences.getString("username", null);
 

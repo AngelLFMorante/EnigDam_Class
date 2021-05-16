@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -35,15 +36,23 @@ public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInt
         btnStart = findViewById(R.id.buttonStart);
         TextView welcome = findViewById(R.id.textUsername);
 
+        preferences = getSharedPreferences("Session", Context.MODE_PRIVATE);
+        editorShared = preferences.edit();
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        player  = (PlayerDto) bundle.getSerializable("player");
+
+        if((PlayerDto) bundle.getSerializable("player") == null){
+            editorShared.clear();
+            editorShared.apply();
+            Intent backToHome = new Intent(Lobby.this, Start.class);
+            startActivity(backToHome);
+        }else{
+            player  = (PlayerDto) bundle.getSerializable("player");
+        }
 
         //we collect data from logged-in users
         welcome.setText(player.getUsername());
-
-        preferences = getSharedPreferences("session", Context.MODE_PRIVATE);
-        editorShared = preferences.edit();
 
         if(!session && !initialSession()){
             //we save session data, in sharedPreferences

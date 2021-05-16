@@ -13,10 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".Game.LooserGame"></activity>
+        <activity android:name=".Game.WinnerGame" />
+        <activity android:name=".Game.EndGame" />
         <activity
             android:name=".Game.HowToPlay"
-            android:screenOrientation="landscape"
-            />
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Activities.Difficulty"
             android:screenOrientation="landscape" />

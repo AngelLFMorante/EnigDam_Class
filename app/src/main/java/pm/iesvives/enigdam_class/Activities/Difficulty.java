@@ -1,7 +1,9 @@
 package pm.iesvives.enigdam_class.Activities;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
@@ -14,6 +16,7 @@ public class Difficulty extends MainActivity {
 
     private Button btnEasy, btnMedium, btnHard, btnBack;
     private PlayerDto player = new PlayerDto();
+    private SharedPreferences.Editor editorShared;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +28,19 @@ public class Difficulty extends MainActivity {
         btnMedium = findViewById(R.id.btnMedium);
         btnHard = findViewById(R.id.btnHard);
 
+        editorShared = getSharedPreferences("session", Context.MODE_PRIVATE).edit();
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        player  = (PlayerDto) bundle.getSerializable("player");
+
+        if((PlayerDto) bundle.getSerializable("player") == null){
+            editorShared.clear();
+            editorShared.apply();
+            Intent backToHome = new Intent(Difficulty.this, Start.class);
+            startActivity(backToHome);
+        }else{
+            player  = (PlayerDto) bundle.getSerializable("player");
+        }
 
         //this is a small animation for the button
         scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
@@ -57,7 +70,6 @@ public class Difficulty extends MainActivity {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnEasy.startAnimation(scaleDown);
                 Intent intent = new Intent(Difficulty.this, HowToPlay.class);
-                intent.putExtra("player", player);
                 intent.putExtra("difficulty", "easy");
                 startActivity(intent);
             }
@@ -69,7 +81,6 @@ public class Difficulty extends MainActivity {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnMedium.startAnimation(scaleDown);
                 Intent intent = new Intent(Difficulty.this, HowToPlay.class);
-                intent.putExtra("player", player);
                 intent.putExtra("difficulty", "medium");
                 startActivity(intent);
             }
@@ -81,7 +92,6 @@ public class Difficulty extends MainActivity {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnHard.startAnimation(scaleDown);
                 Intent intent = new Intent(Difficulty.this, HowToPlay.class);
-                intent.putExtra("player", player);
                 intent.putExtra("difficulty", "hard");
                 startActivity(intent);
             }

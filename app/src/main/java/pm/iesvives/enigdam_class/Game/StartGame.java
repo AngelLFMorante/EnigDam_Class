@@ -1,5 +1,6 @@
 package pm.iesvives.enigdam_class.Game;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,8 +19,8 @@ public class StartGame extends MainActivity {
 
     Fragment fragmentZone1;
     private PlayerDto player = new PlayerDto();
-    private String difficulty;
     public static TextView countDownText;
+    private SharedPreferences.Editor difficulty;
     private SharedPreferences.Editor states;
 
     @Override
@@ -34,14 +35,15 @@ public class StartGame extends MainActivity {
 
         Intent i = getIntent();
         Bundle bundle = i.getExtras();
-        player  = (PlayerDto) bundle.getSerializable("player");
-        difficulty = bundle.getString("difficulty");
+        difficulty = getSharedPreferences("Difficulty", Context.MODE_PRIVATE).edit();
+        difficulty.putString("difficulty",  bundle.getString("difficulty"));
+        difficulty.apply();
 
         fragmentZone1 = new Zone1();
         fragmentZone1.setArguments(bundle);
 
         states = getSharedPreferences("States", MODE_PRIVATE).edit().clear();
-        states.commit();
+        states.apply();
 
         countDownText.setText(CountTimer.timeText);
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_nav_game, fragmentZone1).commit();

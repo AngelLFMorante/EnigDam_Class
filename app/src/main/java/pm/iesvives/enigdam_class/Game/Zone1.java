@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
-
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.Fragments.DialogEndZone1;
 import pm.iesvives.enigdam_class.R;
@@ -26,10 +24,10 @@ import pm.iesvives.enigdam_class.R;
 public class Zone1 extends Fragment {
 
     private PlayerDto player = new PlayerDto();
-    private String difficulty;
     protected Animation scaleUp, scaleDown;
     private DialogEndZone1 dialog;
     private SharedPreferences state;
+    private SharedPreferences difficulty;
     private SharedPreferences.Editor stateEdit;
     private LinearLayout linearPuzzle;
     private Button btnNext, btnPrevious, btnBack;
@@ -38,7 +36,7 @@ public class Zone1 extends Fragment {
     private Button btnAutowiredDrawer, btnAutowiredConnect;
     private Button a1,a2,a3,b1,b2,b3,c1,c2,c3;
     private List<Button> buttonsPuzzle;
-    private ImageView binaryTest, screenComputer;
+    private ImageView binaryTest, screenComputer,lampHint;
     private Bundle bundle;
     private List<Integer> pattern;
     private boolean isComplete = false;
@@ -47,7 +45,6 @@ public class Zone1 extends Fragment {
 
     public Zone1() {
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,12 +56,6 @@ public class Zone1 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
          View view = inflater.inflate(R.layout.fragment_zone1, container, false);
-
-        //load player arguments and difficulty
-        bundle = getArguments();
-        if (bundle == null) throw new AssertionError();
-        player  = (PlayerDto) bundle.getSerializable("player");
-        difficulty = bundle.getString("difficulty");
 
         scaleUp = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_down);
@@ -82,12 +73,22 @@ public class Zone1 extends Fragment {
         screenComputer = view.findViewById(R.id.imgComputer);
         linearPuzzle = view.findViewById(R.id.linearPuzzle);
         btnBack = view.findViewById(R.id.btnBack);
+        lampHint = view.findViewById(R.id.lampHint);
 
         state = getActivity().getSharedPreferences("States", getContext().MODE_PRIVATE);
+        difficulty = getActivity().getSharedPreferences("Difficulty", getContext().MODE_PRIVATE);
+        //TODO FALTA POR DESARROLLAR LA LÓGICA DE LAS PISTAS
+        if(difficulty.getString("difficulty", "notValue").equals("easy")){
+            lampHint.setImageResource(R.drawable.lamp_on);
+        }else if(difficulty.getString("difficulty", "notValue").equals("medium")){
+            lampHint.setImageResource(R.drawable.lamp_on);
+        }else if(difficulty.getString("difficulty", "notValue").equals("hard")){
+            lampHint.setImageResource(R.drawable.lamp_off);
+        }
         stateEdit = state.edit();
 
         //load screen status
-        LoadState(state);
+        loadState(state);
 
         //actions we have with the buttons in the view
         ActionsButtons();
@@ -98,7 +99,7 @@ public class Zone1 extends Fragment {
         return view;
     }
 
-    private void LoadState(SharedPreferences state) {
+    private void loadState(SharedPreferences state) {
         //VISIBLE == 0 , INVISIBLE == 4, GONE == 8
         if(state.getInt("z1BtnBriefcaseOpen", 8) == 0 ){
             btnBriefcaseOpen.setVisibility(View.VISIBLE);
@@ -107,7 +108,11 @@ public class Zone1 extends Fragment {
             btnDrawerOpen.setVisibility(View.VISIBLE);
         }
         if(state.getInt("z1BtnAutowiredDrawer", 8) == 0 ){
-            btnAutowiredDrawer.setVisibility(View.VISIBLE);
+            if(state.getInt("z1BtnAutowiredDrawerAfterClick", 0) == 8){
+                btnAutowiredDrawer.setVisibility(View.GONE);
+            }else{
+                btnAutowiredDrawer.setVisibility(View.VISIBLE);
+            }
         }
         if(state.getInt("z1BtnAutowiredConnect", 8) == 0 ){
             btnAutowiredConnect.setVisibility(View.VISIBLE);
@@ -149,7 +154,7 @@ public class Zone1 extends Fragment {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnNext.startAnimation(scaleDown);
                 Zone2 z2 = new Zone2();
-                z2.setArguments(bundle);
+                //z2.setArguments(bundle); Comento esto para luego saber como mandar datos para las pistas en cada pantalla
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 fm.beginTransaction().add(R.id.fragment_nav_game, z2).addToBackStack(null).commit();
             }
@@ -162,7 +167,6 @@ public class Zone1 extends Fragment {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnPrevious.startAnimation(scaleDown);
                 Zone4 z4 = new Zone4();
-                z4.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 fm.beginTransaction().add(R.id.fragment_nav_game, z4).addToBackStack(null).commit();
             }
@@ -194,6 +198,7 @@ public class Zone1 extends Fragment {
             screenComputer.setVisibility(View.VISIBLE);
             btnAutowiredDrawer.setVisibility(View.GONE);
             stateEdit.putInt("z1BtnAutowiredConnect", btnAutowiredConnect.getVisibility());
+            stateEdit.putInt("z1BtnAutowiredDrawerAfterClick", btnAutowiredDrawer.getVisibility());
             stateEdit.putInt("z1ScreenComputer", screenComputer.getVisibility());
             stateEdit.commit();
         });
@@ -227,7 +232,7 @@ public class Zone1 extends Fragment {
 
     private void checkPattern() {
         addPatternPuzzle();
-        Log.i("tamaño: ", String.valueOf(pattern.size()));
+
         a3.setOnClickListener(v->{
             if(pattern.size() == 9){
                 a3.setBackgroundColor(Color.GREEN);
@@ -309,6 +314,8 @@ public class Zone1 extends Fragment {
                 dialog.show(getActivity().getSupportFragmentManager(), "DialogZone1");
                 isComplete = true;
                 endGame = true;
+                stateEdit.putBoolean("z1EndGame", endGame);
+                stateEdit.commit();
                 linearPuzzle.setVisibility(View.INVISIBLE);
                 btnBriefcaseOpen.setClickable(true);
                 btnBriefcaseClose.setClickable(true);

@@ -24,8 +24,14 @@ public interface IPlayerDao {
     @GET("scores")
     Call<List<PlayerDto>> getAllScores();
 
+    @POST("addGame")
+    Call<Void> addGame(@Body Game game);
+
     @GET("players")
     Call<List<PlayerDto>> allPlayers();
+
+    @GET("player")
+    Call<PlayerDto> getPlayer(@Query(value="id", encoded=true) int id);
 
     @POST("add")
     Call<Void> addPlayer(@Body PlayerDto player);

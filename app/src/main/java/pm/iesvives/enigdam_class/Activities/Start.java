@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.Toast;
 
 import pm.iesvives.enigdam_class.R;
 
@@ -24,7 +25,6 @@ public class Start extends MainActivity{
         //this is a small animation for the button, extends MainActivity
         scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(this, R.anim.scale_down);
-
 
         getIn.setOnTouchListener((v, event) -> {
                 if(event.getAction() == MotionEvent.ACTION_DOWN){

@@ -1,5 +1,6 @@
 package pm.iesvives.enigdam_class.Entity;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
@@ -7,14 +8,23 @@ public class Game implements Serializable {
 
     @SerializedName("id")
     private Integer id;
-    @SerializedName("id_user")
-    private int id_user;
     @SerializedName("time")
     private String time;
     @SerializedName("score")
     private String score;
 
+    @SerializedName("player")
+    private PlayerDto player;
+
     public Game() {
+    }
+
+    public PlayerDto getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(PlayerDto player) {
+        this.player = player;
     }
 
     public Integer getId() {
@@ -23,14 +33,6 @@ public class Game implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public int getId_user() {
-        return id_user;
-    }
-
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
     }
 
     public String getTime() {
