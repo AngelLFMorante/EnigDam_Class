@@ -1,7 +1,5 @@
 package pm.iesvives.enigdam_class.Game;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -21,7 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class WinnerGame extends MainActivity {
+public class LoserGame extends MainActivity {
 
     private Button btnBackMenu;
     private PlayerDto player = new PlayerDto();
@@ -30,7 +28,7 @@ public class WinnerGame extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_winner_game);
+        setContentView(R.layout.activity_loser_game);
 
         btnBackMenu = findViewById(R.id.btnBackToMenu);
 
@@ -51,7 +49,7 @@ public class WinnerGame extends MainActivity {
                     @Override
                     public void onResponse(Call<PlayerDto> call, Response<PlayerDto> response) {
                         player = response.body();
-                        Intent intent = new Intent(WinnerGame.this, Lobby.class);
+                        Intent intent = new Intent(LoserGame.this, Lobby.class);
                         intent.putExtra("player", player);
                         startActivity(intent);
                     }
@@ -63,7 +61,6 @@ public class WinnerGame extends MainActivity {
             }
             return true;
         });
-
-
     }
+
 }

@@ -14,6 +14,7 @@ import pm.iesvives.enigdam_class.Activities.MainActivity;
 import pm.iesvives.enigdam_class.CountDownTimer.CountTimer;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
+import pm.iesvives.enigdam_class.Utils.Settings;
 
 public class StartGame extends MainActivity {
 
@@ -30,6 +31,7 @@ public class StartGame extends MainActivity {
 
         countDownText = findViewById(R.id.timer);
 
+        CountTimer.timeLeftInMilliseconds = Settings.TIME_LEFT_IN_MILLISECONDS;
         CountTimer.updateTimer();
         CountTimer.startTimerMethod(this);
 

@@ -22,9 +22,10 @@ import pm.iesvives.enigdam_class.Utils.Settings;
 
 public class CountTimer extends MainActivity {
 
-    private static CountDownTimer countDownTimer;
+    public static CountDownTimer countDownTimer;
     public static String timeText;
     public static long timeLeftInMilliseconds = Settings.TIME_LEFT_IN_MILLISECONDS;
+
     public CountTimer() { }
 
     public static void startTimerMethod(Activity activity) {
@@ -50,6 +51,7 @@ public class CountTimer extends MainActivity {
     }
 
     public static void updateTimer() {
+
         int minutes = (int) timeLeftInMilliseconds / 60000;
         int seconds = (int) timeLeftInMilliseconds % 60000 / 1000;
 

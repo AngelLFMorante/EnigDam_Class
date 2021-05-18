@@ -180,7 +180,7 @@
         android:layout_marginStart="300dp"
         android:layout_marginTop="39dp"
         android:layout_marginEnd="300dp"
-        android:background="@drawable/level_complete_medium"
+        android:background="@drawable/level_complete_hard"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

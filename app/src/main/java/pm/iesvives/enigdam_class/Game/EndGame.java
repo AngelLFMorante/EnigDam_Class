@@ -40,6 +40,12 @@ public class EndGame extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_game);
 
+        preferences= getSharedPreferences("Difficulty", Context.MODE_PRIVATE);
+
+        //id player in session game
+        SharedPreferences session = getSharedPreferences("Session", Context.MODE_PRIVATE);
+        int idPlayer = session.getInt("id", 0);
+
         btnExit = findViewById(R.id.buttonsBack);
 
         //this is a small animation for the button
@@ -49,36 +55,38 @@ public class EndGame extends MainActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         timeGame = bundle.getString("Time");
+
         //we subtract the minutes
-        int subTime = Integer.parseInt(timeGame.substring(0,2));
+        double secondTime = Integer.parseInt(timeGame.substring(3));
+        String partTime = timeGame.substring(0,2);
 
-        preferences= getSharedPreferences("Difficulty", Context.MODE_PRIVATE);
+        double subTime ;
+        if(partTime.equals("0:") && secondTime < 10){
+            subTime = 0.1 * secondTime ;
+            Log.i("numero :" , String.valueOf(subTime));
+        }else{
+            partTime = "00";
+            subTime = Double.parseDouble(partTime);
+        }
 
-        //id player in session game
-        SharedPreferences session = getSharedPreferences("Session", Context.MODE_PRIVATE);
-        int idPlayer = session.getInt("id", 0);
+
 
         //Some methods
         tableOfScore(subTime);
         difficulty();
         dataPlayer(idPlayer);
         //
-        difficultyEditor = getSharedPreferences("Difficulty", Context.MODE_PRIVATE).edit().clear();
 
         states = getSharedPreferences("States", MODE_PRIVATE).edit().clear();
-
+        states.commit();
 
         btnExit.setOnTouchListener((v, event) -> {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 btnExit.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnExit.startAnimation(scaleDown);
-                states.clear();
-                difficultyEditor.clear();
-                states.apply();
-                difficultyEditor.apply();
                 if(subTime == 0){
-                    Intent intentLoose = new Intent(EndGame.this, LooserGame.class);
+                    Intent intentLoose = new Intent(EndGame.this, LoserGame.class);
                     startActivity(intentLoose);
                 }else{
                     Intent intentWin = new Intent(EndGame.this, WinnerGame.class);
@@ -123,7 +131,7 @@ public class EndGame extends MainActivity {
         });
     }
 
-    private void tableOfScore(int subTime) {
+    private void tableOfScore(double subTime) {
         if(subTime >= 25 && subTime < 30){
             scoreGame = "1000";
         }else if(subTime >= 20 && subTime < 25){
@@ -136,7 +144,7 @@ public class EndGame extends MainActivity {
             scoreGame = "110";
         }else if(subTime >= 2 && subTime < 5){
             scoreGame = "75";
-        }else if(subTime > 1 && subTime < 2){
+        }else if(subTime >= 1){
             scoreGame = "25";
         }else{
             scoreGame = "0000";
@@ -164,10 +172,10 @@ public class EndGame extends MainActivity {
             score.setVisibility(View.VISIBLE);
             endGame.setVisibility(View.VISIBLE);
         }else if(preferences.getString("difficulty", "notValue").equals("hard")){
-            gameOver = findViewById(R.id.gameOverMedium);
-            time = findViewById(R.id.endTimeMedium);
-            score = findViewById(R.id.endScoreMedium);
-            endGame = findViewById(R.id.levelCompleteMedium);
+            gameOver = findViewById(R.id.gameOverHard);
+            time = findViewById(R.id.endTimeHard);
+            score = findViewById(R.id.endScoreHard);
+            endGame = findViewById(R.id.levelCompleteHard);
             gameOver.setVisibility(View.VISIBLE);
             time.setVisibility(View.VISIBLE);
             score.setVisibility(View.VISIBLE);
@@ -176,5 +184,7 @@ public class EndGame extends MainActivity {
 
         time.setText(timeGame);
         score.setText(scoreGame);
+        difficultyEditor = getSharedPreferences("Difficulty", Context.MODE_PRIVATE).edit().clear();
+        difficultyEditor.commit();
     }
 }

@@ -99,5 +99,14 @@ Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás
     <string name="level_complete">level_complete</string>
     <string name="game_over">GAME OVER</string>
     <string name="level_complete_hard">level_complete_hard</string>
+    <string name="background_looser">background_looser</string>
+    <string name="hacker_looser">hacker_looser</string>
+    <string name="back_to_menu_looser">Volver al menú</string>
+    <string name="hacker_win">EL HACKER GANA</string>
+    <string name="you_loose">HAS PERDIDO</string>
+    <string name="hacker_jail">EL HACKER HA SIDO ENCARCELADO</string>
+    <string name="you_win">HAS GANADO</string>
+    <string name="police_hacker">police_hacker</string>
+    <string name="corona_win">corona_win</string>
 
 </resources>
