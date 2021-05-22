@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/zone_second"
+    android:background="@drawable/zone_second_mobile"
     tools:context=".Game.Zone2">
 
     <Button
@@ -43,7 +43,239 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.968"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/lamp_hint" />
+
+    <ImageView
+        android:id="@+id/zone2DrawerLarge"
+        android:layout_width="135dp"
+        android:layout_height="294dp"
+        android:src="@drawable/zone2_drawer_larger"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.475"
+        android:contentDescription="@string/drawer_mobile" />
+
+    <ImageView
+        android:id="@+id/zone2Blackboard"
+        android:layout_width="307dp"
+        android:layout_height="180dp"
+        android:src="@drawable/zone2_blackboard"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.242"
+        android:contentDescription="@string/blackboard" />
+
+    <ImageView
+        android:id="@+id/zone2PapperRed"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginBottom="26dp"
+        android:src="@drawable/zone2_paper_red_number"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/zone2Blackboard"
+        app:layout_constraintStart_toStartOf="@+id/zone2Blackboard"
+        app:layout_constraintTop_toTopOf="@+id/zone2Blackboard"
+        android:contentDescription="@string/papper_red" />
+
+    <ImageView
+        android:id="@+id/zone2PapperOpenRed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/papper_red"
+        android:elevation="4dp"
+        android:src="@drawable/zone2_paper_red_number"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.495" />
+
+    <ImageView
+        android:id="@+id/zone2PapperYellow"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginBottom="26dp"
+        android:src="@drawable/zone2_paper_yellow_symbol"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/zone2Blackboard"
+        app:layout_constraintStart_toEndOf="@+id/zone2PapperRed"
+        app:layout_constraintTop_toTopOf="@+id/zone2Blackboard"
+        android:contentDescription="@string/papper_yellow" />
+
+    <ImageView
+        android:id="@+id/zone2PapperOpenYellow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/papper_yellow"
+        android:elevation="4dp"
+        android:src="@drawable/zone2_paper_yellow_symbol"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.495" />
+
+    <ImageView
+        android:id="@+id/zone2PapperGreen"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginBottom="26dp"
+        android:src="@drawable/zone2_paper_green_number"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/zone2Blackboard"
+        app:layout_constraintEnd_toEndOf="@+id/zone2Blackboard"
+        app:layout_constraintStart_toEndOf="@+id/zone2PapperYellow"
+        app:layout_constraintTop_toTopOf="@+id/zone2Blackboard"
+        android:contentDescription="@string/papper_green" />
+
+    <ImageView
+        android:id="@+id/zone2PapperOpenGreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/papper_green"
+        android:elevation="4dp"
+        android:src="@drawable/zone2_paper_green_number"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/zone2Bookshelf"
+        android:layout_width="98dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="209dp"
+        android:src="@drawable/zone2_bookshelf"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/zone2DrawerLarge"
+        app:layout_constraintEnd_toEndOf="@+id/zone2DrawerLarge"
+        app:layout_constraintStart_toStartOf="@+id/zone2DrawerLarge"
+        app:layout_constraintTop_toTopOf="@+id/zone2DrawerLarge"
+        android:contentDescription="@string/bookshelf" />
+
+    <ImageView
+        android:id="@+id/zon2OpenBook"
+        android:layout_width="540dp"
+        android:layout_height="304dp"
+        android:src="@drawable/zone2_book_open"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/book_qr" />
+
+    <ImageView
+        android:id="@+id/zone2NotBook"
+        android:layout_width="98dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="209dp"
+        android:visibility="gone"
+        android:src="@drawable/zone2_not_book"
+        app:layout_constraintBottom_toBottomOf="@+id/zone2DrawerLarge"
+        app:layout_constraintEnd_toEndOf="@+id/zone2DrawerLarge"
+        app:layout_constraintStart_toStartOf="@+id/zone2DrawerLarge"
+        app:layout_constraintTop_toTopOf="@+id/zone2DrawerLarge"
+        android:contentDescription="@string/not_bookshelf" />
+
+    <ImageView
+        android:id="@+id/zone2CloseDoor"
+        android:layout_width="109dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="154dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="25dp"
+        android:src="@drawable/zone1_drawer_close"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/zone2DrawerLarge"
+        app:layout_constraintEnd_toEndOf="@+id/zone2DrawerLarge"
+        app:layout_constraintStart_toStartOf="@+id/zone2DrawerLarge"
+        app:layout_constraintTop_toTopOf="@+id/zone2DrawerLarge"
+        android:contentDescription="@string/close_the_door" />
+
+    <ImageView
+        android:id="@+id/zone2OpenDoor"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="159dp"
+        android:layout_marginEnd="17dp"
+        android:src="@drawable/zone1_drawer_open"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/zone2DrawerLarge"
+        app:layout_constraintStart_toStartOf="@+id/zone2DrawerLarge"
+        app:layout_constraintTop_toTopOf="@+id/zone2DrawerLarge"
+        android:contentDescription="@string/open_the_door" />
+
+    <ImageView
+        android:id="@+id/zone2KeyDrawer"
+        android:layout_width="41dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="54dp"
+        android:src="@drawable/zone2_key"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/zone2OpenDoor"
+        app:layout_constraintEnd_toEndOf="@+id/zone2OpenDoor"
+        app:layout_constraintStart_toStartOf="@+id/zone2OpenDoor"
+        app:layout_constraintTop_toTopOf="@+id/zone2OpenDoor"
+        android:contentDescription="@string/key" />
+
+    <ImageView
+        android:id="@+id/zone2KeyScreen"
+        android:layout_width="41dp"
+        android:layout_height="47dp"
+        android:src="@drawable/zone2_key"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956"
+        android:contentDescription="@string/key" />
+
+    <ImageView
+        android:id="@+id/zone2ComputerPassword"
+        android:layout_width="39dp"
+        android:layout_height="27dp"
+        android:src="@drawable/zone2_winrar_pass"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.661"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.489"
+        android:contentDescription="@string/computer_password" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

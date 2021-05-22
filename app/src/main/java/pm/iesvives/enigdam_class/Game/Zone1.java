@@ -120,6 +120,9 @@ public class Zone1 extends Fragment {
         if(state.getInt("z1ScreenComputer", 8) == 0 ){
             screenComputer.setVisibility(View.VISIBLE);
         }
+        if(state.getBoolean("z1CompleteComputer", false)){
+            isComplete = true;
+        }
 
     }
 
@@ -314,6 +317,7 @@ public class Zone1 extends Fragment {
                 dialog.show(getActivity().getSupportFragmentManager(), "DialogZone1");
                 isComplete = true;
                 endGame = true;
+                stateEdit.putBoolean("z1CompleteComputer", true);
                 stateEdit.putBoolean("z1EndGame", endGame);
                 stateEdit.commit();
                 linearPuzzle.setVisibility(View.INVISIBLE);

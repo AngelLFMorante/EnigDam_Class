@@ -63,7 +63,8 @@ public class EndGame extends MainActivity {
         double subTime ;
         if(partTime.equals("0:") && secondTime < 10){
             subTime = 0.1 * secondTime ;
-            Log.i("numero :" , String.valueOf(subTime));
+        }else if (secondTime >= 10){
+            subTime = Double.parseDouble(partTime);
         }else{
             partTime = "00";
             subTime = Double.parseDouble(partTime);
@@ -85,7 +86,7 @@ public class EndGame extends MainActivity {
                 btnExit.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnExit.startAnimation(scaleDown);
-                if(subTime == 0){
+                if(subTime == 0.0){
                     Intent intentLoose = new Intent(EndGame.this, LoserGame.class);
                     startActivity(intentLoose);
                 }else{

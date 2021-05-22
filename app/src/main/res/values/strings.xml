@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">EnigDam_Class</string>
-    <string name="game_tittle">Titulo del juego</string>
     <string name="entrar">Entrar</string>
     <string name="login">LOGIN</string>
     <string name="registry">REGISTRARSE</string>
@@ -108,5 +107,18 @@ Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás
     <string name="you_win">HAS GANADO</string>
     <string name="police_hacker">police_hacker</string>
     <string name="corona_win">corona_win</string>
+    <string name="game_tittle">Titulo del juego</string>
+    <string name="blackboard">blackboard</string>
+    <string name="papper_red">papper red</string>
+    <string name="papper_yellow">papper yellow</string>
+    <string name="papper_green">papper green</string>
+    <string name="bookshelf">bookshelf</string>
+    <string name="not_bookshelf">not bookshelf</string>
+    <string name="close_the_door">close the door</string>
+    <string name="open_the_door">open the door</string>
+    <string name="key">key</string>
+    <string name="computer_password">computer password</string>
+    <string name="drawer_mobile">drawer mobile</string>
+    <string name="book_qr">book qr</string>
 
 </resources>
