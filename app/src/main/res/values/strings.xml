@@ -120,5 +120,12 @@ Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás
     <string name="computer_password">computer password</string>
     <string name="drawer_mobile">drawer mobile</string>
     <string name="book_qr">book qr</string>
+    <string name="pen_drive">pen_drive</string>
+    <string name="open">Abrir</string>
+    <string name="code_open_the_door">code open the door</string>
+    <string name="papper_white">papper white</string>
+    <string name="close_the_door_large">close the door large</string>
+    <string name="key_open">key open</string>
+    <string name="key_close">key close</string>
 
 </resources>

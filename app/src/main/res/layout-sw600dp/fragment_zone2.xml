@@ -250,6 +250,20 @@
         android:contentDescription="@string/key" />
 
     <ImageView
+        android:id="@+id/zone2PenDriveScreen"
+        android:layout_width="142dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="443dp"
+        android:layout_marginEnd="400dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/pen_drive"
+        android:src="@drawable/zone3_pen"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnNext"
+        app:layout_constraintStart_toEndOf="@+id/btnPrevious" />
+
+    <ImageView
         android:id="@+id/zone2ComputerPassword"
         android:layout_width="79dp"
         android:layout_height="58dp"

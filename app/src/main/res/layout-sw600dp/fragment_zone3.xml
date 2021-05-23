@@ -33,6 +33,7 @@
         android:contentDescription="@string/next_fragment" />
 
     <ImageView
+        android:id="@+id/lampHint"
         android:layout_width="84dp"
         android:layout_height="81dp"
         android:layout_marginTop="40dp"
@@ -40,19 +41,254 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.968"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/lamp_hint" />
 
     <ImageView
-        android:id="@+id/roomExit"
-        android:layout_width="258dp"
-        android:layout_height="580dp"
-        android:src="@drawable/room_open"
+        android:id="@+id/zone3KeyCloseDoor"
+        android:layout_width="181dp"
+        android:layout_height="209dp"
+        android:src="@drawable/zone3_key_door"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.486"
+        android:contentDescription="@string/key_close" />
+
+    <ImageView
+        android:id="@+id/zone3KeyOpenDoor"
+        android:layout_width="181dp"
+        android:layout_height="209dp"
+        android:src="@drawable/zone3_open_small_door"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.403" />
+        app:layout_constraintVertical_bias="0.489"
+        android:contentDescription="@string/key_open" />
+
+    <ImageView
+        android:id="@+id/zone3PenDrive"
+        android:layout_width="48dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="54dp"
+        android:src="@drawable/zone3_pen"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/zone3KeyOpenDoor"
+        app:layout_constraintEnd_toEndOf="@+id/zone3KeyOpenDoor"
+        app:layout_constraintStart_toStartOf="@+id/zone3KeyOpenDoor"
+        app:layout_constraintTop_toTopOf="@+id/zone3KeyOpenDoor"
+        android:contentDescription="@string/pen_drive" />
+
+    <ImageView
+        android:id="@+id/zone3PenDriveScreen"
+        android:layout_width="142dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="443dp"
+        android:layout_marginEnd="400dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/pen_drive"
+        android:src="@drawable/zone3_pen"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnNext"
+        app:layout_constraintStart_toEndOf="@+id/btnPrevious" />
+
+    <ImageView
+        android:id="@+id/zone3CloseDoorLarge"
+        android:layout_width="226dp"
+        android:layout_height="242dp"
+        android:src="@drawable/zone3_large_door"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.770"
+        android:contentDescription="@string/close_the_door_large" />
+
+    <ImageView
+        android:id="@+id/zone3OpenDoorLarge"
+        android:layout_width="226dp"
+        android:layout_height="234dp"
+        android:src="@drawable/zone3_open_large_door"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77"
+        android:contentDescription="@string/close_the_door_large" />
+
+    <ImageView
+        android:id="@+id/zone3PapperWhite"
+        android:layout_width="164dp"
+        android:layout_height="149dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="43dp"
+        android:src="@drawable/zone3_papper_white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/zone3OpenDoorLarge"
+        app:layout_constraintEnd_toEndOf="@+id/zone3OpenDoorLarge"
+        app:layout_constraintStart_toStartOf="@+id/zone3OpenDoorLarge"
+        app:layout_constraintTop_toTopOf="@+id/zone3OpenDoorLarge"
+        android:contentDescription="@string/papper_white" />
+
+    <ImageView
+        android:id="@+id/zone3OpenPapperWhite"
+        android:layout_width="585dp"
+        android:layout_height="605dp"
+        android:src="@drawable/zone3_papper_white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/papper_white" />
+
+    <ImageView
+        android:id="@+id/zone3CodeDoor"
+        android:layout_width="84dp"
+        android:layout_height="94dp"
+        android:src="@drawable/zone3_code_door"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.77"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.490"
+        android:contentDescription="@string/code_open_the_door" />
+
+            <!-- region game switch -->
+
+    <LinearLayout
+        android:id="@+id/zone3LinearSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="6dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.593">
+
+        <GridLayout
+            android:id="@+id/zone3GridSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="20dp"
+            android:columnCount="2"
+            android:rowCount="4">
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp" />
+
+        </GridLayout>
+        <Button
+            android:id="@+id/zone3OpenTheDoorWithSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/open"
+            android:layout_gravity="center"
+            android:textSize="24sp"
+            android:background="#FF5722"
+            android:fontFamily="@font/slackey"
+            android:layout_marginBottom="30dp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="395dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="390dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/down_arrow"
+        android:contentDescription="@string/previous_fragment"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnNext"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnPrevious"
+        app:layout_constraintTop_toBottomOf="@+id/zone3LinearSwitch" />
+
+    <!-- endRegion -->
+
+
+    <!--    <ImageView-->
+<!--        android:id="@+id/roomExit"-->
+<!--        android:layout_width="258dp"-->
+<!--        android:layout_height="580dp"-->
+<!--        android:src="@drawable/room_open"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.902"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.403" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
