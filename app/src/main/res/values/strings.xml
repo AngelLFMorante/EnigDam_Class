@@ -94,6 +94,7 @@ Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás
     <string name="computer_test">computer_test</string>
     <string name="lamp_hint">lamp_hint</string>
     <string name="hintTestZone1">"+32.168129, -110.957665"</string>
+    <string name="hintTestZone2">"Ubicación HACKER: +40.339374, -3.765543"</string>
     <string name="titleDialogGame">Enigdam-Class</string>
     <string name="level_complete">level_complete</string>
     <string name="game_over">GAME OVER</string>
@@ -109,9 +110,9 @@ Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás
     <string name="corona_win">corona_win</string>
     <string name="game_tittle">Titulo del juego</string>
     <string name="blackboard">blackboard</string>
-    <string name="papper_red">papper red</string>
-    <string name="papper_yellow">papper yellow</string>
-    <string name="papper_green">papper green</string>
+    <string name="paper_red">paper red</string>
+    <string name="paper_yellow">paper yellow</string>
+    <string name="paper_green">paper green</string>
     <string name="bookshelf">bookshelf</string>
     <string name="not_bookshelf">not bookshelf</string>
     <string name="close_the_door">close the door</string>
@@ -123,9 +124,11 @@ Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás
     <string name="pen_drive">pen_drive</string>
     <string name="open">Abrir</string>
     <string name="code_open_the_door">code open the door</string>
-    <string name="papper_white">papper white</string>
+    <string name="paper_white">paper white</string>
     <string name="close_the_door_large">close the door large</string>
     <string name="key_open">key open</string>
     <string name="key_close">key close</string>
+    <string name="passwordIncorrect">Password Incorrecto</string>
+    <string name="titlePassword">Introduce el password</string>
 
 </resources>

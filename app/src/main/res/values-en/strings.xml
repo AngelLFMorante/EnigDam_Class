@@ -67,6 +67,7 @@
     <string name="computer_test">computer_test</string>
     <string name="lamp_hint">lamp_hint</string>
     <string name="hintTestZone1">+32.168129, -110957665</string>
+    <string name="hintTestZone2">"Location HACKER: +40.339374, -3.765543"</string>
     <string name="titleDialogGame">Enigdam-Class</string>
     <string name="level_complete">level_cxomplete</string>
     <string name="game_over">Game over</string>
@@ -81,4 +82,25 @@
     <string name="police_hacker">police_hacker</string>
     <string name="corona_win">corona_win</string>
     <string name="how_to_play">We are in a high security CNI room.               The hacker has retrieved information via telnet and knows that we are after him, so he has locked us in this room.             As far as we know the security door has a code of X numbers that we must find out if we want to get out of it.               But to get out before we must know who is behind all this and from where he is doing it.               <b>To move around the room we will do it with the arrows</b> ,         if we see something that we can believe is evidence, we must click on it.              If we have an interaction, we must find out what it is in order to advance,         <b>each test has a reward, which will provide us with its name and location</b>.             <b>its name and location</b>.                   Depending on the difficulty chosen, we will get clues or not.         <b>The clues are in the little light bulb</b>,          it will always give us the clue of where the test is but              <b>it will not tell us the solution of it</b>.              Knowing our tasks, as soon as we hit start, our time will be set in motion.           <b>We have 30 minutes to leave the room</b>,         if the countdown is set to 00:00,             the hacker will have achieved his purpose and we will have lost.               Good luck!We are in a high security CNI room.                The hacker has retrieved information via telnet and knows that we are after him, so he has locked us in this room.            As far as we know the security door has a code of X numbers that we must find out if we want to get out of it.             But to get out before we must know who is behind all this and from where he is doing it.              <b>To move around the room we will do it with the arrows</b> ,          if we see something that we can believe is evidence, we must click on it.             If we have an interaction, we must find out what it is in order to advance,          <b>each test has a reward, which will provide us with its name and location</b>.            <b>its name and location</b>.                  Depending on the difficulty chosen, we will get clues or not.         <b>The clues are in the little light bulb</b>,          it will always give us the clue of where the test is but            <b>it will not tell us the solution of it</b>.              Knowing our tasks, as soon as we hit start, our time will be set in motion.           <b>We have 30 minutes to leave the room</b>,         if the countdown is set to 00:00,             the hacker will have achieved his purpose and we will have lost.              Good luck!</string>
+    <string name="blackboard">blackboard</string>
+    <string name="paper_red">paper red</string>
+    <string name="paper_yellow">paper yellow</string>
+    <string name="paper_green">paper green</string>
+    <string name="bookshelf">bookshelf</string>
+    <string name="not_bookshelf">not bookshelf</string>
+    <string name="close_the_door">close the door</string>
+    <string name="open_the_door">open the door</string>
+    <string name="key">key</string>
+    <string name="computer_password">computer password</string>
+    <string name="drawer_mobile">drawer mobile</string>
+    <string name="book_qr">book qr</string>
+    <string name="pen_drive">pen_drive</string>
+    <string name="open">Abrir</string>
+    <string name="code_open_the_door">code open the door</string>
+    <string name="paper_white">paper white</string>
+    <string name="close_the_door_large">close the door large</string>
+    <string name="key_open">key open</string>
+    <string name="key_close">key close</string>
+    <string name="passwordIncorrect">Incorrect password</string>
+    <string name="titlePassword">Enter password</string>
 </resources>

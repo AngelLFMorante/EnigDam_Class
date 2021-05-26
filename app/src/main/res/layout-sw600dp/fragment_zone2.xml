@@ -58,7 +58,7 @@
         app:layout_constraintVertical_bias="0.219" />
 
     <ImageView
-        android:id="@+id/zone2PapperRed"
+        android:id="@+id/zone2paperRed"
         android:layout_width="103dp"
         android:layout_height="155dp"
         android:layout_marginStart="167dp"
@@ -69,13 +69,13 @@
         app:layout_constraintBottom_toBottomOf="@+id/zone2Blackboard"
         app:layout_constraintStart_toStartOf="@+id/zone2Blackboard"
         app:layout_constraintTop_toTopOf="@+id/zone2Blackboard"
-        android:contentDescription="@string/papper_red" />
+        android:contentDescription="@string/paper_red" />
 
     <ImageView
-        android:id="@+id/zone2PapperOpenRed"
+        android:id="@+id/zone2paperOpenRed"
         android:layout_width="1098dp"
         android:layout_height="811dp"
-        android:contentDescription="@string/papper_red"
+        android:contentDescription="@string/paper_red"
         android:elevation="4dp"
         android:src="@drawable/zone2_paper_red_number"
         android:visibility="gone"
@@ -87,13 +87,13 @@
         app:layout_constraintVertical_bias="0.82" />
 
     <ImageView
-        android:id="@+id/zone2PapperYellow"
+        android:id="@+id/zone2paperYellow"
         android:layout_width="103dp"
         android:layout_height="155dp"
         android:layout_marginStart="280dp"
         android:layout_marginTop="171dp"
         android:layout_marginBottom="23dp"
-        android:contentDescription="@string/papper_yellow"
+        android:contentDescription="@string/paper_yellow"
         android:src="@drawable/zone2_paper_yellow_symbol"
         android:visibility="visible"
 
@@ -103,10 +103,10 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/zone2PapperOpenYellow"
+        android:id="@+id/zone2paperOpenYellow"
         android:layout_width="1102dp"
         android:layout_height="790dp"
-        android:contentDescription="@string/papper_yellow"
+        android:contentDescription="@string/paper_yellow"
         android:elevation="4dp"
         android:src="@drawable/zone2_paper_yellow_symbol"
         android:visibility="gone"
@@ -117,14 +117,14 @@
         app:layout_constraintVertical_bias="0.727" />
 
     <ImageView
-        android:id="@+id/zone2PapperGreen"
+        android:id="@+id/zone2paperGreen"
         android:layout_width="103dp"
         android:layout_height="155dp"
         android:layout_marginStart="396dp"
         android:layout_marginTop="171dp"
         android:layout_marginEnd="191dp"
         android:layout_marginBottom="23dp"
-        android:contentDescription="@string/papper_green"
+        android:contentDescription="@string/paper_green"
         android:src="@drawable/zone2_paper_green_number"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/zone2Blackboard"
@@ -133,10 +133,10 @@
         app:layout_constraintTop_toTopOf="@+id/zone2Blackboard" />
 
     <ImageView
-        android:id="@+id/zone2PapperOpenGreen"
+        android:id="@+id/zone2paperOpenGreen"
         android:layout_width="739dp"
         android:layout_height="818dp"
-        android:contentDescription="@string/papper_green"
+        android:contentDescription="@string/paper_green"
         android:elevation="4dp"
         android:src="@drawable/zone2_paper_green_number"
         android:visibility="gone"
@@ -250,7 +250,7 @@
         android:contentDescription="@string/key" />
 
     <ImageView
-        android:id="@+id/zone2PenDriveScreen"
+        android:id="@+id/zone3PenDriveScreen"
         android:layout_width="142dp"
         android:layout_height="114dp"
         android:layout_marginStart="443dp"
@@ -262,6 +262,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btnNext"
         app:layout_constraintStart_toEndOf="@+id/btnPrevious" />
+
+
+    <ImageView
+        android:id="@+id/zone2ScreenComputer"
+        android:layout_width="186dp"
+        android:layout_height="130dp"
+        android:contentDescription="@string/computer_password"
+        android:src="@drawable/zone2_screen_computer"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.67"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.468" />
 
     <ImageView
         android:id="@+id/zone2ComputerPassword"

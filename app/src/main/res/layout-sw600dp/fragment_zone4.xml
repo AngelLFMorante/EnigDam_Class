@@ -33,6 +33,7 @@
         android:contentDescription="@string/next_fragment" />
 
     <ImageView
+        android:id="@+id/lampHint"
         android:layout_width="84dp"
         android:layout_height="81dp"
         android:layout_marginTop="40dp"
@@ -41,5 +42,33 @@
         app:layout_constraintHorizontal_bias="0.968"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/zone2KeyScreen"
+        android:layout_width="142dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="443dp"
+        android:layout_marginEnd="400dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/zone2_key"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnNext"
+        app:layout_constraintStart_toEndOf="@+id/btnPrevious"
+        android:contentDescription="@string/key" />
+
+    <ImageView
+        android:id="@+id/zone3PenDriveScreen"
+        android:layout_width="142dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="443dp"
+        android:layout_marginEnd="400dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/pen_drive"
+        android:src="@drawable/zone3_pen"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnNext"
+        app:layout_constraintStart_toEndOf="@+id/btnPrevious" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

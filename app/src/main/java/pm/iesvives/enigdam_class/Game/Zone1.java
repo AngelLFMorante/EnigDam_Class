@@ -40,6 +40,9 @@ public class Zone1 extends Fragment {
     private Bundle bundle;
     private List<Integer> pattern;
     private boolean isComplete = false;
+    private ImageView penDriveScreen;
+    private ImageView zone2Key;
+    private boolean zone2HaveTheKey = false;
     //TODO ESTA VARIABLE ES PROVISIONAL PARA ACABAR LA PRIMERA PANTALLA
     private boolean endGame = false;
 
@@ -87,6 +90,10 @@ public class Zone1 extends Fragment {
         }
         stateEdit = state.edit();
 
+        //objects zones
+        penDriveScreen = view.findViewById(R.id.zone3PenDriveScreen);
+        zone2Key =view.findViewById(R.id.zone2KeyScreen);
+
         //load screen status
         loadState(state);
 
@@ -122,6 +129,18 @@ public class Zone1 extends Fragment {
         }
         if(state.getBoolean("z1CompleteComputer", false)){
             isComplete = true;
+        }
+
+        if(state.getBoolean("z2HaveTheKey", false)){
+            zone2HaveTheKey = state.getBoolean("z2HaveTheKey", false);
+            if(zone2HaveTheKey){
+                zone2Key.setVisibility(View.VISIBLE);
+            }else{
+                zone2Key.setVisibility(View.GONE);
+            }
+        }
+        if(state.getInt("z3PendriveScreen", 8) == 0){
+            penDriveScreen.setVisibility(View.VISIBLE);
         }
 
     }

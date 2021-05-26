@@ -1,6 +1,7 @@
 package pm.iesvives.enigdam_class.Game;
 
 import android.annotation.SuppressLint;
+import android.app.MediaRouteButton;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -33,8 +34,18 @@ public class Zone3 extends Fragment {
     private boolean[] patternSwitchGame;
     private boolean[] switchGame;
     private boolean isCorrectSwitchGame = false;
-    private ImageView papperWhite, openDoorLarge, closeDoorLarge;
+    private ImageView paperWhite, openPaperWhite, openDoorLarge, closeDoorLarge;
+    private ImageView keyCloseDoor, keyOpenDoor;
+    private ImageView penDrive,penDriveScreen;
+    private ImageView zone2Key;
+    private boolean zone2HaveTheKey = false;
+    private boolean haveThePendrive = false;
     private SharedPreferences state;
+    private SharedPreferences difficulty;
+    private SharedPreferences.Editor stateEdit;
+    private ImageView lampHint;
+
+
 
     public Zone3() {
 
@@ -50,17 +61,30 @@ public class Zone3 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_zone3, container, false);
-        state = getActivity().getSharedPreferences("States", getContext().MODE_PRIVATE);
 
         scaleUp = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_down);
+
+        state = getActivity().getSharedPreferences("States", getContext().MODE_PRIVATE);
+        difficulty = getActivity().getSharedPreferences("Difficulty", getContext().MODE_PRIVATE);
+        stateEdit = state.edit();
+        lampHint = view.findViewById(R.id.lampHint);
+        //TODO FALTA POR DESARROLLAR LA LÓGICA DE LAS PISTAS
+        if(difficulty.getString("difficulty", "notValue").equals("easy")){
+            lampHint.setImageResource(R.drawable.lamp_on);
+        }else if(difficulty.getString("difficulty", "notValue").equals("medium")){
+            lampHint.setImageResource(R.drawable.lamp_on);
+        }else if(difficulty.getString("difficulty", "notValue").equals("hard")){
+            lampHint.setImageResource(R.drawable.lamp_off);
+        }
 
         btnNext = view.findViewById(R.id.btnNext);
         btnPrevious = view.findViewById(R.id.btnPrevious);
         btnBack = view.findViewById(R.id.btnBack);
         linearLayoutGameSwitch = view.findViewById(R.id.zone3LinearSwitch);
         openTheDoorWithSwitch = view.findViewById(R.id.zone3OpenTheDoorWithSwitch);
-        papperWhite = view.findViewById(R.id.zone3PapperWhite);
+        paperWhite = view.findViewById(R.id.zone3paperWhite);
+        openPaperWhite = view.findViewById(R.id.zone3OpenPaperWhite);
         openDoorLarge = view.findViewById(R.id.zone3OpenDoorLarge);
         closeDoorLarge = view.findViewById(R.id.zone3CloseDoorLarge);
         sA1 = view.findViewById(R.id.switch1);
@@ -72,6 +96,16 @@ public class Zone3 extends Fragment {
         sD1 = view.findViewById(R.id.switch7);
         sD2 = view.findViewById(R.id.switch8);
 
+        penDrive = view.findViewById(R.id.zone3PenDrive);
+        penDriveScreen = view.findViewById(R.id.zone3PenDriveScreen);
+
+
+        //object zone 2
+        zone2Key =view.findViewById(R.id.zone3KeyScreen);
+        keyCloseDoor = view.findViewById(R.id.zone3KeyCloseDoor);
+        keyOpenDoor = view.findViewById(R.id.zone3KeyOpenDoor);
+
+        //load screen status
         loadState();
 
         ActionsButtons();
@@ -80,9 +114,39 @@ public class Zone3 extends Fragment {
     }
 
     private void loadState() {
-//        if(state.getBoolean("z1EndGame", false)){
-//            roomOpen.setVisibility(View.VISIBLE);
-//        }
+        //VISIBLE == 0 , INVISIBLE == 4, GONE == 8
+        if(state.getInt("z3OpenDoorLarge", 8) == 0 ){
+            openDoorLarge.setVisibility(View.VISIBLE);
+        }
+        if(state.getInt("z3CloseDoorLarge", 8) == 0 ){
+            closeDoorLarge.setVisibility(View.VISIBLE);
+        }
+        if(state.getInt("z3PaperWhite", 8) == 0 ){
+            paperWhite.setVisibility(View.VISIBLE);
+        }
+        if(state.getBoolean("z2HaveTheKey", false)){
+            zone2HaveTheKey = state.getBoolean("z2HaveTheKey", false);
+            if(zone2HaveTheKey){
+                zone2Key.setVisibility(View.VISIBLE);
+            }else{
+                zone2Key.setVisibility(View.GONE);
+            }
+        }
+        if(state.getInt("z3KeyOpenDoor",  8) == 0){
+            keyOpenDoor.setVisibility(View.VISIBLE);
+        }
+        if(state.getInt("z3KeyCloseDoor", 8) == 0 ){
+            keyCloseDoor.setVisibility(View.VISIBLE);
+        }
+        if(state.getInt("z3Pendrive", 8) == 0){
+            penDrive.setVisibility(View.VISIBLE);
+        }
+        if(state.getInt("z3PendriveScreen", 8) == 0){
+            penDriveScreen.setVisibility(View.VISIBLE);
+        }
+        if(state.getBoolean("z3HaveThePendrive", false)){
+            haveThePendrive = state.getBoolean("z3HaveThePendrive", false);
+        }
     }
 
 
@@ -130,7 +194,43 @@ public class Zone3 extends Fragment {
         closeDoorLarge.setOnClickListener(v->{
             linearLayoutGameSwitch.setVisibility(View.VISIBLE);
             btnBack.setVisibility(View.VISIBLE);
-            gameSwitch();
+            if(!isCorrectSwitchGame){
+                gameSwitch();
+            }
+
+        });
+        paperWhite.setOnClickListener(v->{
+            paperWhite.setVisibility(View.GONE);
+            openPaperWhite.setVisibility(View.VISIBLE);
+        });
+        openPaperWhite.setOnClickListener(v-> {
+            openPaperWhite.setVisibility(View.GONE);
+            paperWhite.setVisibility(View.VISIBLE);
+        });
+
+        keyCloseDoor.setOnClickListener(v->{
+            if(zone2HaveTheKey){
+                keyOpenDoor.setVisibility(View.VISIBLE);
+                penDrive.setVisibility(View.VISIBLE);
+                keyCloseDoor.setVisibility(View.GONE);
+                zone2Key.setVisibility(View.GONE);
+                zone2HaveTheKey = false;
+                stateEdit.putBoolean("z2HaveTheKey", zone2HaveTheKey);
+                stateEdit.putInt("z2keyScreen", 8);
+                stateEdit.putInt("z3KeyOpenDoor", keyOpenDoor.getVisibility());
+                stateEdit.putInt("z3KeyCloseDoor", keyCloseDoor.getVisibility());
+                stateEdit.putInt("z3Pendrive", penDrive.getVisibility());
+                stateEdit.commit();
+            }
+        });
+        penDrive.setOnClickListener(v->{
+            penDriveScreen.setVisibility(View.VISIBLE);
+            penDrive.setVisibility(View.GONE);
+            haveThePendrive = true;
+            stateEdit.putBoolean("z3HaveThePendrive", haveThePendrive);
+            stateEdit.putInt("z3PendriveScreen", penDriveScreen.getVisibility());
+            stateEdit.putInt("z3Pendrive", penDrive.getVisibility());
+            stateEdit.commit();
         });
 
 
@@ -150,6 +250,7 @@ public class Zone3 extends Fragment {
 
         patternSwitchGame = new boolean[] {true, false, false, true, false, true, true, false};
         switchGame = new boolean[] {false, false, false, false, false, false, false, false};
+        checkPattern(patternSwitchGame);
 
         openTheDoorWithSwitch.setOnTouchListener((v, event) -> {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -160,9 +261,13 @@ public class Zone3 extends Fragment {
                     isCorrectSwitchGame = true;
                     linearLayoutGameSwitch.setVisibility(View.GONE);
                     openDoorLarge.setVisibility(View.VISIBLE);
-                    papperWhite.setVisibility(View.VISIBLE);
+                    paperWhite.setVisibility(View.VISIBLE);
                     closeDoorLarge.setVisibility(View.GONE);
                     btnBack.setVisibility(View.GONE);
+                    stateEdit.putInt("z3OpenDoorLarge", openDoorLarge.getVisibility());
+                    stateEdit.putInt("z3CloseDoorLarge", closeDoorLarge.getVisibility());
+                    stateEdit.putInt("z3PaperWhite", paperWhite.getVisibility());
+                    stateEdit.commit();
                 }
             }
             return true;
@@ -172,35 +277,27 @@ public class Zone3 extends Fragment {
     private boolean checkPattern(boolean[] patternSwitchGame) {
         sA1.setOnCheckedChangeListener(((buttonView, isChecked) -> {
             switchGame[0] = isChecked;
-            Log.i("array1: ", String.valueOf(switchGame[0]));
         }));
         sA2.setOnCheckedChangeListener(((buttonView, isChecked) -> {
             switchGame[1] = isChecked;
-            Log.i("array2: ", String.valueOf(switchGame[1]));
         }));
         sB1.setOnCheckedChangeListener(((buttonView, isChecked) -> {
             switchGame[2] = isChecked;
-            Log.i("array3: ", String.valueOf(switchGame[2]));
         }));
         sB2.setOnCheckedChangeListener(((buttonView, isChecked) -> {
             switchGame[3] = isChecked;
-            Log.i("array4: ", String.valueOf(switchGame[3]));
         }));
         sC1.setOnCheckedChangeListener(((buttonView, isChecked) -> {
             switchGame[4] = isChecked;
-            Log.i("array15: ", String.valueOf(switchGame[4]));
         }));
         sC2.setOnCheckedChangeListener(((buttonView, isChecked) -> {
             switchGame[5] = isChecked;
-            Log.i("array16: ", String.valueOf(switchGame[5]));
         }));
         sD1.setOnCheckedChangeListener(((buttonView, isChecked) -> {
             switchGame[6] = isChecked;
-            Log.i("array17: ", String.valueOf(switchGame[6]));
         }));
         sD2.setOnCheckedChangeListener(((buttonView, isChecked) -> {
             switchGame[7] = isChecked;
-            Log.i("array18: ", String.valueOf(switchGame[7]));
         }));
 
         return Arrays.equals(switchGame,patternSwitchGame);

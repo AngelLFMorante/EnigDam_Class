@@ -1,11 +1,10 @@
 package pm.iesvives.enigdam_class.Game;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,7 +12,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-
+import android.widget.ImageView;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
 
@@ -23,6 +22,13 @@ public class Zone4 extends Fragment {
     private Button btnNext, btnPrevious;
     private Bundle bundle;
     private PlayerDto player = new PlayerDto();
+    private ImageView penDrive,penDriveScreen;
+    private ImageView zone2Key;
+    private boolean zone2HaveTheKey = false;
+    private SharedPreferences state;
+    private SharedPreferences difficulty;
+    private SharedPreferences.Editor stateEdit;
+    private ImageView lampHint;
 
     public Zone4() {
     }
@@ -38,7 +44,19 @@ public class Zone4 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_zone4, container, false);
 
-        //         LoadState();
+        state = getActivity().getSharedPreferences("States", getContext().MODE_PRIVATE);
+        difficulty = getActivity().getSharedPreferences("Difficulty", getContext().MODE_PRIVATE);
+        stateEdit = state.edit();
+        lampHint = view.findViewById(R.id.lampHint);
+        //TODO FALTA POR DESARROLLAR LA LÓGICA DE LAS PISTAS
+        if(difficulty.getString("difficulty", "notValue").equals("easy")){
+            lampHint.setImageResource(R.drawable.lamp_on);
+        }else if(difficulty.getString("difficulty", "notValue").equals("medium")){
+            lampHint.setImageResource(R.drawable.lamp_on);
+        }else if(difficulty.getString("difficulty", "notValue").equals("hard")){
+            lampHint.setImageResource(R.drawable.lamp_off);
+        }
+
 
         scaleUp = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_down);
@@ -46,9 +64,32 @@ public class Zone4 extends Fragment {
         btnNext = view.findViewById(R.id.btnNext);
         btnPrevious = view.findViewById(R.id.btnPrevious);
 
+        //objects zones
+        penDriveScreen = view.findViewById(R.id.zone3PenDriveScreen);
+        zone2Key =view.findViewById(R.id.zone2KeyScreen);
+
+        //load screen status
+        loadState(state);
+
         ActionsButtons();
 
         return view;
+    }
+
+    private void loadState(SharedPreferences state) {
+        //VISIBLE == 0 , INVISIBLE == 4, GONE == 8
+        if(state.getBoolean("z2HaveTheKey", false)){
+            zone2HaveTheKey = state.getBoolean("z2HaveTheKey", false);
+            if(zone2HaveTheKey){
+                zone2Key.setVisibility(View.VISIBLE);
+            }else{
+                zone2Key.setVisibility(View.GONE);
+            }
+        }
+        if(state.getInt("z3PendriveScreen", 8) == 0){
+            penDriveScreen.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @SuppressLint("ClickableViewAccessibility")

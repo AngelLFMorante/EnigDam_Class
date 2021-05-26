@@ -102,6 +102,20 @@
         app:layout_constraintStart_toEndOf="@+id/btnPrevious" />
 
     <ImageView
+        android:id="@+id/zone3KeyScreen"
+        android:layout_width="142dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="443dp"
+        android:layout_marginEnd="400dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/pen_drive"
+        android:src="@drawable/zone2_key"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnNext"
+        app:layout_constraintStart_toEndOf="@+id/btnPrevious" />
+
+    <ImageView
         android:id="@+id/zone3CloseDoorLarge"
         android:layout_width="226dp"
         android:layout_height="242dp"
@@ -129,32 +143,32 @@
         android:contentDescription="@string/close_the_door_large" />
 
     <ImageView
-        android:id="@+id/zone3PapperWhite"
+        android:id="@+id/zone3paperWhite"
         android:layout_width="164dp"
         android:layout_height="149dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="42dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="43dp"
-        android:src="@drawable/zone3_papper_white"
+        android:src="@drawable/zone3_paper_white"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/zone3OpenDoorLarge"
         app:layout_constraintEnd_toEndOf="@+id/zone3OpenDoorLarge"
         app:layout_constraintStart_toStartOf="@+id/zone3OpenDoorLarge"
         app:layout_constraintTop_toTopOf="@+id/zone3OpenDoorLarge"
-        android:contentDescription="@string/papper_white" />
+        android:contentDescription="@string/paper_white" />
 
     <ImageView
-        android:id="@+id/zone3OpenPapperWhite"
+        android:id="@+id/zone3OpenPaperWhite"
         android:layout_width="585dp"
         android:layout_height="605dp"
-        android:src="@drawable/zone3_papper_white"
+        android:src="@drawable/zone3_paper_white"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/papper_white" />
+        android:contentDescription="@string/paper_white" />
 
     <ImageView
         android:id="@+id/zone3CodeDoor"
