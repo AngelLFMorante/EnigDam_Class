@@ -1,15 +1,13 @@
 package pm.iesvives.enigdam_class.Game;
 
 import android.annotation.SuppressLint;
-import android.app.MediaRouteButton;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,25 +17,31 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import java.util.Arrays;
-
+import pm.iesvives.enigdam_class.CountDownTimer.CountTimer;
 import pm.iesvives.enigdam_class.R;
 
+@SuppressWarnings("ConstantConditions")
 public class Zone3 extends Fragment {
 
     protected Animation scaleUp, scaleDown;
-    private Button btnNext, btnPrevious, btnBack;
-    private LinearLayout linearLayoutGameSwitch;
+    private Button btnNext, btnPrevious, btnBackSwitch, btnBackCodeExit;
+    private LinearLayout linearLayoutGameSwitch, linearLayoutCodeExit;
     private SwitchCompat sA1, sB1, sC1, sD1, sA2, sB2, sC2, sD2;
+    private Button code1, code2, code3, code4;
+    private Button btnOpenTheDoorExit;
     private Button openTheDoorWithSwitch;
+    private Button btnLedCorrectExit;
     private boolean[] patternSwitchGame;
     private boolean[] switchGame;
     private boolean isCorrectSwitchGame = false;
+    private boolean theCodeisCorrect = false;
     private ImageView paperWhite, openPaperWhite, openDoorLarge, closeDoorLarge;
     private ImageView keyCloseDoor, keyOpenDoor;
-    private ImageView penDrive,penDriveScreen;
+    private ImageView penDrive, penDriveScreen;
     private ImageView zone2Key;
+    private ImageView exitGame;
+    private ImageView codeDoor;
     private boolean zone2HaveTheKey = false;
     private boolean haveThePendrive = false;
     private SharedPreferences state;
@@ -45,6 +49,11 @@ public class Zone3 extends Fragment {
     private SharedPreferences.Editor stateEdit;
     private ImageView lampHint;
 
+    private String value = "";
+    private String valueCode1 = "0";
+    private String valueCode2 = "0";
+    private String valueCode3 = "0";
+    private String valueCode4 = "0";
 
 
     public Zone3() {
@@ -70,17 +79,18 @@ public class Zone3 extends Fragment {
         stateEdit = state.edit();
         lampHint = view.findViewById(R.id.lampHint);
         //TODO FALTA POR DESARROLLAR LA LÓGICA DE LAS PISTAS
-        if(difficulty.getString("difficulty", "notValue").equals("easy")){
+        if (difficulty.getString("difficulty", "notValue").equals("easy")) {
             lampHint.setImageResource(R.drawable.lamp_on);
-        }else if(difficulty.getString("difficulty", "notValue").equals("medium")){
+        } else if (difficulty.getString("difficulty", "notValue").equals("medium")) {
             lampHint.setImageResource(R.drawable.lamp_on);
-        }else if(difficulty.getString("difficulty", "notValue").equals("hard")){
+        } else if (difficulty.getString("difficulty", "notValue").equals("hard")) {
             lampHint.setImageResource(R.drawable.lamp_off);
         }
 
         btnNext = view.findViewById(R.id.btnNext);
         btnPrevious = view.findViewById(R.id.btnPrevious);
-        btnBack = view.findViewById(R.id.btnBack);
+        btnBackSwitch = view.findViewById(R.id.btnBackSwitch);
+        btnBackCodeExit = view.findViewById(R.id.btnBackCodeExit);
         linearLayoutGameSwitch = view.findViewById(R.id.zone3LinearSwitch);
         openTheDoorWithSwitch = view.findViewById(R.id.zone3OpenTheDoorWithSwitch);
         paperWhite = view.findViewById(R.id.zone3paperWhite);
@@ -99,11 +109,20 @@ public class Zone3 extends Fragment {
         penDrive = view.findViewById(R.id.zone3PenDrive);
         penDriveScreen = view.findViewById(R.id.zone3PenDriveScreen);
 
-
         //object zone 2
-        zone2Key =view.findViewById(R.id.zone3KeyScreen);
+        zone2Key = view.findViewById(R.id.zone3KeyScreen);
         keyCloseDoor = view.findViewById(R.id.zone3KeyCloseDoor);
         keyOpenDoor = view.findViewById(R.id.zone3KeyOpenDoor);
+
+        codeDoor = view.findViewById(R.id.zone3CodeDoor);
+        linearLayoutCodeExit = view.findViewById(R.id.zone3LinearCode);
+        code1 = view.findViewById(R.id.z3Code1);
+        code2 = view.findViewById(R.id.z3Code2);
+        code3 = view.findViewById(R.id.z3Code3);
+        code4 = view.findViewById(R.id.z3Code4);
+        btnLedCorrectExit = view.findViewById(R.id.z3BtnCodeExit);
+        btnOpenTheDoorExit = view.findViewById(R.id.zone3ExitDoorCode);
+        exitGame = view.findViewById(R.id.zone3RoomExit);
 
         //load screen status
         loadState();
@@ -115,40 +134,39 @@ public class Zone3 extends Fragment {
 
     private void loadState() {
         //VISIBLE == 0 , INVISIBLE == 4, GONE == 8
-        if(state.getInt("z3OpenDoorLarge", 8) == 0 ){
+        if (state.getInt("z3OpenDoorLarge", 8) == 0) {
             openDoorLarge.setVisibility(View.VISIBLE);
         }
-        if(state.getInt("z3CloseDoorLarge", 8) == 0 ){
+        if (state.getInt("z3CloseDoorLarge", 8) == 0) {
             closeDoorLarge.setVisibility(View.VISIBLE);
         }
-        if(state.getInt("z3PaperWhite", 8) == 0 ){
+        if (state.getInt("z3PaperWhite", 8) == 0) {
             paperWhite.setVisibility(View.VISIBLE);
         }
-        if(state.getBoolean("z2HaveTheKey", false)){
+        if (state.getBoolean("z2HaveTheKey", false)) {
             zone2HaveTheKey = state.getBoolean("z2HaveTheKey", false);
-            if(zone2HaveTheKey){
+            if (zone2HaveTheKey) {
                 zone2Key.setVisibility(View.VISIBLE);
-            }else{
+            } else {
                 zone2Key.setVisibility(View.GONE);
             }
         }
-        if(state.getInt("z3KeyOpenDoor",  8) == 0){
+        if (state.getInt("z3KeyOpenDoor", 8) == 0) {
             keyOpenDoor.setVisibility(View.VISIBLE);
         }
-        if(state.getInt("z3KeyCloseDoor", 8) == 0 ){
+        if (state.getInt("z3KeyCloseDoor", 8) == 0) {
             keyCloseDoor.setVisibility(View.VISIBLE);
         }
-        if(state.getInt("z3Pendrive", 8) == 0){
+        if (state.getInt("z3Pendrive", 8) == 0) {
             penDrive.setVisibility(View.VISIBLE);
         }
-        if(state.getInt("z3PendriveScreen", 8) == 0){
+        if (state.getInt("z3PendriveScreen", 8) == 0) {
             penDriveScreen.setVisibility(View.VISIBLE);
         }
-        if(state.getBoolean("z3HaveThePendrive", false)){
+        if (state.getBoolean("z3HaveThePendrive", false)) {
             haveThePendrive = state.getBoolean("z3HaveThePendrive", false);
         }
     }
-
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -180,36 +198,36 @@ public class Zone3 extends Fragment {
             return true;
         });
 
-        btnBack.setOnTouchListener((v, event) -> {
+        btnBackSwitch.setOnTouchListener((v, event) -> {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                btnBack.startAnimation(scaleUp);
+                btnBackSwitch.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                btnBack.startAnimation(scaleDown);
+                btnBackSwitch.startAnimation(scaleDown);
                 linearLayoutGameSwitch.setVisibility(View.GONE);
-                btnBack.setVisibility(View.GONE);
+                btnBackSwitch.setVisibility(View.GONE);
             }
             return true;
         });
 
-        closeDoorLarge.setOnClickListener(v->{
+        closeDoorLarge.setOnClickListener(v -> {
             linearLayoutGameSwitch.setVisibility(View.VISIBLE);
-            btnBack.setVisibility(View.VISIBLE);
-            if(!isCorrectSwitchGame){
+            btnBackSwitch.setVisibility(View.VISIBLE);
+            if (!isCorrectSwitchGame) {
                 gameSwitch();
             }
 
         });
-        paperWhite.setOnClickListener(v->{
+        paperWhite.setOnClickListener(v -> {
             paperWhite.setVisibility(View.GONE);
             openPaperWhite.setVisibility(View.VISIBLE);
         });
-        openPaperWhite.setOnClickListener(v-> {
+        openPaperWhite.setOnClickListener(v -> {
             openPaperWhite.setVisibility(View.GONE);
             paperWhite.setVisibility(View.VISIBLE);
         });
 
-        keyCloseDoor.setOnClickListener(v->{
-            if(zone2HaveTheKey){
+        keyCloseDoor.setOnClickListener(v -> {
+            if (zone2HaveTheKey) {
                 keyOpenDoor.setVisibility(View.VISIBLE);
                 penDrive.setVisibility(View.VISIBLE);
                 keyCloseDoor.setVisibility(View.GONE);
@@ -223,7 +241,7 @@ public class Zone3 extends Fragment {
                 stateEdit.commit();
             }
         });
-        penDrive.setOnClickListener(v->{
+        penDrive.setOnClickListener(v -> {
             penDriveScreen.setVisibility(View.VISIBLE);
             penDrive.setVisibility(View.GONE);
             haveThePendrive = true;
@@ -231,6 +249,53 @@ public class Zone3 extends Fragment {
             stateEdit.putInt("z3PendriveScreen", penDriveScreen.getVisibility());
             stateEdit.putInt("z3Pendrive", penDrive.getVisibility());
             stateEdit.commit();
+        });
+
+        codeDoor.setOnClickListener(v -> {
+            linearLayoutCodeExit.setVisibility(View.VISIBLE);
+            btnBackCodeExit.setVisibility(View.VISIBLE);
+            enterCodeExit();
+        });
+
+        btnBackCodeExit.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                btnBackCodeExit.startAnimation(scaleUp);
+            } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                btnBackCodeExit.startAnimation(scaleDown);
+                linearLayoutCodeExit.setVisibility(View.GONE);
+                btnBackCodeExit.setVisibility(View.GONE);
+                code1.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
+                code2.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
+                code3.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
+                code4.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
+                value = "";
+                valueCode1 = "0";
+                valueCode2 = "0";
+                valueCode3 = "0";
+                valueCode4 = "0";
+            }
+            return true;
+        });
+
+        btnOpenTheDoorExit.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                btnOpenTheDoorExit.startAnimation(scaleUp);
+            } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                btnOpenTheDoorExit.startAnimation(scaleDown);
+                if(theCodeisCorrect){
+                    exitGame.setVisibility(View.VISIBLE);
+                    linearLayoutCodeExit.setVisibility(View.GONE);
+                    btnBackCodeExit.setVisibility(View.GONE);
+                }
+            }
+            return true;
+        });
+
+        exitGame.setOnClickListener(v->{
+            CountTimer.pauseTimer();
+            Intent intentEndGame = new Intent(getActivity().getApplicationContext(), EndGame.class);
+            intentEndGame.putExtra("Time", CountTimer.timeText);
+            getActivity().startActivity(intentEndGame);
         });
 
 
@@ -243,13 +308,273 @@ public class Zone3 extends Fragment {
 //        });
     }
 
+    private void enterCodeExit() {
+        valueCode1Exit();
+        valueCode2Exit();
+        valueCode3Exit();
+        valueCode4Exit();
+    }
+
+    private void isCorrect() {
+        String codeForExit = "1415";
+        String valuesCode = valueCode1 + valueCode2 + valueCode3 + valueCode4;
+        if(valuesCode.equals(codeForExit)){
+            btnLedCorrectExit.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_btn_green));
+            theCodeisCorrect = true;
+        }else{
+            btnLedCorrectExit.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_btn_red));
+            theCodeisCorrect = false;
+        }
+    }
+
+    private void valueCode4Exit() {
+        code4.setOnClickListener(v->{
+            value = valueCode1Click(code4);
+            switch (value) {
+                case "0":
+                    code4.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
+                    isCorrect();
+                    break;
+                case "1":
+                    code4.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code1));
+                    isCorrect();
+                    break;
+                case "2":
+                    code4.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code2));
+                    isCorrect();
+                    break;
+                case "3":
+                    code4.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code3));
+                    isCorrect();
+                    break;
+                case "4":
+                    code4.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code4));
+                    isCorrect();
+                    break;
+                case "5":
+                    code4.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code5));
+                    isCorrect();
+                    break;
+                case "6":
+                    code4.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code6));
+                    isCorrect();
+                    break;
+                case "7":
+                    code4.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code7));
+                    isCorrect();
+                    break;
+                case "8":
+                    code4.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code8));
+                    isCorrect();
+                    break;
+                case "9":
+                    code4.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code9));
+                    isCorrect();
+                    break;
+            }
+        });
+    }
+
+    private void valueCode3Exit() {
+        code3.setOnClickListener(v->{
+            value = valueCode1Click(code3);
+            switch (value) {
+                case "0":
+                    code3.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
+                    isCorrect();
+                    break;
+                case "1":
+                    code3.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code1));
+                    isCorrect();
+                    break;
+                case "2":
+                    code3.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code2));
+                    isCorrect();
+                    break;
+                case "3":
+                    code3.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code3));
+                    isCorrect();
+                    break;
+                case "4":
+                    code3.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code4));
+                    isCorrect();
+                    break;
+                case "5":
+                    code3.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code5));
+                    isCorrect();
+                    break;
+                case "6":
+                    code3.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code6));
+                    isCorrect();
+                    break;
+                case "7":
+                    code3.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code7));
+                    isCorrect();
+                    break;
+                case "8":
+                    code3.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code8));
+                    isCorrect();
+                    break;
+                case "9":
+                    code3.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code9));
+                    isCorrect();
+                    break;
+            }
+        });
+    }
+
+    private void valueCode2Exit() {
+        code2.setOnClickListener(v->{
+            value = valueCode1Click(code2);
+            switch (value) {
+                case "0":
+                    code2.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
+                    isCorrect();
+                    break;
+                case "1":
+                    code2.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code1));
+                    isCorrect();
+                    break;
+                case "2":
+                    code2.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code2));
+                    isCorrect();
+                    break;
+                case "3":
+                    code2.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code3));
+                    isCorrect();
+                    break;
+                case "4":
+                    code2.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code4));
+                    isCorrect();
+                    break;
+                case "5":
+                    code2.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code5));
+                    isCorrect();
+                    break;
+                case "6":
+                    code2.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code6));
+                    isCorrect();
+                    break;
+                case "7":
+                    code2.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code7));
+                    isCorrect();
+                    break;
+                case "8":
+                    code2.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code8));
+                    isCorrect();
+                    break;
+                case "9":
+                    code2.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code9));
+                    isCorrect();
+                    break;
+            }
+        });
+    }
+
+    private void valueCode1Exit() {
+        code1.setOnClickListener(v -> {
+            value = valueCode1Click(code1);
+            switch (value) {
+                case "0":
+                    code1.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
+                    isCorrect();
+                    break;
+                case "1":
+                    code1.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code1));
+                    isCorrect();
+                    break;
+                case "2":
+                    code1.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code2));
+                    isCorrect();
+                    break;
+                case "3":
+                    code1.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code3));
+                    isCorrect();
+                    break;
+                case "4":
+                    code1.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code4));
+                    isCorrect();
+                    break;
+                case "5":
+                    code1.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code5));
+                    isCorrect();
+                    break;
+                case "6":
+                    code1.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code6));
+                    isCorrect();
+                    break;
+                case "7":
+                    code1.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code7));
+                    isCorrect();
+                    break;
+                case "8":
+                    code1.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code8));
+                    isCorrect();
+                    break;
+                case "9":
+                    code1.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code9));
+                    isCorrect();
+                    break;
+            }
+
+        });
+    }
+
+    private String valueCode1Click(Button code) {
+
+        int codeId = code.getId();
+        int aux ;
+        String value = "";
+
+        switch(codeId){
+            case 2131362346:
+                aux = Integer.parseInt(valueCode1);
+                aux++;
+                if(aux == 10){
+                    aux = 0;
+                }
+                value = ""+aux;
+                valueCode1 = value;
+                break;
+            case 2131362347:
+                aux = Integer.parseInt(valueCode2);
+                aux++;
+                if(aux == 10){
+                    aux = 0;
+                }
+                value = ""+aux;
+                valueCode2 = value;
+                break;
+            case 2131362348:
+                aux = Integer.parseInt(valueCode3);
+                aux++;
+                if(aux == 10){
+                    aux = 0;
+                }
+                value = ""+aux;
+                valueCode3 = value;
+                break;
+            case 2131362349:
+                aux = Integer.parseInt(valueCode4);
+                aux++;
+                if(aux == 10){
+                    aux = 0;
+                }
+                value = ""+aux;
+                valueCode4 = value;
+                break;
+        }
+
+        return value;
+    }
+
 
     /* game open the door whith switch */
     @SuppressLint("ClickableViewAccessibility")
     private void gameSwitch() {
 
-        patternSwitchGame = new boolean[] {true, false, false, true, false, true, true, false};
-        switchGame = new boolean[] {false, false, false, false, false, false, false, false};
+        patternSwitchGame = new boolean[]{true, false, false, true, false, true, true, false};
+        switchGame = new boolean[]{false, false, false, false, false, false, false, false};
         checkPattern(patternSwitchGame);
 
         openTheDoorWithSwitch.setOnTouchListener((v, event) -> {
@@ -257,13 +582,13 @@ public class Zone3 extends Fragment {
                 openTheDoorWithSwitch.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 openTheDoorWithSwitch.startAnimation(scaleDown);
-                if(checkPattern(patternSwitchGame)){
+                if (checkPattern(patternSwitchGame)) {
                     isCorrectSwitchGame = true;
                     linearLayoutGameSwitch.setVisibility(View.GONE);
                     openDoorLarge.setVisibility(View.VISIBLE);
                     paperWhite.setVisibility(View.VISIBLE);
                     closeDoorLarge.setVisibility(View.GONE);
-                    btnBack.setVisibility(View.GONE);
+                    btnBackSwitch.setVisibility(View.GONE);
                     stateEdit.putInt("z3OpenDoorLarge", openDoorLarge.getVisibility());
                     stateEdit.putInt("z3CloseDoorLarge", closeDoorLarge.getVisibility());
                     stateEdit.putInt("z3PaperWhite", paperWhite.getVisibility());
@@ -275,31 +600,15 @@ public class Zone3 extends Fragment {
     }
 
     private boolean checkPattern(boolean[] patternSwitchGame) {
-        sA1.setOnCheckedChangeListener(((buttonView, isChecked) -> {
-            switchGame[0] = isChecked;
-        }));
-        sA2.setOnCheckedChangeListener(((buttonView, isChecked) -> {
-            switchGame[1] = isChecked;
-        }));
-        sB1.setOnCheckedChangeListener(((buttonView, isChecked) -> {
-            switchGame[2] = isChecked;
-        }));
-        sB2.setOnCheckedChangeListener(((buttonView, isChecked) -> {
-            switchGame[3] = isChecked;
-        }));
-        sC1.setOnCheckedChangeListener(((buttonView, isChecked) -> {
-            switchGame[4] = isChecked;
-        }));
-        sC2.setOnCheckedChangeListener(((buttonView, isChecked) -> {
-            switchGame[5] = isChecked;
-        }));
-        sD1.setOnCheckedChangeListener(((buttonView, isChecked) -> {
-            switchGame[6] = isChecked;
-        }));
-        sD2.setOnCheckedChangeListener(((buttonView, isChecked) -> {
-            switchGame[7] = isChecked;
-        }));
+        sA1.setOnCheckedChangeListener(((buttonView, isChecked) -> switchGame[0] = isChecked));
+        sA2.setOnCheckedChangeListener(((buttonView, isChecked) -> switchGame[1] = isChecked));
+        sB1.setOnCheckedChangeListener(((buttonView, isChecked) -> switchGame[2] = isChecked));
+        sB2.setOnCheckedChangeListener(((buttonView, isChecked) -> switchGame[3] = isChecked));
+        sC1.setOnCheckedChangeListener(((buttonView, isChecked) -> switchGame[4] = isChecked));
+        sC2.setOnCheckedChangeListener(((buttonView, isChecked) -> switchGame[5] = isChecked));
+        sD1.setOnCheckedChangeListener(((buttonView, isChecked) -> switchGame[6] = isChecked));
+        sD2.setOnCheckedChangeListener(((buttonView, isChecked) -> switchGame[7] = isChecked));
 
-        return Arrays.equals(switchGame,patternSwitchGame);
+        return Arrays.equals(switchGame, patternSwitchGame);
     }
 }

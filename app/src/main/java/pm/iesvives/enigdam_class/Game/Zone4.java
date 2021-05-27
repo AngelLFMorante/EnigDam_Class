@@ -20,15 +20,16 @@ public class Zone4 extends Fragment {
 
     protected Animation scaleUp, scaleDown;
     private Button btnNext, btnPrevious;
-    private Bundle bundle;
-    private PlayerDto player = new PlayerDto();
-    private ImageView penDrive,penDriveScreen;
+    private ImageView penDriveScreen;
     private ImageView zone2Key;
     private boolean zone2HaveTheKey = false;
     private SharedPreferences state;
     private SharedPreferences difficulty;
     private SharedPreferences.Editor stateEdit;
     private ImageView lampHint;
+
+    private Bundle bundle;
+    private PlayerDto player = new PlayerDto();
 
     public Zone4() {
     }

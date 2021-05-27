@@ -23,7 +23,7 @@ import pm.iesvives.enigdam_class.R;
 
 public class Zone1 extends Fragment {
 
-    private PlayerDto player = new PlayerDto();
+
     protected Animation scaleUp, scaleDown;
     private DialogEndZone1 dialog;
     private SharedPreferences state;
@@ -37,14 +37,14 @@ public class Zone1 extends Fragment {
     private Button a1,a2,a3,b1,b2,b3,c1,c2,c3;
     private List<Button> buttonsPuzzle;
     private ImageView binaryTest, screenComputer,lampHint;
-    private Bundle bundle;
     private List<Integer> pattern;
     private boolean isComplete = false;
     private ImageView penDriveScreen;
     private ImageView zone2Key;
     private boolean zone2HaveTheKey = false;
-    //TODO ESTA VARIABLE ES PROVISIONAL PARA ACABAR LA PRIMERA PANTALLA
-    private boolean endGame = false;
+
+    private Bundle bundle;
+    private PlayerDto player = new PlayerDto();
 
     public Zone1() {
     }
@@ -335,9 +335,7 @@ public class Zone1 extends Fragment {
                 dialog = new DialogEndZone1();
                 dialog.show(getActivity().getSupportFragmentManager(), "DialogZone1");
                 isComplete = true;
-                endGame = true;
                 stateEdit.putBoolean("z1CompleteComputer", true);
-                stateEdit.putBoolean("z1EndGame", endGame);
                 stateEdit.commit();
                 linearPuzzle.setVisibility(View.INVISIBLE);
                 btnBriefcaseOpen.setClickable(true);

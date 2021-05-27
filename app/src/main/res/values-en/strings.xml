@@ -52,7 +52,21 @@
     <string name="notSuccessDelete">Not eliminated</string>
     <string name="hello_blank_fragment">blank fragment</string>
     <string name="history_logo">history_logo</string>
-    <string name="history_enigdam">"09:00 am Sunday, June 13, 2021   Welcome to the CNI cybersecurity technology department, we have received a message of a possible computer attack in particular, a video of the alleged \"Hacker\" about 03:15 am, indicating that within 2 hours he will disable all computer networks to create a financial crisis, liquidating all public debt to all citizens, removing all virtual money from Spain.  We believe he will act around 11:00 am, which is when most financial traffic moves virtually.  This leaves us a margin of 2 hours to stop the attack.  We cannot alert the population of a possible cyber attack that would destroy the economy as we know it.  If we warn citizens to withdraw all their savings from their banks, we will create an economic crisis, we will create an economic crisis, no longer state but global, that we will not be able to control.  We have thought of you because of your extraordinary references as a programmer, a mirror fight between programmers.  If you manage to stop the attack, you will get a job in the cybersecurity department of the CNI.   Remember, everything depends on you, you have 2 hours to find out, who is behind this attack and where the offender is located.  Good luck! (Name of the computer virus of the possible attack : <b>MORRIS 2N88</b>) "</string>
+    <string name="history_enigdam">"09:00 am Sunday, June 13, 2021\n\n
+        Welcome to the CNI cybersecurity technology department,
+        we have received a message of a possible computer attack in particular,
+        a video of the alleged \"Hacker\" about 03:15 am, indicating that within 2 hours he will disable all computer networks to create a financial crisis,
+        liquidating all public debt to all citizens, removing all virtual money from Spain.\n
+        We believe he will act around 11:00 am, which is when most financial traffic moves virtually.\n
+        This leaves us a margin of 2 hours to stop the attack.\n
+        We cannot alert the population of a possible cyber attack that would destroy the economy as we know it.\n
+        If we warn citizens to withdraw all their savings from their banks, we will create an economic crisis,
+        we will create an economic crisis, no longer state but global, that we will not be able to control.\n
+        We have thought of you because of your extraordinary references as a programmer, a mirror fight between programmers.\n
+        If you manage to stop the attack, you will get a job in the cybersecurity department of the CNI.\n\n
+        Remember, everything depends on you, you have 2 hours to find out, who is behind this attack and where the offender is located.\n
+        Good luck! (Name of the computer virus of the possible attack : <b>MORRIS 2N88</b>) "
+    </string>
     <string name="Difficulty">Difficulty</string>
     <string name="difficulty_easy">Easy</string>
     <string name="difficulty_medium">Medium</string>
@@ -81,7 +95,24 @@
     <string name="you_win">You Win</string>
     <string name="police_hacker">police_hacker</string>
     <string name="corona_win">corona_win</string>
-    <string name="how_to_play">We are in a high security CNI room.               The hacker has retrieved information via telnet and knows that we are after him, so he has locked us in this room.             As far as we know the security door has a code of X numbers that we must find out if we want to get out of it.               But to get out before we must know who is behind all this and from where he is doing it.               <b>To move around the room we will do it with the arrows</b> ,         if we see something that we can believe is evidence, we must click on it.              If we have an interaction, we must find out what it is in order to advance,         <b>each test has a reward, which will provide us with its name and location</b>.             <b>its name and location</b>.                   Depending on the difficulty chosen, we will get clues or not.         <b>The clues are in the little light bulb</b>,          it will always give us the clue of where the test is but              <b>it will not tell us the solution of it</b>.              Knowing our tasks, as soon as we hit start, our time will be set in motion.           <b>We have 30 minutes to leave the room</b>,         if the countdown is set to 00:00,             the hacker will have achieved his purpose and we will have lost.               Good luck!We are in a high security CNI room.                The hacker has retrieved information via telnet and knows that we are after him, so he has locked us in this room.            As far as we know the security door has a code of X numbers that we must find out if we want to get out of it.             But to get out before we must know who is behind all this and from where he is doing it.              <b>To move around the room we will do it with the arrows</b> ,          if we see something that we can believe is evidence, we must click on it.             If we have an interaction, we must find out what it is in order to advance,          <b>each test has a reward, which will provide us with its name and location</b>.            <b>its name and location</b>.                  Depending on the difficulty chosen, we will get clues or not.         <b>The clues are in the little light bulb</b>,          it will always give us the clue of where the test is but            <b>it will not tell us the solution of it</b>.              Knowing our tasks, as soon as we hit start, our time will be set in motion.           <b>We have 30 minutes to leave the room</b>,         if the countdown is set to 00:00,             the hacker will have achieved his purpose and we will have lost.              Good luck!</string>
+    <string name="how_to_play">We are in a high security CNI room.\n\n
+        The hacker has retrieved information via telnet and knows that we are after him, so he has locked us in this room.
+        As far as we know the security door has a code of X numbers that we must find out if we want to get out of it.\n
+        But to get out before we must know who is behind all this and from where he is doing it.\n\n
+        <b>To move around the room we will do it with the arrows</b> ,
+        if we see something that we can believe is evidence, we must click on it.\n
+        If we have an interaction, we must find out what it is in order to advance,
+        <b>each test has a reward, which will provide us with its name and location</b>.
+        <b>its name and location</b>.\n
+        Depending on the difficulty chosen, we will get clues or not.
+        <b>The clues are in the little light bulb</b>,
+        it will always give us the clue of where the test is but
+        <b>it will not tell us the solution of it</b>.\n
+        Knowing our tasks, as soon as we hit start, our time will be set in motion.\n\n
+        <b>We have 30 minutes to leave the room</b>,
+        if the countdown is set to 00:00,
+        the hacker will have achieved his purpose and we will have lost.\n\n
+        Good luck!</string>
     <string name="blackboard">blackboard</string>
     <string name="paper_red">paper red</string>
     <string name="paper_yellow">paper yellow</string>
@@ -103,4 +134,5 @@
     <string name="key_close">key close</string>
     <string name="passwordIncorrect">Incorrect password</string>
     <string name="titlePassword">Enter password</string>
+    <string name="exit_door">exit_door</string>
 </resources>

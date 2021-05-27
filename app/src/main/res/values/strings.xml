@@ -130,5 +130,6 @@ Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás
     <string name="key_close">key close</string>
     <string name="passwordIncorrect">Password Incorrecto</string>
     <string name="titlePassword">Introduce el password</string>
+    <string name="exit_door">exit_door</string>
 
 </resources>

@@ -214,48 +214,64 @@
                 android:id="@+id/switch1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="0"
                 android:layout_margin="30dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="0"
                 android:layout_margin="30dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="1"
                 android:layout_margin="30dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="1"
                 android:layout_margin="30dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="2"
                 android:layout_margin="30dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="2"
                 android:layout_margin="30dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="3"
                 android:layout_margin="30dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="3"
                 android:layout_margin="30dp" />
 
         </GridLayout>
@@ -271,9 +287,116 @@
             android:layout_marginBottom="30dp"
             />
     </LinearLayout>
+            <!-- endRegion -->
+    <!-- region CodeExit -->
+
+    <LinearLayout
+        android:id="@+id/zone3LinearCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="6dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.593">
+
+        <LinearLayout
+            android:id="@+id/zone3CodeExitLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_code_exit"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/z3Code1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/zone3_code0" />
+
+            <Button
+                android:id="@+id/z3Code2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/zone3_code0"/>
+
+            <Button
+                android:id="@+id/z3Code3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/zone3_code0"/>
+
+            <Button
+                android:id="@+id/z3Code4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/zone3_code0"/>
+
+            <Button
+                android:id="@+id/z3BtnCodeExit"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/zone3_btn_red"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/zone3ExitDoorCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/open"
+            android:layout_gravity="center"
+            android:textSize="24sp"
+            android:background="#FF5722"
+            android:fontFamily="@font/slackey"
+            android:layout_marginBottom="50dp"
+            />
+    </LinearLayout>
+
+    <!-- endRegion -->
 
     <Button
-        android:id="@+id/btnBack"
+        android:id="@+id/btnBackSwitch"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="395dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="390dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/down_arrow"
+        android:contentDescription="@string/previous_fragment"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnNext"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnPrevious"
+        app:layout_constraintTop_toBottomOf="@+id/zone3LinearSwitch" />
+    <Button
+        android:id="@+id/btnBackCodeExit"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="395dp"
@@ -291,18 +414,18 @@
 
     <!-- endRegion -->
 
-
-    <!--    <ImageView-->
-<!--        android:id="@+id/roomExit"-->
-<!--        android:layout_width="258dp"-->
-<!--        android:layout_height="580dp"-->
-<!--        android:src="@drawable/room_open"-->
-<!--        android:visibility="gone"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.902"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.403" />-->
+    <ImageView
+        android:id="@+id/zone3RoomExit"
+        android:layout_width="260dp"
+        android:layout_height="550dp"
+        android:background="#4D4D4E"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.903"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.418"
+        android:contentDescription="@string/exit_door" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

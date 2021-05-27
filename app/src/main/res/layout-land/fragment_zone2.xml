@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/zone_second_mobile"
+    android:background="@drawable/zone_second_mobile2"
     tools:context=".Game.Zone2">
 
     <Button
@@ -75,7 +75,7 @@
         app:layout_constraintVertical_bias="0.242" />
 
     <ImageView
-        android:id="@+id/zone2PapperRed"
+        android:id="@+id/zone2paperRed"
         android:layout_width="48dp"
         android:layout_height="49dp"
         android:layout_marginStart="71dp"
@@ -91,7 +91,7 @@
         app:layout_constraintTop_toTopOf="@+id/zone2Blackboard" />
 
     <ImageView
-        android:id="@+id/zone2PapperOpenRed"
+        android:id="@+id/zone2paperOpenRed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/paper_red"
@@ -105,7 +105,7 @@
         app:layout_constraintVertical_bias="0.495" />
 
     <ImageView
-        android:id="@+id/zone2PapperYellow"
+        android:id="@+id/zone2paperYellow"
         android:layout_width="48dp"
         android:layout_height="49dp"
         android:layout_marginStart="119dp"
@@ -122,7 +122,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/zone2PapperOpenYellow"
+        android:id="@+id/zone2paperOpenYellow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/paper_yellow"
@@ -136,7 +136,7 @@
         app:layout_constraintVertical_bias="0.495" />
 
     <ImageView
-        android:id="@+id/zone2PapperGreen"
+        android:id="@+id/zone2paperGreen"
         android:layout_width="48dp"
         android:layout_height="49dp"
         android:layout_marginStart="10dp"
@@ -147,12 +147,12 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/zone2Blackboard"
         app:layout_constraintEnd_toEndOf="@+id/zone2Blackboard"
-        app:layout_constraintStart_toEndOf="@+id/zone2PapperYellow"
+        app:layout_constraintStart_toEndOf="@+id/zone2paperYellow"
         app:layout_constraintTop_toTopOf="@+id/zone2Blackboard"
         android:contentDescription="@string/paper_green" />
 
     <ImageView
-        android:id="@+id/zone2PapperOpenGreen"
+        android:id="@+id/zone2paperOpenGreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/paper_green"
@@ -275,6 +275,7 @@
         android:layout_height="27dp"
         android:src="@drawable/zone2_winrar_pass"
         android:visibility="gone"
+        android:elevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.661"
@@ -282,6 +283,47 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.489"
         android:contentDescription="@string/computer_password" />
+
+    <ImageView
+        android:id="@+id/zone2ScreenComputer"
+        android:layout_width="84dp"
+        android:layout_height="55dp"
+        android:contentDescription="@string/computer_password"
+        android:src="@drawable/zone2_screen_computer"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.659"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.465" />
+
+    <ImageView
+        android:layout_width="84dp"
+        android:layout_height="55dp"
+        android:contentDescription="@string/computer_password"
+        android:src="@drawable/zone2_screen_computer"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.659"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.465" />
+
+    <ImageView
+        android:id="@+id/zone3PenDriveScreen"
+        android:layout_width="41dp"
+        android:layout_height="47dp"
+        android:contentDescription="@string/pen_drive"
+        android:src="@drawable/zone3_pen"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
