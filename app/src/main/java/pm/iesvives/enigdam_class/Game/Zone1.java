@@ -2,10 +2,13 @@ package pm.iesvives.enigdam_class.Game;
 
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,6 +18,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
@@ -43,8 +48,7 @@ public class Zone1 extends Fragment {
     private ImageView zone2Key;
     private boolean zone2HaveTheKey = false;
 
-    private Bundle bundle;
-    private PlayerDto player = new PlayerDto();
+    private String[] hints = new String[5];
 
     public Zone1() {
     }
@@ -79,16 +83,11 @@ public class Zone1 extends Fragment {
         lampHint = view.findViewById(R.id.lampHint);
 
         state = getActivity().getSharedPreferences("States", getContext().MODE_PRIVATE);
-        difficulty = getActivity().getSharedPreferences("Difficulty", getContext().MODE_PRIVATE);
-        //TODO FALTA POR DESARROLLAR LA LÓGICA DE LAS PISTAS
-        if(difficulty.getString("difficulty", "notValue").equals("easy")){
-            lampHint.setImageResource(R.drawable.lamp_on);
-        }else if(difficulty.getString("difficulty", "notValue").equals("medium")){
-            lampHint.setImageResource(R.drawable.lamp_on);
-        }else if(difficulty.getString("difficulty", "notValue").equals("hard")){
-            lampHint.setImageResource(R.drawable.lamp_off);
-        }
         stateEdit = state.edit();
+
+        //Difficulty game
+        difficulty = getActivity().getSharedPreferences("Difficulty", getContext().MODE_PRIVATE);
+        clickHintDifficulty();
 
         //objects zones
         penDriveScreen = view.findViewById(R.id.zone3PenDriveScreen);
@@ -104,6 +103,37 @@ public class Zone1 extends Fragment {
         puzzleButtons(view);
 
         return view;
+    }
+
+    private void hintsZone1() {
+        hints[0] = getResources().getString(R.string.z1hintBriefcase);
+        hints[1] = getResources().getString(R.string.z1hintCloset);
+        hints[2] = getResources().getString(R.string.z1hintAutowired);
+        hints[3] = getResources().getString(R.string.z1hintComputerCoordinate);
+        hints[4] = getResources().getString(R.string.z1hintNoClues);
+    }
+
+    private void clickHintDifficulty() {
+        if(difficulty.getString("difficulty", "notValue").equals("normal")){
+            lampHint.setImageResource(R.drawable.lamp_on);
+            hintsZone1();
+            lampHint.setOnClickListener(v->{
+                if(btnBriefcaseOpen.getVisibility() != View.VISIBLE){
+                    Toast.makeText(getContext(), hints[0], Toast.LENGTH_LONG).show();
+                }else if( btnDrawerOpen.getVisibility() != View.VISIBLE){
+                    Toast.makeText(getContext(), hints[1], Toast.LENGTH_LONG).show();
+                }else if(btnAutowiredDrawer.getVisibility() == View.VISIBLE ){
+                    Toast.makeText(getContext(), hints[2], Toast.LENGTH_LONG).show();
+                }else if(screenComputer.getVisibility() == View.VISIBLE && !isComplete){
+                    Toast.makeText(getContext(), hints[3], Toast.LENGTH_LONG).show();
+                }else if (isComplete){
+                    Toast.makeText(getContext(), hints[4], Toast.LENGTH_LONG).show();
+                }
+            });
+        }else if(difficulty.getString("difficulty", "notValue").equals("hard")){
+            lampHint.setImageResource(R.drawable.lamp_off);
+        }
+
     }
 
     private void loadState(SharedPreferences state) {
@@ -176,7 +206,6 @@ public class Zone1 extends Fragment {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnNext.startAnimation(scaleDown);
                 Zone2 z2 = new Zone2();
-                //z2.setArguments(bundle); Comento esto para luego saber como mandar datos para las pistas en cada pantalla
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 fm.beginTransaction().add(R.id.fragment_nav_game, z2).addToBackStack(null).commit();
             }

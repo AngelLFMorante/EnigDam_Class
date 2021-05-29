@@ -14,7 +14,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="196dp"
         android:contentDescription="@string/police_hacker"
-        android:src="@drawable/hacker_loser"
+        android:src="@drawable/arrested_hacker"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"

@@ -131,5 +131,27 @@ Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás
     <string name="passwordIncorrect">Password Incorrecto</string>
     <string name="titlePassword">Introduce el password</string>
     <string name="exit_door">exit_door</string>
-
+    <!-- region Hints Zone 1 -->
+    <string name="z1hintBriefcase">Haz click en la maleta</string>
+    <string name="z1hintCloset">Haz click en el armario</string>
+    <string name="z1hintAutowired">Recoge el enchufe</string>
+    <string name="z1hintComputerCoordinate">El patrón a seguir es la imagen de la coordenada encontrada en el papel</string>
+    <string name="z1hintNoClues">No hay pistas</string>
+    <!-- endregion -->
+    <!-- region Hints Zone 2 -->
+    <string name="z2hintTakeBoard">Observa bien la pizarra</string>
+    <string name="z2hintBehindPaper">Detrás de los papeles "rojo" y "verde" hay 1 numero que corresponde con el código de salida</string>
+    <string name="z2hintCloset">Haz click en el armario</string>
+    <string name="z2hintKey">Recoge la llave que abre la puerta de la cerradura del cajón, pantalla 3</string>
+    <string name="z2hintComputer">Haz click en el ordenador</string>
+    <string name="z2hintPasswordComputer">El password es el conjunto de figuras de las coordenadas obtenidas</string>
+    <!-- endregion -->
+    <!-- region Hints Zone 3 -->
+    <string name="z3hintDrawer">Haz click en el cajón de la cerradura</string>
+    <string name="z3hintCodeDoor">El código de la puerta son los numeros binarios de la pizarra</string>
+    <string name="z3hintSolutionCode">El código para salir, son los numeros de la pizarra mas los 2 numeros de la ubicación del hacker ( calle )</string>
+    <!-- endregion -->
+    <!-- region Hints Zone 4 -->
+    <string name="z4hintNoClues">No hay pistas</string>
+    <!-- endregion -->
 </resources>

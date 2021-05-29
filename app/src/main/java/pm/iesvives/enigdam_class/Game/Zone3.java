@@ -8,6 +8,8 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,7 +19,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 import pm.iesvives.enigdam_class.CountDownTimer.CountTimer;
 import pm.iesvives.enigdam_class.R;
 
@@ -55,6 +62,7 @@ public class Zone3 extends Fragment {
     private String valueCode3 = "0";
     private String valueCode4 = "0";
 
+    private String[] hints = new String[3];
 
     public Zone3() {
 
@@ -75,17 +83,11 @@ public class Zone3 extends Fragment {
         scaleDown = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_down);
 
         state = getActivity().getSharedPreferences("States", getContext().MODE_PRIVATE);
-        difficulty = getActivity().getSharedPreferences("Difficulty", getContext().MODE_PRIVATE);
         stateEdit = state.edit();
+        //Difficulty game
+        difficulty = getActivity().getSharedPreferences("Difficulty", getContext().MODE_PRIVATE);
         lampHint = view.findViewById(R.id.lampHint);
-        //TODO FALTA POR DESARROLLAR LA LÓGICA DE LAS PISTAS
-        if (difficulty.getString("difficulty", "notValue").equals("easy")) {
-            lampHint.setImageResource(R.drawable.lamp_on);
-        } else if (difficulty.getString("difficulty", "notValue").equals("medium")) {
-            lampHint.setImageResource(R.drawable.lamp_on);
-        } else if (difficulty.getString("difficulty", "notValue").equals("hard")) {
-            lampHint.setImageResource(R.drawable.lamp_off);
-        }
+        clickHintDifficulty();
 
         btnNext = view.findViewById(R.id.btnNext);
         btnPrevious = view.findViewById(R.id.btnPrevious);
@@ -132,6 +134,33 @@ public class Zone3 extends Fragment {
         return view;
     }
 
+    private void hintsZone3() {
+        hints[0] = getResources().getString(R.string.z3hintCodeDoor);
+        hints[1] = getResources().getString(R.string.z3hintDrawer);
+        hints[2] = getResources().getString(R.string.z3hintSolutionCode);
+    }
+
+    private void clickHintDifficulty() {
+        if (difficulty.getString("difficulty", "notValue").equals("normal")) {
+            lampHint.setImageResource(R.drawable.lamp_on);
+            hintsZone3();
+            lampHint.setOnClickListener(v->{
+                if(openDoorLarge.getVisibility() != View.VISIBLE){
+                    Toast.makeText(getContext(), hints[0], Toast.LENGTH_LONG).show();
+                }else if(keyOpenDoor.getVisibility() != View.VISIBLE && zone2HaveTheKey){
+                    Toast.makeText(getContext(), hints[1], Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getContext(), hints[2], Toast.LENGTH_LONG).show();
+                }
+            });
+        } else if (difficulty.getString("difficulty", "notValue").equals("hard")) {
+            lampHint.setImageResource(R.drawable.lamp_off);
+            lampHint.setOnClickListener(v->{
+                Toast.makeText(getContext(), getResources().getString(R.string.z4hintNoClues), Toast.LENGTH_LONG).show();
+            });
+        }
+    }
+
     private void loadState() {
         //VISIBLE == 0 , INVISIBLE == 4, GONE == 8
         if (state.getInt("z3OpenDoorLarge", 8) == 0) {
@@ -166,6 +195,9 @@ public class Zone3 extends Fragment {
         if (state.getBoolean("z3HaveThePendrive", false)) {
             haveThePendrive = state.getBoolean("z3HaveThePendrive", false);
         }
+        if(state.getInt("z3ExitGame", 8) == 0){
+            exitGame.setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -178,7 +210,6 @@ public class Zone3 extends Fragment {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnNext.startAnimation(scaleDown);
                 Zone4 z4 = new Zone4();
-//                z4.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 fm.beginTransaction().add(R.id.fragment_nav_game, z4).addToBackStack(null).commit();
             }
@@ -191,7 +222,6 @@ public class Zone3 extends Fragment {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnPrevious.startAnimation(scaleDown);
                 Zone2 z2 = new Zone2();
-//                z2.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 fm.beginTransaction().add(R.id.fragment_nav_game, z2).addToBackStack(null).commit();
             }
@@ -284,6 +314,8 @@ public class Zone3 extends Fragment {
                 btnOpenTheDoorExit.startAnimation(scaleDown);
                 if(theCodeisCorrect){
                     exitGame.setVisibility(View.VISIBLE);
+                    stateEdit.putInt("z3ExitGame", exitGame.getVisibility());
+                    stateEdit.commit();
                     linearLayoutCodeExit.setVisibility(View.GONE);
                     btnBackCodeExit.setVisibility(View.GONE);
                 }
@@ -298,14 +330,6 @@ public class Zone3 extends Fragment {
             getActivity().startActivity(intentEndGame);
         });
 
-
-        //END GAME PROVISIONAL
-//        roomOpen.setOnClickListener(v-> {
-//            CountTimer.pauseTimer();
-//            Intent intentEndGame = new Intent(getActivity().getApplicationContext(), EndGame.class);
-//            intentEndGame.putExtra("Time", CountTimer.timeText);
-//            getActivity().startActivity(intentEndGame);
-//        });
     }
 
     private void enterCodeExit() {
@@ -329,7 +353,8 @@ public class Zone3 extends Fragment {
 
     private void valueCode4Exit() {
         code4.setOnClickListener(v->{
-            value = valueCode1Click(code4);
+            Log.i("id:" , String.valueOf(code4.getId()) + " " +String.valueOf(code3.getId()) + " " +String.valueOf(code2.getId()) + " " +String.valueOf(code1.getId()) );
+            value = valueCodeClick(code4);
             switch (value) {
                 case "0":
                     code4.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
@@ -377,7 +402,7 @@ public class Zone3 extends Fragment {
 
     private void valueCode3Exit() {
         code3.setOnClickListener(v->{
-            value = valueCode1Click(code3);
+            value = valueCodeClick(code3);
             switch (value) {
                 case "0":
                     code3.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
@@ -425,7 +450,7 @@ public class Zone3 extends Fragment {
 
     private void valueCode2Exit() {
         code2.setOnClickListener(v->{
-            value = valueCode1Click(code2);
+            value = valueCodeClick(code2);
             switch (value) {
                 case "0":
                     code2.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
@@ -473,7 +498,7 @@ public class Zone3 extends Fragment {
 
     private void valueCode1Exit() {
         code1.setOnClickListener(v -> {
-            value = valueCode1Click(code1);
+            value = valueCodeClick(code1);
             switch (value) {
                 case "0":
                     code1.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
@@ -520,14 +545,14 @@ public class Zone3 extends Fragment {
         });
     }
 
-    private String valueCode1Click(Button code) {
+    private String valueCodeClick(Button code) {
 
         int codeId = code.getId();
         int aux ;
         String value = "";
 
         switch(codeId){
-            case 2131362346:
+            case R.id.z3Code1:
                 aux = Integer.parseInt(valueCode1);
                 aux++;
                 if(aux == 10){
@@ -536,7 +561,7 @@ public class Zone3 extends Fragment {
                 value = ""+aux;
                 valueCode1 = value;
                 break;
-            case 2131362347:
+            case R.id.z3Code2:
                 aux = Integer.parseInt(valueCode2);
                 aux++;
                 if(aux == 10){
@@ -545,7 +570,7 @@ public class Zone3 extends Fragment {
                 value = ""+aux;
                 valueCode2 = value;
                 break;
-            case 2131362348:
+            case R.id.z3Code3:
                 aux = Integer.parseInt(valueCode3);
                 aux++;
                 if(aux == 10){
@@ -554,7 +579,7 @@ public class Zone3 extends Fragment {
                 value = ""+aux;
                 valueCode3 = value;
                 break;
-            case 2131362349:
+            case R.id.z3Code4:
                 aux = Integer.parseInt(valueCode4);
                 aux++;
                 if(aux == 10){
@@ -564,7 +589,6 @@ public class Zone3 extends Fragment {
                 valueCode4 = value;
                 break;
         }
-
         return value;
     }
 

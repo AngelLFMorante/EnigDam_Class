@@ -14,7 +14,7 @@ import pm.iesvives.enigdam_class.R;
 
 public class Difficulty extends MainActivity {
 
-    private Button btnEasy, btnMedium, btnHard, btnBack;
+    private Button btnNormal, btnHard, btnBack;
     private PlayerDto player = new PlayerDto();
     private SharedPreferences.Editor editorShared;
 
@@ -24,8 +24,7 @@ public class Difficulty extends MainActivity {
         setContentView(R.layout.activity_difficulty);
 
         btnBack = findViewById(R.id.buttonsBack);
-        btnEasy = findViewById(R.id.btnEasy);
-        btnMedium = findViewById(R.id.btnMedium);
+        btnNormal = findViewById(R.id.btnNormal);
         btnHard = findViewById(R.id.btnHard);
 
         editorShared = getSharedPreferences("session", Context.MODE_PRIVATE).edit();
@@ -64,24 +63,13 @@ public class Difficulty extends MainActivity {
             return true;
         });
 
-        btnEasy.setOnTouchListener((v, event) -> {
+        btnNormal.setOnTouchListener((v, event) -> {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                btnEasy.startAnimation(scaleUp);
+                btnNormal.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                btnEasy.startAnimation(scaleDown);
+                btnNormal.startAnimation(scaleDown);
                 Intent intent = new Intent(Difficulty.this, HowToPlay.class);
-                intent.putExtra("difficulty", "easy");
-                startActivity(intent);
-            }
-            return true;
-        });
-        btnMedium.setOnTouchListener((v, event) -> {
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                btnMedium.startAnimation(scaleUp);
-            } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                btnMedium.startAnimation(scaleDown);
-                Intent intent = new Intent(Difficulty.this, HowToPlay.class);
-                intent.putExtra("difficulty", "medium");
+                intent.putExtra("difficulty", "normal");
                 startActivity(intent);
             }
             return true;

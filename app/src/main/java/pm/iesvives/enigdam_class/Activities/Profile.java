@@ -144,14 +144,14 @@ public class Profile extends MainActivity implements DialogEditPlayer.OnInputLis
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setTitle(deleteTitle);
                 alert.setMessage(deleteMessage);
-                alert.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                alert.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete
                         deletePlayer(player.getId());
                     }
                 });
-                alert.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                alert.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // close dialog
                         dialog.cancel();

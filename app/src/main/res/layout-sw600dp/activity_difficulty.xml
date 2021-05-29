@@ -31,11 +31,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnEasy"
+        android:id="@+id/btnNormal"
         android:layout_width="328dp"
         android:layout_height="52dp"
         android:layout_marginStart="86dp"
-        android:layout_marginTop="91dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="86dp"
         android:background="@drawable/buttons_default"
         android:elevation="10dp"
@@ -45,35 +45,18 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/imageViewDifficulty"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageViewDifficulty"
         app:layout_constraintTop_toTopOf="@+id/imageViewDifficulty" />
-
-    <Button
-        android:id="@+id/btnMedium"
-        android:layout_width="328dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="86dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="86dp"
-        android:background="@drawable/buttons_default"
-        android:elevation="10dp"
-        android:fontFamily="@font/slackey"
-        android:text="@string/difficulty_medium"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewDifficulty"
-        app:layout_constraintStart_toStartOf="@+id/imageViewDifficulty"
-        app:layout_constraintTop_toBottomOf="@+id/btnEasy" />
 
     <Button
         android:id="@+id/btnHard"
         android:layout_width="328dp"
         android:layout_height="52dp"
         android:layout_marginStart="86dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="86dp"
-        android:layout_marginBottom="53dp"
+        android:layout_marginBottom="84dp"
         android:background="@drawable/buttons_default"
         android:elevation="10dp"
         android:fontFamily="@font/slackey"
@@ -83,8 +66,9 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewDifficulty"
         app:layout_constraintEnd_toEndOf="@+id/imageViewDifficulty"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageViewDifficulty"
-        app:layout_constraintTop_toBottomOf="@+id/btnMedium" />
+        app:layout_constraintTop_toBottomOf="@+id/btnNormal" />
 
     <TextView
         android:id="@+id/textDifficulty"

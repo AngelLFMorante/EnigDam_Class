@@ -70,8 +70,6 @@ public class EndGame extends MainActivity {
             subTime = Double.parseDouble(partTime);
         }
 
-
-
         //Some methods
         tableOfScore(subTime);
         difficulty();
@@ -154,20 +152,11 @@ public class EndGame extends MainActivity {
 
     private void difficulty() {
 
-        if(preferences.getString("difficulty", "notValue").equals("easy")){
-            gameOver = findViewById(R.id.gameOverEasy);
-            time = findViewById(R.id.endTimeEasy);
-            score = findViewById(R.id.endScoreEasy);
-            endGame = findViewById(R.id.levelCompleteEasy);
-            gameOver.setVisibility(View.VISIBLE);
-            time.setVisibility(View.VISIBLE);
-            score.setVisibility(View.VISIBLE);
-            endGame.setVisibility(View.VISIBLE);
-        }else if(preferences.getString("difficulty", "notValue").equals("medium")){
-            gameOver = findViewById(R.id.gameOverMedium);
-            time = findViewById(R.id.endTimeMedium);
-            score = findViewById(R.id.endScoreMedium);
-            endGame = findViewById(R.id.levelCompleteMedium);
+        if(preferences.getString("difficulty", "notValue").equals("normal")){
+            gameOver = findViewById(R.id.gameOverNormal);
+            time = findViewById(R.id.endTimeNormal);
+            score = findViewById(R.id.endScoreNormal);
+            endGame = findViewById(R.id.levelCompleteNormal);
             gameOver.setVisibility(View.VISIBLE);
             time.setVisibility(View.VISIBLE);
             score.setVisibility(View.VISIBLE);

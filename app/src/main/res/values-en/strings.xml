@@ -135,4 +135,27 @@
     <string name="passwordIncorrect">Incorrect password</string>
     <string name="titlePassword">Enter password</string>
     <string name="exit_door">exit_door</string>
+    <!-- region Hints Zone 1 -->
+    <string name="z1hintBriefcase">Click on the suitcase</string>
+    <string name="z1hintCloset">Click on the closet</string>
+    <string name="z1hintAutowired">Click on the socket</string>
+    <string name="z1hintComputerCoordinate">The pattern to follow is the image of the coordinate found on the paper</string>
+    <string name="z1hintNoClues">No clues</string>
+    <!-- endregion -->
+    <!-- region Hints Zone 2 -->
+    <string name="z2hintTakeBoard">Take a good look at the board</string>
+    <string name="z2hintBehindPaper">Behind the "red" and "green" papers there is 1 number that corresponds to the exit code.</string>
+    <string name="z2hintCloset">Click on the closet</string>
+    <string name="z2hintKey">Collect the key that opens the door of the drawer lock, screen 3.</string>
+    <string name="z2hintComputer">Click on the computer</string>
+    <string name="z2hintPasswordComputer">The password is the set of figures of the coordinates obtained.</string>
+    <!-- endregion -->
+    <!-- region Hints Zone 3 -->
+    <string name="z3hintDrawer">Click on the lock drawer.</string>
+    <string name="z3hintCodeDoor">Click on the code at the exit door.</string>
+    <string name="z3hintSolutionCode">The exit code is the numbers on the board plus the 2 numbers of the hacker location (street).</string>
+    <!-- endregion -->
+    <!-- region Hints Zone 4 -->
+    <string name="z4hintNoClues">No clues</string>
+    <!-- endregion -->
 </resources>

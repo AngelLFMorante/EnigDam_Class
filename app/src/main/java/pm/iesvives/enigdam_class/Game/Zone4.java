@@ -13,6 +13,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
 
@@ -28,9 +30,6 @@ public class Zone4 extends Fragment {
     private SharedPreferences.Editor stateEdit;
     private ImageView lampHint;
 
-    private Bundle bundle;
-    private PlayerDto player = new PlayerDto();
-
     public Zone4() {
     }
 
@@ -45,25 +44,23 @@ public class Zone4 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_zone4, container, false);
 
-        state = getActivity().getSharedPreferences("States", getContext().MODE_PRIVATE);
-        difficulty = getActivity().getSharedPreferences("Difficulty", getContext().MODE_PRIVATE);
-        stateEdit = state.edit();
-        lampHint = view.findViewById(R.id.lampHint);
-        //TODO FALTA POR DESARROLLAR LA LÓGICA DE LAS PISTAS
-        if(difficulty.getString("difficulty", "notValue").equals("easy")){
-            lampHint.setImageResource(R.drawable.lamp_on);
-        }else if(difficulty.getString("difficulty", "notValue").equals("medium")){
-            lampHint.setImageResource(R.drawable.lamp_on);
-        }else if(difficulty.getString("difficulty", "notValue").equals("hard")){
-            lampHint.setImageResource(R.drawable.lamp_off);
-        }
-
-
         scaleUp = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_down);
 
         btnNext = view.findViewById(R.id.btnNext);
         btnPrevious = view.findViewById(R.id.btnPrevious);
+        lampHint = view.findViewById(R.id.lampHint);
+
+        state = getActivity().getSharedPreferences("States", getContext().MODE_PRIVATE);
+        stateEdit = state.edit();
+
+        //Difficulty game
+        difficulty = getActivity().getSharedPreferences("Difficulty", getContext().MODE_PRIVATE);
+        if(difficulty.getString("difficulty", "notValue").equals("normal")){
+            lampHint.setImageResource(R.drawable.lamp_on);
+        }else if(difficulty.getString("difficulty", "notValue").equals("hard")){
+            lampHint.setImageResource(R.drawable.lamp_off);
+        }
 
         //objects zones
         penDriveScreen = view.findViewById(R.id.zone3PenDriveScreen);
@@ -114,11 +111,14 @@ public class Zone4 extends Fragment {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnPrevious.startAnimation(scaleDown);
                 Zone3 z3 = new Zone3();
-//                z3.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 fm.beginTransaction().add(R.id.fragment_nav_game, z3).addToBackStack(null).commit();
             }
             return true;
+        });
+
+        lampHint.setOnClickListener(v->{
+            Toast.makeText(getContext(), getResources().getString(R.string.z4hintNoClues), Toast.LENGTH_LONG).show();
         });
     }
 }
