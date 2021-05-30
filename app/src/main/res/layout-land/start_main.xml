@@ -40,26 +40,24 @@
         android:id="@+id/languageSpain"
         android:layout_width="40dp"
         android:layout_height="29dp"
-        android:layout_marginStart="588dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="524dp"
         android:background="@drawable/spain_language"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getIn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.924" />
 
     <Button
         android:id="@+id/languageEeuu"
         android:layout_width="40dp"
         android:layout_height="29dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="104dp"
         android:background="@drawable/eeuu_language"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/languageSpain"
-        app:layout_constraintTop_toBottomOf="@+id/getIn"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.924" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

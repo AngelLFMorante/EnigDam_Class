@@ -88,7 +88,6 @@ public class Login extends MainActivity {
 
     /**
      * We check parameters with the database service
-     *
      * @param username request user
      * @param password request user
      * @return ture or false
@@ -103,9 +102,12 @@ public class Login extends MainActivity {
         pDialog.show();
         pDialog.setCancelable(false);
         new CountDownTimer(800 * 7, 800) {
-            public void onTick(long millisUntilFinished) { checkUser(); }
+            public void onTick(long millisUntilFinished) {
+                checkUser();
+            }
+
             public void onFinish() {
-                verify = 1;
+
                 try {
                     for (PlayerDto player : players) {
                         if (player.getUsername().equals(username)) {
@@ -114,7 +116,9 @@ public class Login extends MainActivity {
                                 pDialog.setTitleText(titlePlayerExistMessage)
                                         .setContentText(playerExistsMessage)
                                         .changeAlertType(SweetAlertDialog.ERROR_TYPE);
+                                verify = 1;
                             } else if (!player.isVerified()) {
+                                verify = 1;
                                 pDialog.setTitleText(titlePlayerExistMessage)
                                         .setContentText(isVerifyMessage)
                                         .changeAlertType(SweetAlertDialog.ERROR_TYPE);
@@ -127,12 +131,13 @@ public class Login extends MainActivity {
                                 intent.putExtra("player", player);
                                 startActivity(intent);
                             }
-                        }
-                        if(verify != 0){
+                        }else{
+                            verify = 1;
                             pDialog.setTitleText(titlePlayerExistMessage)
                                     .setContentText(playerExistsMessage)
                                     .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                         }
+
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -162,6 +167,7 @@ public class Login extends MainActivity {
         cipher.init(Cipher.DECRYPT_MODE, key);
         byte[] encrypt = Base64.decode(password, Base64.DEFAULT);
         byte[] decrypted = cipher.doFinal(encrypt);
+        Log.i("decrypt: ", new String(decrypted, StandardCharsets.UTF_8));
         return new String(decrypted, StandardCharsets.UTF_8);
     }
 

@@ -1,7 +1,5 @@
 package pm.iesvives.enigdam_class.Game;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -55,6 +53,7 @@ public class WinnerGame extends MainActivity {
                         intent.putExtra("player", player);
                         startActivity(intent);
                     }
+
                     @Override
                     public void onFailure(Call<PlayerDto> call, Throwable t) {
                         Log.e("Error: ", t.getMessage());

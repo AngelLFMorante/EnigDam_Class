@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.ArrayList;
@@ -17,8 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
@@ -121,6 +124,7 @@ public class Registry extends MainActivity {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 buttonRegister.startAnimation(scaleDown);
 
+                //we check if the user exists
                 if (authenticateUser()) {
                     try {
                         player = new PlayerDto();
@@ -137,6 +141,7 @@ public class Registry extends MainActivity {
                             public void onTick(long millisUntilFinished) {
 
                             }
+
                             public void onFinish() {
                                 if (addNewPlayer(player)) {
                                     pDialog.setTitleText("Success!")
@@ -173,7 +178,7 @@ public class Registry extends MainActivity {
         Settings.RESPONSE_CLIENT.getService().addPlayer(player).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                if(!response.isSuccessful()){
+                if (!response.isSuccessful()) {
                     add = false;
                 }
             }

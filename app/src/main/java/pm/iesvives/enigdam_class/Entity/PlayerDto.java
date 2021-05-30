@@ -1,6 +1,7 @@
 package pm.iesvives.enigdam_class.Entity;
 
 import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class PlayerDto implements Serializable {
         this.games = games;
     }
 
-        public String getTime() {
+    public String getTime() {
         return time;
     }
 

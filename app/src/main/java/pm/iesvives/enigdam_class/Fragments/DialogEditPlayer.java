@@ -3,18 +3,20 @@ package pm.iesvives.enigdam_class.Fragments;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
@@ -25,9 +27,10 @@ import retrofit2.Response;
 
 public class DialogEditPlayer extends DialogFragment {
 
-    public interface OnInputListener{
+    public interface OnInputListener {
         void sendInput(PlayerDto player, String input);
     }
+
     public OnInputListener mOnInputListener;
 
     private View view;
@@ -69,23 +72,24 @@ public class DialogEditPlayer extends DialogFragment {
 
         dialogBuilder.setView(view)
                 .setTitle(editMessage)
-                .setPositiveButton(btnOk, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
+                .setPositiveButton(btnOk, (dialog, which) -> {
 
-                                usernameEdited = usernameTextField.getText().toString().trim();
-                                pDialog = new SweetAlertDialog(view.getContext(), SweetAlertDialog.PROGRESS_TYPE)
-                                        .setTitleText(loadingText);
-                                pDialog.show();
-                                pDialog.setCancelable(false);
-                                EditedPlayer(sharedPreferences);
-                            }
-                        })
+                    usernameEdited = usernameTextField.getText().toString().trim();
+                    pDialog = new SweetAlertDialog(view.getContext(), SweetAlertDialog.PROGRESS_TYPE)
+                            .setTitleText(loadingText);
+                    pDialog.show();
+                    pDialog.setCancelable(false);
+                    EditedPlayer(sharedPreferences);
+                })
                 .setNegativeButton(btnCancel, (dialog, which) -> dismiss());
 
         return dialogBuilder.create();
     }
 
+    /**
+     * edit player with server check
+     * @param sharedPreferences we receive in-memory data from the player in session
+     */
     private void EditedPlayer(SharedPreferences sharedPreferences) {
         new CountDownTimer(800 * 7, 800) {
             public void onTick(long millisUntilFinished) {
@@ -102,6 +106,7 @@ public class DialogEditPlayer extends DialogFragment {
                     }
                 });
             }
+
             public void onFinish() {
 
                 for (PlayerDto playersUsername : players) {
@@ -155,13 +160,17 @@ public class DialogEditPlayer extends DialogFragment {
         }.start();
     }
 
+    /**
+     * we send data to the activity
+     * @param context context
+     */
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        try{
+        try {
             mOnInputListener = (OnInputListener) getActivity();
-        }catch (ClassCastException e){
-            Log.e("Error: ", "onAttach: ClassCastException: "+e.getMessage());
+        } catch (ClassCastException e) {
+            Log.e("Error: ", "onAttach: ClassCastException: " + e.getMessage());
         }
     }
 }

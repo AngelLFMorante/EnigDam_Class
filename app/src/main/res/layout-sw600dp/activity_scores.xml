@@ -7,7 +7,6 @@
     android:background="@drawable/main_background"
     tools:context=".Activities.Scores">
 
-
     <ImageView
         android:id="@+id/title"
         android:layout_width="match_parent"
@@ -20,7 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.027" />
-
 
     <Button
         android:id="@+id/buttonsBack"

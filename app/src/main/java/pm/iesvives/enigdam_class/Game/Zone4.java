@@ -3,8 +3,10 @@ package pm.iesvives.enigdam_class.Game;
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,7 +17,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
 
 public class Zone4 extends Fragment {
@@ -56,15 +57,15 @@ public class Zone4 extends Fragment {
 
         //Difficulty game
         difficulty = getActivity().getSharedPreferences("Difficulty", getContext().MODE_PRIVATE);
-        if(difficulty.getString("difficulty", "notValue").equals("normal")){
+        if (difficulty.getString("difficulty", "notValue").equals("normal")) {
             lampHint.setImageResource(R.drawable.lamp_on);
-        }else if(difficulty.getString("difficulty", "notValue").equals("hard")){
+        } else if (difficulty.getString("difficulty", "notValue").equals("hard")) {
             lampHint.setImageResource(R.drawable.lamp_off);
         }
 
         //objects zones
         penDriveScreen = view.findViewById(R.id.zone3PenDriveScreen);
-        zone2Key =view.findViewById(R.id.zone2KeyScreen);
+        zone2Key = view.findViewById(R.id.zone2KeyScreen);
 
         //load screen status
         loadState(state);
@@ -76,15 +77,15 @@ public class Zone4 extends Fragment {
 
     private void loadState(SharedPreferences state) {
         //VISIBLE == 0 , INVISIBLE == 4, GONE == 8
-        if(state.getBoolean("z2HaveTheKey", false)){
+        if (state.getBoolean("z2HaveTheKey", false)) {
             zone2HaveTheKey = state.getBoolean("z2HaveTheKey", false);
-            if(zone2HaveTheKey){
+            if (zone2HaveTheKey) {
                 zone2Key.setVisibility(View.VISIBLE);
-            }else{
+            } else {
                 zone2Key.setVisibility(View.GONE);
             }
         }
-        if(state.getInt("z3PendriveScreen", 8) == 0){
+        if (state.getInt("z3PendriveScreen", 8) == 0) {
             penDriveScreen.setVisibility(View.VISIBLE);
         }
 
@@ -117,8 +118,6 @@ public class Zone4 extends Fragment {
             return true;
         });
 
-        lampHint.setOnClickListener(v->{
-            Toast.makeText(getContext(), getResources().getString(R.string.z4hintNoClues), Toast.LENGTH_LONG).show();
-        });
+        lampHint.setOnClickListener(v -> Toast.makeText(getContext(), getResources().getString(R.string.z4hintNoClues), Toast.LENGTH_LONG).show());
     }
 }

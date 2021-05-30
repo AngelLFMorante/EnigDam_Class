@@ -8,18 +8,14 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import java.text.BreakIterator;
-
 import pm.iesvives.enigdam_class.Activities.MainActivity;
 import pm.iesvives.enigdam_class.CountDownTimer.CountTimer;
-import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
 import pm.iesvives.enigdam_class.Utils.Settings;
 
 public class StartGame extends MainActivity {
 
     Fragment fragmentZone1;
-    private PlayerDto player = new PlayerDto();
     public static TextView countDownText;
     private SharedPreferences.Editor difficulty;
     private SharedPreferences.Editor states;
@@ -38,7 +34,7 @@ public class StartGame extends MainActivity {
         Intent i = getIntent();
         Bundle bundle = i.getExtras();
         difficulty = getSharedPreferences("Difficulty", Context.MODE_PRIVATE).edit();
-        difficulty.putString("difficulty",  bundle.getString("difficulty"));
+        difficulty.putString("difficulty", bundle.getString("difficulty"));
         difficulty.apply();
 
         fragmentZone1 = new Zone1();

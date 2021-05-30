@@ -53,6 +53,7 @@ public class LoserGame extends MainActivity {
                         intent.putExtra("player", player);
                         startActivity(intent);
                     }
+
                     @Override
                     public void onFailure(Call<PlayerDto> call, Throwable t) {
                         Log.e("Error: ", t.getMessage());

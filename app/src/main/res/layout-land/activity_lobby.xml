@@ -68,8 +68,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginEnd="300dp"
         android:layout_marginTop="9dp"
+        android:layout_marginEnd="300dp"
         android:background="@drawable/buttons_default"
         android:fontFamily="@font/slackey"
         android:text="@string/score"
@@ -128,7 +128,7 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:elevation="2dp"/>
+        android:elevation="2dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,13 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.Fragments.HistoryFragment;
 import pm.iesvives.enigdam_class.R;
@@ -20,7 +21,7 @@ public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInt
 
     private Button btnExit, btnProfile, btnHistory, btnScores, btnStart;
     private boolean session = false;
-    private  SharedPreferences preferences;
+    private SharedPreferences preferences;
     private SharedPreferences.Editor editorShared;
     private PlayerDto player = new PlayerDto();
 
@@ -42,25 +43,26 @@ public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInt
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
-        if((PlayerDto) bundle.getSerializable("player") == null){
+        //retrieve user data
+        if ((PlayerDto) bundle.getSerializable("player") == null) {
             editorShared.clear();
             editorShared.apply();
             Intent backToHome = new Intent(Lobby.this, Start.class);
             startActivity(backToHome);
-        }else{
-            player  = (PlayerDto) bundle.getSerializable("player");
+        } else {
+            player = (PlayerDto) bundle.getSerializable("player");
         }
 
         //we collect data from logged-in users
         welcome.setText(player.getUsername());
 
-        if(!session && !initialSession()){
+        if (!session && !initialSession()) {
             //we save session data, in sharedPreferences
             editorShared.putString("username", player.getUsername());
             editorShared.putInt("id", player.getId());
             editorShared.apply();
             session = true;
-        }else if (initialSession()){
+        } else if (initialSession()) {
             session = true;
         }
 
@@ -72,6 +74,11 @@ public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInt
 
     }
 
+    /**
+     * we check whether the user is logging in for the first time or is already logged in
+     *
+     * @return true or false
+     */
     private boolean initialSession() {
         String name = preferences.getString("username", "empty");
         int identity = preferences.getInt("id", 0);
@@ -139,6 +146,9 @@ public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInt
 
     }
 
+    /**
+     * we open the fragment with animation
+     */
     private void openFragment() {
         HistoryFragment fragment = HistoryFragment.newInstance();
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -148,6 +158,9 @@ public class Lobby extends MainActivity implements HistoryFragment.OnFragmentInt
         transaction.add(R.id.fragment_container, fragment, "HISTORY_FRAGMENT").commit();
     }
 
+    /**
+     * we close fragment
+     */
     @Override
     public void onFragmentInteraction() {
         onBackPressed();

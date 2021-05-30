@@ -3,22 +3,16 @@ package pm.iesvives.enigdam_class.Game;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
-import pm.iesvives.enigdam_class.Activities.Difficulty;
-import pm.iesvives.enigdam_class.Activities.Lobby;
 import pm.iesvives.enigdam_class.Activities.MainActivity;
-import pm.iesvives.enigdam_class.Activities.Start;
-import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.R;
 
 public class HowToPlay extends MainActivity {
 
     private Button btnPlayGame;
-    private PlayerDto player = new PlayerDto();
     private String difficulty;
 
     @SuppressLint("ClickableViewAccessibility")

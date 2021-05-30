@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -39,25 +38,25 @@
         android:layout_width="60dp"
         android:layout_height="44dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/lamp_off"
+        android:contentDescription="@string/lamp_hint"
         android:elevation="2dp"
+        android:src="@drawable/lamp_off"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.968"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/lamp_hint" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/drawer_mobile"
         android:src="@drawable/zone3_drawer_complete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.495"
-        android:contentDescription="@string/drawer_mobile" />
+        app:layout_constraintVertical_bias="0.495" />
 
     <ImageView
         android:id="@+id/zone3KeyCloseDoor"
@@ -177,13 +176,13 @@
         android:id="@+id/zone3OpenPaperWhite"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
+        android:contentDescription="@string/paper_white"
         android:src="@drawable/zone3_paper_white"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/paper_white" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/zone3CodeDoor"
@@ -341,7 +340,8 @@
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="5dp"
-                android:background="@drawable/zone3_code0" />
+                android:background="@drawable/zone3_code0"
+                tools:ignore="ButtonStyle"/>
 
             <Button
                 android:id="@+id/z3Code2"
@@ -350,7 +350,8 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="5dp"
-                android:background="@drawable/zone3_code0" />
+                android:background="@drawable/zone3_code0"
+                tools:ignore="ButtonStyle"/>
 
             <Button
                 android:id="@+id/z3Code3"
@@ -359,7 +360,8 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="5dp"
-                android:background="@drawable/zone3_code0" />
+                android:background="@drawable/zone3_code0"
+                tools:ignore="ButtonStyle"/>
 
             <Button
                 android:id="@+id/z3Code4"
@@ -368,7 +370,8 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="5dp"
-                android:background="@drawable/zone3_code0" />
+                android:background="@drawable/zone3_code0"
+                tools:ignore="ButtonStyle"/>
 
             <Button
                 android:id="@+id/z3BtnCodeExit"
@@ -377,7 +380,8 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="5dp"
-                android:background="@drawable/zone3_btn_red" />
+                android:background="@drawable/zone3_btn_red"
+                tools:ignore="ButtonStyle"/>
         </LinearLayout>
 
         <Button

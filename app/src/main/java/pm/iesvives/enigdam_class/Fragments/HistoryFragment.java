@@ -3,7 +3,9 @@ package pm.iesvives.enigdam_class.Fragments;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,11 +16,6 @@ import android.widget.Button;
 
 import pm.iesvives.enigdam_class.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HistoryFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HistoryFragment extends Fragment {
 
     private Button btnBack;
@@ -65,7 +62,7 @@ public class HistoryFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-            mListener = (OnFragmentInteractionListener) context;
+        mListener = (OnFragmentInteractionListener) context;
     }
 
     @Override
@@ -73,7 +70,7 @@ public class HistoryFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
-    
+
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction();

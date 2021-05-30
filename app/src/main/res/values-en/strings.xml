@@ -40,19 +40,20 @@
     <string name="score_default">0000</string>
     <string name="editTitle">Username</string>
     <string name="editMessage">New username</string>
-    <string name="btnOk">Ok</string>
+    <string name="btnOk">OK</string>
     <string name="btnCancel">Cancel</string>
     <string name="success">Correct!</string>
     <string name="titleEditPlayer">Username</string>
     <string name="messageEditPlayerNoEdit">Could not be edited!</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading…</string>
     <string name="deleteTitle">Delete player</string>
     <string name="deleteMessage">Are you sure you want to delete the player?</string>
     <string name="successDelete">Player eliminated</string>
     <string name="notSuccessDelete">Not eliminated</string>
     <string name="hello_blank_fragment">blank fragment</string>
     <string name="history_logo">history_logo</string>
-    <string name="history_enigdam">"09:00 am Sunday, June 13, 2021\n\n
+    <!--    History enigdam-class  -->
+    <string name="history_enigdam">09:00 am Sunday, June 13, 2021\n\n
         Welcome to the CNI cybersecurity technology department,
         we have received a message of a possible computer attack in particular,
         a video of the alleged \"Hacker\" about 03:15 am, indicating that within 2 hours he will disable all computer networks to create a financial crisis,
@@ -65,7 +66,7 @@
         We have thought of you because of your extraordinary references as a programmer, a mirror fight between programmers.\n
         If you manage to stop the attack, you will get a job in the cybersecurity department of the CNI.\n\n
         Remember, everything depends on you, you have 2 hours to find out, who is behind this attack and where the offender is located.\n
-        Good luck! (Name of the computer virus of the possible attack : <b>MORRIS 2N88</b>) "
+        Good luck! (Name of the computer virus of the possible attack : <b>MORRIS 2N88</b>)
     </string>
     <string name="Difficulty">Difficulty</string>
     <string name="difficulty_easy">Easy</string>
@@ -83,9 +84,9 @@
     <string name="hintTestZone1">+32.168129, -110957665</string>
     <string name="hintTestZone2">"Location HACKER: +40.339374, -3.765543"</string>
     <string name="titleDialogGame">Enigdam-Class</string>
-    <string name="level_complete">level_cxomplete</string>
-    <string name="game_over">Game over</string>
-    <string name="level_complete_hard">level_complete_hard</string>
+    <string name="level_complete_lose">level_complete_lose</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="level_complete_win">level_complete_win</string>
     <string name="background_looser">background_loser</string>
     <string name="hacker_looser">hacker_loser</string>
     <string name="back_to_menu_looser">Back to menu</string>
@@ -95,6 +96,7 @@
     <string name="you_win">You Win</string>
     <string name="police_hacker">police_hacker</string>
     <string name="corona_win">corona_win</string>
+    <!--    How to play to enigdam-class  -->
     <string name="how_to_play">We are in a high security CNI room.\n\n
         The hacker has retrieved information via telnet and knows that we are after him, so he has locked us in this room.
         As far as we know the security door has a code of X numbers that we must find out if we want to get out of it.\n
@@ -158,4 +160,6 @@
     <!-- region Hints Zone 4 -->
     <string name="z4hintNoClues">No clues</string>
     <!-- endregion -->
+    <string name="edit_autoFill">editUserAutoFill</string>
+    <string name="time_tempo_30_min">30:00</string>
 </resources>

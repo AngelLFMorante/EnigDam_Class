@@ -2,7 +2,6 @@ package pm.iesvives.enigdam_class.Activities;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -33,6 +32,9 @@ public class Profile extends MainActivity implements DialogEditPlayer.OnInputLis
         setInputToTextView();
     }
 
+    /**
+     * we change the result we receive by means of the fragment
+     */
     private void setInputToTextView() {
         usernameText.setText(username);
     }
@@ -64,13 +66,13 @@ public class Profile extends MainActivity implements DialogEditPlayer.OnInputLis
         Intent intentSession = getIntent();
         bundle = intentSession.getExtras();
 
-        if((PlayerDto) bundle.getSerializable("player") == null){
+        if ((PlayerDto) bundle.getSerializable("player") == null) {
             editorShared.clear();
             editorShared.apply();
             Intent backToHome = new Intent(Profile.this, Start.class);
             startActivity(backToHome);
-        }else{
-            player  = (PlayerDto) bundle.getSerializable("player");
+        } else {
+            player = (PlayerDto) bundle.getSerializable("player");
         }
 
         btnEdit = findViewById(R.id.btnEdit);
@@ -84,11 +86,11 @@ public class Profile extends MainActivity implements DialogEditPlayer.OnInputLis
         titleSuccess = getResources().getString(R.string.successDelete);
         titleNotSuccess = getResources().getString(R.string.notSuccessDelete);
 
-        Log.i("Hay jugador:", player.getUsername());
         usernameText.setText(player.getUsername());
 
+        //we get the best score from the user
         int high = 0;
-        int low = 0;
+        int low;
         for (Game best : player.getGames()) {
             low = Integer.parseInt(best.getScore());
             if (low > high) {
@@ -110,6 +112,9 @@ public class Profile extends MainActivity implements DialogEditPlayer.OnInputLis
         ActionsButtons();
     }
 
+    /**
+     * listener actions and button clicks
+     */
     @SuppressLint("ClickableViewAccessibility")
     private void ActionsButtons() {
         btnBack.setOnTouchListener((v, event) -> {
@@ -144,18 +149,13 @@ public class Profile extends MainActivity implements DialogEditPlayer.OnInputLis
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setTitle(deleteTitle);
                 alert.setMessage(deleteMessage);
-                alert.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int which) {
-                        // continue with delete
-                        deletePlayer(player.getId());
-                    }
+                alert.setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                    // continue with delete
+                    deletePlayer(player.getId());
                 });
-                alert.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // close dialog
-                        dialog.cancel();
-                    }
+                alert.setNegativeButton(android.R.string.cancel, (dialog, which) -> {
+                    // close dialog
+                    dialog.cancel();
                 });
                 alert.show();
             }
@@ -163,6 +163,10 @@ public class Profile extends MainActivity implements DialogEditPlayer.OnInputLis
         });
     }
 
+    /**
+     * we delete the user
+     * @param id id user
+     */
     private void deletePlayer(Integer id) {
 
         Settings.RESPONSE_CLIENT.getService().deletePlayer(id).enqueue(new Callback<Void>() {

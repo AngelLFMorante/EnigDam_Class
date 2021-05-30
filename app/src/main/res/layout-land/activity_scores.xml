@@ -31,7 +31,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <ImageView
         android:id="@+id/scoresListImg"
         android:layout_width="match_parent"
@@ -62,6 +61,5 @@
         app:layout_constraintStart_toStartOf="@+id/scoresListImg"
         app:layout_constraintTop_toTopOf="@+id/scoresListImg"
         app:layout_constraintVertical_bias="0.337" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,12 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,9 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import pm.iesvives.enigdam_class.CountDownTimer.CountTimer;
 import pm.iesvives.enigdam_class.R;
@@ -144,18 +142,18 @@ public class Zone3 extends Fragment {
         if (difficulty.getString("difficulty", "notValue").equals("normal")) {
             lampHint.setImageResource(R.drawable.lamp_on);
             hintsZone3();
-            lampHint.setOnClickListener(v->{
-                if(openDoorLarge.getVisibility() != View.VISIBLE){
+            lampHint.setOnClickListener(v -> {
+                if (openDoorLarge.getVisibility() != View.VISIBLE) {
                     Toast.makeText(getContext(), hints[0], Toast.LENGTH_LONG).show();
-                }else if(keyOpenDoor.getVisibility() != View.VISIBLE && zone2HaveTheKey){
+                } else if (keyOpenDoor.getVisibility() != View.VISIBLE && zone2HaveTheKey) {
                     Toast.makeText(getContext(), hints[1], Toast.LENGTH_LONG).show();
-                }else{
+                } else {
                     Toast.makeText(getContext(), hints[2], Toast.LENGTH_LONG).show();
                 }
             });
         } else if (difficulty.getString("difficulty", "notValue").equals("hard")) {
             lampHint.setImageResource(R.drawable.lamp_off);
-            lampHint.setOnClickListener(v->{
+            lampHint.setOnClickListener(v -> {
                 Toast.makeText(getContext(), getResources().getString(R.string.z4hintNoClues), Toast.LENGTH_LONG).show();
             });
         }
@@ -195,7 +193,7 @@ public class Zone3 extends Fragment {
         if (state.getBoolean("z3HaveThePendrive", false)) {
             haveThePendrive = state.getBoolean("z3HaveThePendrive", false);
         }
-        if(state.getInt("z3ExitGame", 8) == 0){
+        if (state.getInt("z3ExitGame", 8) == 0) {
             exitGame.setVisibility(View.VISIBLE);
         }
     }
@@ -235,6 +233,8 @@ public class Zone3 extends Fragment {
                 btnBackSwitch.startAnimation(scaleDown);
                 linearLayoutGameSwitch.setVisibility(View.GONE);
                 btnBackSwitch.setVisibility(View.GONE);
+                codeDoor.setClickable(true);
+                keyCloseDoor.setClickable(true);
             }
             return true;
         });
@@ -242,6 +242,8 @@ public class Zone3 extends Fragment {
         closeDoorLarge.setOnClickListener(v -> {
             linearLayoutGameSwitch.setVisibility(View.VISIBLE);
             btnBackSwitch.setVisibility(View.VISIBLE);
+            codeDoor.setClickable(false);
+            keyCloseDoor.setClickable(false);
             if (!isCorrectSwitchGame) {
                 gameSwitch();
             }
@@ -284,6 +286,9 @@ public class Zone3 extends Fragment {
         codeDoor.setOnClickListener(v -> {
             linearLayoutCodeExit.setVisibility(View.VISIBLE);
             btnBackCodeExit.setVisibility(View.VISIBLE);
+            closeDoorLarge.setClickable(false);
+            paperWhite.setClickable(false);
+            keyCloseDoor.setClickable(false);
             enterCodeExit();
         });
 
@@ -294,6 +299,9 @@ public class Zone3 extends Fragment {
                 btnBackCodeExit.startAnimation(scaleDown);
                 linearLayoutCodeExit.setVisibility(View.GONE);
                 btnBackCodeExit.setVisibility(View.GONE);
+                closeDoorLarge.setClickable(true);
+                paperWhite.setClickable(true);
+                keyCloseDoor.setClickable(true);
                 code1.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
                 code2.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
                 code3.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_code0));
@@ -312,7 +320,7 @@ public class Zone3 extends Fragment {
                 btnOpenTheDoorExit.startAnimation(scaleUp);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 btnOpenTheDoorExit.startAnimation(scaleDown);
-                if(theCodeisCorrect){
+                if (theCodeisCorrect) {
                     exitGame.setVisibility(View.VISIBLE);
                     stateEdit.putInt("z3ExitGame", exitGame.getVisibility());
                     stateEdit.commit();
@@ -323,7 +331,7 @@ public class Zone3 extends Fragment {
             return true;
         });
 
-        exitGame.setOnClickListener(v->{
+        exitGame.setOnClickListener(v -> {
             CountTimer.pauseTimer();
             Intent intentEndGame = new Intent(getActivity().getApplicationContext(), EndGame.class);
             intentEndGame.putExtra("Time", CountTimer.timeText);
@@ -339,21 +347,26 @@ public class Zone3 extends Fragment {
         valueCode4Exit();
     }
 
+    /**
+     * We check if the code entered by the user to exit the game is correct.
+     */
     private void isCorrect() {
         String codeForExit = "1415";
         String valuesCode = valueCode1 + valueCode2 + valueCode3 + valueCode4;
-        if(valuesCode.equals(codeForExit)){
+        if (valuesCode.equals(codeForExit)) {
             btnLedCorrectExit.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_btn_green));
             theCodeisCorrect = true;
-        }else{
+        } else {
             btnLedCorrectExit.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.zone3_btn_red));
             theCodeisCorrect = false;
         }
     }
 
+    /**
+     * Checks with the 4 buttons, since we use an image to make the changes.
+     */
     private void valueCode4Exit() {
-        code4.setOnClickListener(v->{
-            Log.i("id:" , String.valueOf(code4.getId()) + " " +String.valueOf(code3.getId()) + " " +String.valueOf(code2.getId()) + " " +String.valueOf(code1.getId()) );
+        code4.setOnClickListener(v -> {
             value = valueCodeClick(code4);
             switch (value) {
                 case "0":
@@ -401,7 +414,7 @@ public class Zone3 extends Fragment {
     }
 
     private void valueCode3Exit() {
-        code3.setOnClickListener(v->{
+        code3.setOnClickListener(v -> {
             value = valueCodeClick(code3);
             switch (value) {
                 case "0":
@@ -449,7 +462,7 @@ public class Zone3 extends Fragment {
     }
 
     private void valueCode2Exit() {
-        code2.setOnClickListener(v->{
+        code2.setOnClickListener(v -> {
             value = valueCodeClick(code2);
             switch (value) {
                 case "0":
@@ -545,47 +558,52 @@ public class Zone3 extends Fragment {
         });
     }
 
+    /**
+     * we check the clicks that the user makes and we increase the counter, if we reach 10 we go back to 0
+     * @param code  we receive the id code of the pressed button
+     * @return we return the value that this button has now, to set its corresponding image
+     */
     private String valueCodeClick(Button code) {
 
         int codeId = code.getId();
-        int aux ;
+        int aux;
         String value = "";
 
-        switch(codeId){
+        switch (codeId) {
             case R.id.z3Code1:
                 aux = Integer.parseInt(valueCode1);
                 aux++;
-                if(aux == 10){
+                if (aux == 10) {
                     aux = 0;
                 }
-                value = ""+aux;
+                value = "" + aux;
                 valueCode1 = value;
                 break;
             case R.id.z3Code2:
                 aux = Integer.parseInt(valueCode2);
                 aux++;
-                if(aux == 10){
+                if (aux == 10) {
                     aux = 0;
                 }
-                value = ""+aux;
+                value = "" + aux;
                 valueCode2 = value;
                 break;
             case R.id.z3Code3:
                 aux = Integer.parseInt(valueCode3);
                 aux++;
-                if(aux == 10){
+                if (aux == 10) {
                     aux = 0;
                 }
-                value = ""+aux;
+                value = "" + aux;
                 valueCode3 = value;
                 break;
             case R.id.z3Code4:
                 aux = Integer.parseInt(valueCode4);
                 aux++;
-                if(aux == 10){
+                if (aux == 10) {
                     aux = 0;
                 }
-                value = ""+aux;
+                value = "" + aux;
                 valueCode4 = value;
                 break;
         }
@@ -613,6 +631,8 @@ public class Zone3 extends Fragment {
                     paperWhite.setVisibility(View.VISIBLE);
                     closeDoorLarge.setVisibility(View.GONE);
                     btnBackSwitch.setVisibility(View.GONE);
+                    codeDoor.setClickable(true);
+                    keyCloseDoor.setClickable(true);
                     stateEdit.putInt("z3OpenDoorLarge", openDoorLarge.getVisibility());
                     stateEdit.putInt("z3CloseDoorLarge", closeDoorLarge.getVisibility());
                     stateEdit.putInt("z3PaperWhite", paperWhite.getVisibility());

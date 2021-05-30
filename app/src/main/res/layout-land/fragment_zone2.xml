@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -39,17 +38,18 @@
         android:layout_width="60dp"
         android:layout_height="44dp"
         android:layout_marginTop="40dp"
+        android:contentDescription="@string/lamp_hint"
         android:src="@drawable/lamp_off"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.968"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/lamp_hint" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/zone2DrawerLarge"
         android:layout_width="135dp"
         android:layout_height="294dp"
+        android:contentDescription="@string/drawer_mobile"
         android:src="@drawable/zone2_drawer_larger"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,8 +57,7 @@
         app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.475"
-        android:contentDescription="@string/drawer_mobile" />
+        app:layout_constraintVertical_bias="0.475" />
 
     <ImageView
         android:id="@+id/zone2Blackboard"
@@ -143,13 +142,13 @@
         android:layout_marginTop="105dp"
         android:layout_marginEnd="82dp"
         android:layout_marginBottom="26dp"
+        android:contentDescription="@string/paper_green"
         android:src="@drawable/zone2_paper_green_number"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/zone2Blackboard"
         app:layout_constraintEnd_toEndOf="@+id/zone2Blackboard"
         app:layout_constraintStart_toEndOf="@+id/zone2paperYellow"
-        app:layout_constraintTop_toTopOf="@+id/zone2Blackboard"
-        android:contentDescription="@string/paper_green" />
+        app:layout_constraintTop_toTopOf="@+id/zone2Blackboard" />
 
     <ImageView
         android:id="@+id/zone2paperOpenGreen"
@@ -173,25 +172,25 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="209dp"
+        android:contentDescription="@string/bookshelf"
         android:src="@drawable/zone2_bookshelf"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/zone2DrawerLarge"
         app:layout_constraintEnd_toEndOf="@+id/zone2DrawerLarge"
         app:layout_constraintStart_toStartOf="@+id/zone2DrawerLarge"
-        app:layout_constraintTop_toTopOf="@+id/zone2DrawerLarge"
-        android:contentDescription="@string/bookshelf" />
+        app:layout_constraintTop_toTopOf="@+id/zone2DrawerLarge" />
 
     <ImageView
         android:id="@+id/zon2OpenBook"
         android:layout_width="540dp"
         android:layout_height="304dp"
+        android:contentDescription="@string/book_qr"
         android:src="@drawable/zone2_book_open"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/book_qr" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/zone2NotBook"
@@ -201,13 +200,13 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="209dp"
-        android:visibility="gone"
+        android:contentDescription="@string/not_bookshelf"
         android:src="@drawable/zone2_not_book"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/zone2DrawerLarge"
         app:layout_constraintEnd_toEndOf="@+id/zone2DrawerLarge"
         app:layout_constraintStart_toStartOf="@+id/zone2DrawerLarge"
-        app:layout_constraintTop_toTopOf="@+id/zone2DrawerLarge"
-        android:contentDescription="@string/not_bookshelf" />
+        app:layout_constraintTop_toTopOf="@+id/zone2DrawerLarge" />
 
     <ImageView
         android:id="@+id/zone2CloseDoor"
@@ -217,13 +216,13 @@
         android:layout_marginTop="154dp"
         android:layout_marginEnd="19dp"
         android:layout_marginBottom="25dp"
+        android:contentDescription="@string/close_the_door"
         android:src="@drawable/zone1_drawer_close"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/zone2DrawerLarge"
         app:layout_constraintEnd_toEndOf="@+id/zone2DrawerLarge"
         app:layout_constraintStart_toStartOf="@+id/zone2DrawerLarge"
-        app:layout_constraintTop_toTopOf="@+id/zone2DrawerLarge"
-        android:contentDescription="@string/close_the_door" />
+        app:layout_constraintTop_toTopOf="@+id/zone2DrawerLarge" />
 
     <ImageView
         android:id="@+id/zone2OpenDoor"
@@ -232,12 +231,12 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="159dp"
         android:layout_marginEnd="17dp"
+        android:contentDescription="@string/open_the_door"
         android:src="@drawable/zone1_drawer_open"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/zone2DrawerLarge"
         app:layout_constraintStart_toStartOf="@+id/zone2DrawerLarge"
-        app:layout_constraintTop_toTopOf="@+id/zone2DrawerLarge"
-        android:contentDescription="@string/open_the_door" />
+        app:layout_constraintTop_toTopOf="@+id/zone2DrawerLarge" />
 
     <ImageView
         android:id="@+id/zone2KeyDrawer"
@@ -247,18 +246,19 @@
         android:layout_marginTop="34dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="54dp"
+        android:contentDescription="@string/key"
         android:src="@drawable/zone2_key"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/zone2OpenDoor"
         app:layout_constraintEnd_toEndOf="@+id/zone2OpenDoor"
         app:layout_constraintStart_toStartOf="@+id/zone2OpenDoor"
-        app:layout_constraintTop_toTopOf="@+id/zone2OpenDoor"
-        android:contentDescription="@string/key" />
+        app:layout_constraintTop_toTopOf="@+id/zone2OpenDoor" />
 
     <ImageView
         android:id="@+id/zone2KeyScreen"
         android:layout_width="41dp"
         android:layout_height="47dp"
+        android:contentDescription="@string/key"
         android:src="@drawable/zone2_key"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -266,23 +266,22 @@
         app:layout_constraintHorizontal_bias="0.546"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.956"
-        android:contentDescription="@string/key" />
+        app:layout_constraintVertical_bias="0.956" />
 
     <ImageView
         android:id="@+id/zone2ComputerPassword"
         android:layout_width="39dp"
         android:layout_height="27dp"
+        android:contentDescription="@string/computer_password"
+        android:elevation="2dp"
         android:src="@drawable/zone2_winrar_pass"
         android:visibility="gone"
-        android:elevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.661"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.489"
-        android:contentDescription="@string/computer_password" />
+        app:layout_constraintVertical_bias="0.489" />
 
     <ImageView
         android:id="@+id/zone2ScreenComputer"

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="pm.iesvives.enigdam_class">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,13 +14,13 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
             android:name=".Game.LoserGame"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Game.WinnerGame"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Game.EndGame"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Game.HowToPlay"
             android:screenOrientation="landscape" />

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.Fragments.DialogEndZone1;
 import pm.iesvives.enigdam_class.R;
@@ -39,9 +41,9 @@ public class Zone1 extends Fragment {
     private Button btnBriefcaseOpen, btnBriefcaseClose, btnBriefcaseVoid;
     private Button btnDrawerOpen, btnDrawerClose;
     private Button btnAutowiredDrawer, btnAutowiredConnect;
-    private Button a1,a2,a3,b1,b2,b3,c1,c2,c3;
+    private Button a1, a2, a3, b1, b2, b3, c1, c2, c3;
     private List<Button> buttonsPuzzle;
-    private ImageView binaryTest, screenComputer,lampHint;
+    private ImageView binaryTest, screenComputer, lampHint;
     private List<Integer> pattern;
     private boolean isComplete = false;
     private ImageView penDriveScreen;
@@ -62,7 +64,7 @@ public class Zone1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-         View view = inflater.inflate(R.layout.fragment_zone1, container, false);
+        View view = inflater.inflate(R.layout.fragment_zone1, container, false);
 
         scaleUp = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(view.getContext(), R.anim.scale_down);
@@ -91,7 +93,7 @@ public class Zone1 extends Fragment {
 
         //objects zones
         penDriveScreen = view.findViewById(R.id.zone3PenDriveScreen);
-        zone2Key =view.findViewById(R.id.zone2KeyScreen);
+        zone2Key = view.findViewById(R.id.zone2KeyScreen);
 
         //load screen status
         loadState(state);
@@ -114,62 +116,65 @@ public class Zone1 extends Fragment {
     }
 
     private void clickHintDifficulty() {
-        if(difficulty.getString("difficulty", "notValue").equals("normal")){
+        if (difficulty.getString("difficulty", "notValue").equals("normal")) {
             lampHint.setImageResource(R.drawable.lamp_on);
             hintsZone1();
-            lampHint.setOnClickListener(v->{
-                if(btnBriefcaseOpen.getVisibility() != View.VISIBLE){
+            lampHint.setOnClickListener(v -> {
+                if (btnBriefcaseOpen.getVisibility() != View.VISIBLE) {
                     Toast.makeText(getContext(), hints[0], Toast.LENGTH_LONG).show();
-                }else if( btnDrawerOpen.getVisibility() != View.VISIBLE){
+                } else if (btnDrawerOpen.getVisibility() != View.VISIBLE) {
                     Toast.makeText(getContext(), hints[1], Toast.LENGTH_LONG).show();
-                }else if(btnAutowiredDrawer.getVisibility() == View.VISIBLE ){
+                } else if (btnAutowiredDrawer.getVisibility() == View.VISIBLE) {
                     Toast.makeText(getContext(), hints[2], Toast.LENGTH_LONG).show();
-                }else if(screenComputer.getVisibility() == View.VISIBLE && !isComplete){
+                } else if (screenComputer.getVisibility() == View.VISIBLE && !isComplete) {
                     Toast.makeText(getContext(), hints[3], Toast.LENGTH_LONG).show();
-                }else if (isComplete){
+                } else if (isComplete) {
                     Toast.makeText(getContext(), hints[4], Toast.LENGTH_LONG).show();
                 }
             });
-        }else if(difficulty.getString("difficulty", "notValue").equals("hard")){
+        } else if (difficulty.getString("difficulty", "notValue").equals("hard")) {
             lampHint.setImageResource(R.drawable.lamp_off);
+            lampHint.setOnClickListener(v -> {
+                Toast.makeText(getContext(), getResources().getString(R.string.z4hintNoClues), Toast.LENGTH_LONG).show();
+            });
         }
 
     }
 
     private void loadState(SharedPreferences state) {
         //VISIBLE == 0 , INVISIBLE == 4, GONE == 8
-        if(state.getInt("z1BtnBriefcaseOpen", 8) == 0 ){
+        if (state.getInt("z1BtnBriefcaseOpen", 8) == 0) {
             btnBriefcaseOpen.setVisibility(View.VISIBLE);
         }
-        if(state.getInt("z1BtnDrawerOpen", 8) == 0 ){
+        if (state.getInt("z1BtnDrawerOpen", 8) == 0) {
             btnDrawerOpen.setVisibility(View.VISIBLE);
         }
-        if(state.getInt("z1BtnAutowiredDrawer", 8) == 0 ){
-            if(state.getInt("z1BtnAutowiredDrawerAfterClick", 0) == 8){
+        if (state.getInt("z1BtnAutowiredDrawer", 8) == 0) {
+            if (state.getInt("z1BtnAutowiredDrawerAfterClick", 0) == 8) {
                 btnAutowiredDrawer.setVisibility(View.GONE);
-            }else{
+            } else {
                 btnAutowiredDrawer.setVisibility(View.VISIBLE);
             }
         }
-        if(state.getInt("z1BtnAutowiredConnect", 8) == 0 ){
+        if (state.getInt("z1BtnAutowiredConnect", 8) == 0) {
             btnAutowiredConnect.setVisibility(View.VISIBLE);
         }
-        if(state.getInt("z1ScreenComputer", 8) == 0 ){
+        if (state.getInt("z1ScreenComputer", 8) == 0) {
             screenComputer.setVisibility(View.VISIBLE);
         }
-        if(state.getBoolean("z1CompleteComputer", false)){
+        if (state.getBoolean("z1CompleteComputer", false)) {
             isComplete = true;
         }
 
-        if(state.getBoolean("z2HaveTheKey", false)){
+        if (state.getBoolean("z2HaveTheKey", false)) {
             zone2HaveTheKey = state.getBoolean("z2HaveTheKey", false);
-            if(zone2HaveTheKey){
+            if (zone2HaveTheKey) {
                 zone2Key.setVisibility(View.VISIBLE);
-            }else{
+            } else {
                 zone2Key.setVisibility(View.GONE);
             }
         }
-        if(state.getInt("z3PendriveScreen", 8) == 0){
+        if (state.getInt("z3PendriveScreen", 8) == 0) {
             penDriveScreen.setVisibility(View.VISIBLE);
         }
 
@@ -254,25 +259,29 @@ public class Zone1 extends Fragment {
             stateEdit.commit();
         });
         screenComputer.setOnClickListener(v -> {
-            if(!isComplete){
+            if (!isComplete) {
                 linearPuzzle.setVisibility(View.VISIBLE);
                 btnBack.setVisibility(View.VISIBLE);
                 btnBriefcaseOpen.setClickable(false);
                 btnBriefcaseClose.setClickable(false);
                 puzzle(linearPuzzle);
-            }else{
+            } else {
                 dialog = new DialogEndZone1();
                 dialog.show(getActivity().getSupportFragmentManager(), "DialogZone1");
             }
         });
     }
 
+    /**
+     * test of the puzzle pattern game
+     * @param linearPuzzle linearLayout
+     */
     private void puzzle(LinearLayout linearPuzzle) {
         pattern = new ArrayList<>();
         //check if it follows the game pattern test buttons
         checkPattern();
 
-        btnBack.setOnClickListener(v-> {
+        btnBack.setOnClickListener(v -> {
             linearPuzzle.setVisibility(View.INVISIBLE);
             btnBriefcaseOpen.setClickable(true);
             btnBriefcaseClose.setClickable(true);
@@ -281,83 +290,86 @@ public class Zone1 extends Fragment {
         });
     }
 
+    /**
+     * we check the game pattern if it is correct
+     */
     private void checkPattern() {
         addPatternPuzzle();
 
-        a3.setOnClickListener(v->{
-            if(pattern.size() == 9){
+        a3.setOnClickListener(v -> {
+            if (pattern.size() == 9) {
                 a3.setBackgroundColor(Color.GREEN);
                 pattern.remove(0);
-            }else{
+            } else {
                 resetButtonsPuzzle();
             }
         });
 
-        a2.setOnClickListener(v-> {
-            if(pattern.size() == 8){
+        a2.setOnClickListener(v -> {
+            if (pattern.size() == 8) {
                 a2.setBackgroundColor(Color.GREEN);
                 pattern.remove(0);
-            }else{
+            } else {
                 resetButtonsPuzzle();
             }
         });
 
-        a1.setOnClickListener(v-> {
-            if(pattern.size() == 7){
+        a1.setOnClickListener(v -> {
+            if (pattern.size() == 7) {
                 a1.setBackgroundColor(Color.GREEN);
                 pattern.remove(0);
-            }else{
+            } else {
                 resetButtonsPuzzle();
             }
         });
 
-        b1.setOnClickListener(v-> {
-            if(pattern.size() == 6){
+        b1.setOnClickListener(v -> {
+            if (pattern.size() == 6) {
                 b1.setBackgroundColor(Color.GREEN);
                 pattern.remove(0);
-            }else{
+            } else {
                 resetButtonsPuzzle();
             }
         });
 
-        c1.setOnClickListener(v-> {
-            if(pattern.size() == 5){
+        c1.setOnClickListener(v -> {
+            if (pattern.size() == 5) {
                 c1.setBackgroundColor(Color.GREEN);
                 pattern.remove(0);
-            }else{
+            } else {
                 resetButtonsPuzzle();
             }
         });
 
-        c2.setOnClickListener(v-> {
-            if(pattern.size() == 4){
+        c2.setOnClickListener(v -> {
+            if (pattern.size() == 4) {
                 c2.setBackgroundColor(Color.GREEN);
                 pattern.remove(0);
-            }else{
+            } else {
                 resetButtonsPuzzle();
             }
         });
 
-        c3.setOnClickListener(v->{
-            if(pattern.size() == 3){
+        c3.setOnClickListener(v -> {
+            if (pattern.size() == 3) {
                 c3.setBackgroundColor(Color.GREEN);
                 pattern.remove(0);
-            }else{
+            } else {
                 resetButtonsPuzzle();
             }
         });
 
-        b3.setOnClickListener(v-> {
-            if(pattern.size() == 2){
+        b3.setOnClickListener(v -> {
+            if (pattern.size() == 2) {
                 b3.setBackgroundColor(Color.GREEN);
                 pattern.remove(0);
-            }else{
+            } else {
                 resetButtonsPuzzle();
             }
         });
 
-        b2.setOnClickListener(v-> {
-            if(pattern.size() == 1){
+        b2.setOnClickListener(v -> {
+            if (pattern.size() == 1) {
                 b2.setBackgroundColor(Color.GREEN);
                 pattern.remove(0);
                 //Aquí que salga el modal.
@@ -370,12 +382,15 @@ public class Zone1 extends Fragment {
                 btnBriefcaseOpen.setClickable(true);
                 btnBriefcaseClose.setClickable(true);
                 btnBack.setVisibility(View.GONE);
-            }else{
+            } else {
                 resetButtonsPuzzle();
             }
         });
     }
 
+    /**
+     * we reset the puzzle pattern due to a wrong error
+     */
     private void resetButtonsPuzzle() {
         pattern.clear();
         addPatternPuzzle();
@@ -384,16 +399,19 @@ public class Zone1 extends Fragment {
         }
     }
 
+    /**
+     * we add the pattern to be followed for marking each button
+     */
     private void addPatternPuzzle() {
-        pattern.add(2131361794);
-        pattern.add(2131361793);
-        pattern.add(2131361792);
-        pattern.add(2131361796);
-        pattern.add(2131361801);
-        pattern.add(2131361802);
-        pattern.add(2131361803);
-        pattern.add(2131361798);
-        pattern.add(2131361797);
+        pattern.add(R.id.A3);
+        pattern.add(R.id.A2);
+        pattern.add(R.id.A1);
+        pattern.add(R.id.B1);
+        pattern.add(R.id.C1);
+        pattern.add(R.id.C2);
+        pattern.add(R.id.C3);
+        pattern.add(R.id.B3);
+        pattern.add(R.id.B2);
     }
 
 

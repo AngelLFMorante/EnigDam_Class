@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.Fragments.DialogEndZone2;
 import pm.iesvives.enigdam_class.Fragments.DialogFragmentPassword;
 import pm.iesvives.enigdam_class.R;
@@ -126,7 +125,7 @@ public class Zone2 extends Fragment {
             });
         } else if (difficulty.getString("difficulty", "notValue").equals("hard")) {
             lampHint.setImageResource(R.drawable.lamp_off);
-            lampHint.setOnClickListener(v->{
+            lampHint.setOnClickListener(v -> {
                 Toast.makeText(getContext(), getResources().getString(R.string.z4hintNoClues), Toast.LENGTH_LONG).show();
             });
         }

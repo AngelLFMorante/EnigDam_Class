@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/zone_first"
     tools:context=".Game.Zone1">
-
 
     <Button
         android:id="@+id/btnPrevious"
@@ -40,6 +38,7 @@
         android:layout_width="60dp"
         android:layout_height="44dp"
         android:layout_marginTop="40dp"
+        android:contentDescription="@string/lamp_hint"
         android:src="@drawable/lamp_off"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.968"
@@ -92,9 +91,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/test_binary"
+        android:elevation="4dp"
         android:src="@drawable/zone1_binary"
         android:visibility="gone"
-        android:elevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -106,8 +105,8 @@
         android:id="@+id/imgComputer"
         android:layout_width="90dp"
         android:layout_height="45dp"
-        android:background="@color/black"
         android:layout_marginTop="11dp"
+        android:background="@color/black"
         android:contentDescription="@string/computer_test"
         android:elevation="0dp"
         android:src="@drawable/zone1_computer"
@@ -138,8 +137,8 @@
         android:id="@+id/drawerClose"
         android:layout_width="111dp"
         android:layout_height="93dp"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="90dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/zone1_drawer_close"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -176,7 +175,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.766" />
 
-
     <LinearLayout
         android:id="@+id/linearPuzzle"
         android:layout_width="250dp"
@@ -194,9 +192,9 @@
             android:id="@+id/gridPuzzle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginStart="35dp"
             android:layout_marginEnd="30dp"
-            android:layout_gravity="center"
             android:columnCount="3"
             android:rowCount="3">
 
@@ -281,7 +279,6 @@
                 android:layout_margin="10dp"
                 android:background="#494848" />
 
-
         </GridLayout>
 
     </LinearLayout>
@@ -290,9 +287,9 @@
         android:id="@+id/btnBack"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:visibility="gone"
         android:background="@drawable/down_arrow"
         android:contentDescription="@string/previous_fragment"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/binaryTest"
         app:layout_constraintEnd_toStartOf="@+id/btnNext"
         app:layout_constraintStart_toEndOf="@+id/btnPrevious"

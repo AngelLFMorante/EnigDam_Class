@@ -12,6 +12,6 @@ public class Settings {
     // definition of the encryption mode to be used
     public static final  String ENCRYPT_KEY = "1Hbfh667adfDEJ78";
     //CountDownTimer config at 30mins
-    public static final long TIME_LEFT_IN_MILLISECONDS = 600000 * 3;
+    public static final long TIME_LEFT_IN_MILLISECONDS = 6000 * 3;
 
 }

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
 import pm.iesvives.enigdam_class.Game.HowToPlay;
 import pm.iesvives.enigdam_class.R;
@@ -32,13 +33,13 @@ public class Difficulty extends MainActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
-        if((PlayerDto) bundle.getSerializable("player") == null){
+        if ((PlayerDto) bundle.getSerializable("player") == null) {
             editorShared.clear();
             editorShared.apply();
             Intent backToHome = new Intent(Difficulty.this, Start.class);
             startActivity(backToHome);
-        }else{
-            player  = (PlayerDto) bundle.getSerializable("player");
+        } else {
+            player = (PlayerDto) bundle.getSerializable("player");
         }
 
         //this is a small animation for the button

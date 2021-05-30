@@ -31,16 +31,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-                    <!--LEVEL COMPLETE EASY-->
+    <!--LEVEL COMPLETE LOSE-->
     <ImageView
-        android:id="@+id/levelCompleteNormal"
+        android:id="@+id/levelCompleteLose"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginStart="300dp"
         android:layout_marginTop="39dp"
         android:layout_marginEnd="300dp"
-        android:background="@drawable/level_complete_normal"
-        android:contentDescription="@string/level_complete"
+        android:background="@drawable/level_complete_lose"
+        android:contentDescription="@string/level_complete_lose"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +49,7 @@
         app:layout_constraintVertical_bias="0.085" />
 
     <TextView
-        android:id="@+id/gameOverNormal"
+        android:id="@+id/gameOverLose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="228dp"
@@ -61,13 +61,13 @@
         android:textColor="@color/white"
         android:textSize="34sp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/levelCompleteNormal"
-        app:layout_constraintEnd_toEndOf="@+id/levelCompleteNormal"
-        app:layout_constraintStart_toStartOf="@+id/levelCompleteNormal"
-        app:layout_constraintTop_toTopOf="@+id/levelCompleteNormal" />
+        app:layout_constraintBottom_toBottomOf="@+id/levelCompleteLose"
+        app:layout_constraintEnd_toEndOf="@+id/levelCompleteLose"
+        app:layout_constraintStart_toStartOf="@+id/levelCompleteLose"
+        app:layout_constraintTop_toTopOf="@+id/levelCompleteLose" />
 
     <TextView
-        android:id="@+id/endTimeNormal"
+        android:id="@+id/endTimeLose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="404dp"
@@ -79,12 +79,12 @@
         android:textSize="40sp"
         android:textStyle="bold"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/levelCompleteNormal"
-        app:layout_constraintStart_toStartOf="@+id/levelCompleteNormal"
-        app:layout_constraintTop_toTopOf="@+id/levelCompleteNormal" />
+        app:layout_constraintEnd_toEndOf="@+id/levelCompleteLose"
+        app:layout_constraintStart_toStartOf="@+id/levelCompleteLose"
+        app:layout_constraintTop_toTopOf="@+id/levelCompleteLose" />
 
     <TextView
-        android:id="@+id/endScoreNormal"
+        android:id="@+id/endScoreLose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="414dp"
@@ -97,30 +97,30 @@
         android:textSize="40sp"
         android:textStyle="bold"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/levelCompleteNormal"
-        app:layout_constraintEnd_toEndOf="@+id/levelCompleteNormal"
-        app:layout_constraintStart_toStartOf="@+id/levelCompleteNormal"
-        app:layout_constraintTop_toBottomOf="@+id/endTimeNormal" />
+        app:layout_constraintBottom_toBottomOf="@+id/levelCompleteLose"
+        app:layout_constraintEnd_toEndOf="@+id/levelCompleteLose"
+        app:layout_constraintStart_toStartOf="@+id/levelCompleteLose"
+        app:layout_constraintTop_toBottomOf="@+id/endTimeLose" />
 
-                            <!--LEVEL COMPLETE HARD-->
+    <!--LEVEL COMPLETE WIN-->
     <ImageView
-        android:id="@+id/levelCompleteHard"
+        android:id="@+id/levelCompleteWin"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginStart="300dp"
         android:layout_marginTop="39dp"
         android:layout_marginEnd="300dp"
-        android:background="@drawable/level_complete_hard"
+        android:background="@drawable/level_complete_win"
+        android:contentDescription="@string/level_complete_win"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintVertical_bias="0.085"
-        android:contentDescription="@string/level_complete_hard" />
+        app:layout_constraintVertical_bias="0.085" />
 
     <TextView
-        android:id="@+id/gameOverHard"
+        android:id="@+id/gameOverWin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="228dp"
@@ -132,13 +132,13 @@
         android:textColor="@color/white"
         android:textSize="34sp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/levelCompleteHard"
-        app:layout_constraintEnd_toEndOf="@+id/levelCompleteHard"
-        app:layout_constraintStart_toStartOf="@+id/levelCompleteHard"
-        app:layout_constraintTop_toTopOf="@+id/levelCompleteHard" />
+        app:layout_constraintBottom_toBottomOf="@+id/levelCompleteWin"
+        app:layout_constraintEnd_toEndOf="@+id/levelCompleteWin"
+        app:layout_constraintStart_toStartOf="@+id/levelCompleteWin"
+        app:layout_constraintTop_toTopOf="@+id/levelCompleteWin" />
 
     <TextView
-        android:id="@+id/endTimeHard"
+        android:id="@+id/endTimeWin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="404dp"
@@ -150,12 +150,12 @@
         android:textSize="40sp"
         android:textStyle="bold"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/levelCompleteHard"
-        app:layout_constraintStart_toStartOf="@+id/levelCompleteHard"
-        app:layout_constraintTop_toTopOf="@+id/levelCompleteHard" />
+        app:layout_constraintEnd_toEndOf="@+id/levelCompleteWin"
+        app:layout_constraintStart_toStartOf="@+id/levelCompleteWin"
+        app:layout_constraintTop_toTopOf="@+id/levelCompleteWin" />
 
     <TextView
-        android:id="@+id/endScoreHard"
+        android:id="@+id/endScoreWin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="414dp"
@@ -168,10 +168,10 @@
         android:textSize="40sp"
         android:textStyle="bold"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/levelCompleteHard"
-        app:layout_constraintEnd_toEndOf="@+id/levelCompleteHard"
-        app:layout_constraintStart_toStartOf="@+id/levelCompleteHard"
-        app:layout_constraintTop_toBottomOf="@+id/endTimeHard" />
+        app:layout_constraintBottom_toBottomOf="@+id/levelCompleteWin"
+        app:layout_constraintEnd_toEndOf="@+id/levelCompleteWin"
+        app:layout_constraintStart_toStartOf="@+id/levelCompleteWin"
+        app:layout_constraintTop_toBottomOf="@+id/endTimeWin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

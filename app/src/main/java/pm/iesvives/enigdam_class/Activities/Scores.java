@@ -2,6 +2,7 @@ package pm.iesvives.enigdam_class.Activities;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,9 +43,9 @@ public class Scores extends MainActivity {
         Intent intentSession = getIntent();
         Bundle bundle = intentSession.getExtras();
 
-        if(bundle == null){
+        if (bundle == null) {
             ScoreList();
-        }else{
+        } else {
             session = bundle.getBoolean("session");
             player = (PlayerDto) bundle.getSerializable("player");
         }
@@ -60,10 +62,10 @@ public class Scores extends MainActivity {
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 buttonBack.startAnimation(scaleDown);
                 Intent intent;
-                if(session){
+                if (session) {
                     intent = new Intent(Scores.this, Lobby.class);
                     intent.putExtra("player", player);
-                }else{
+                } else {
                     intent = new Intent(Scores.this, MainActivity.class);
                 }
                 startActivity(intent);
@@ -72,6 +74,9 @@ public class Scores extends MainActivity {
         });
     }
 
+    /**
+     * we pull out the list of scores from the application
+     */
     public void ScoreList() {
         //request for scores.
         Settings.RESPONSE_CLIENT.getService().getAllScores().enqueue(new Callback<List<PlayerDto>>() {

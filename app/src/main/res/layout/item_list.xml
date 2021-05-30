@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:columnCount="3"
-    android:rowCount="1"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:rowCount="1">
 
     <TextView
         android:id="@+id/userPlayerNameScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_column="0"
         android:layout_row="0"
+        android:layout_column="0"
         android:layout_columnWeight="1"
+        android:layout_margin="5dp"
         android:ems="4"
         android:fontFamily="@font/slackey"
         android:textColor="#FF5722"
@@ -24,11 +23,11 @@
         android:id="@+id/userPlayerTimeScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_column="1"
         android:layout_row="0"
+        android:layout_column="1"
         android:layout_columnWeight="1"
-        android:ems="3"
         android:layout_margin="5dp"
+        android:ems="3"
         android:fontFamily="@font/slackey"
         android:textColor="#FF5722"
         android:textSize="20sp" />
@@ -37,11 +36,11 @@
         android:id="@+id/userPlayerScoreScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_column="2"
         android:layout_row="0"
+        android:layout_column="2"
         android:layout_columnWeight="1"
-        android:ems="2"
         android:layout_margin="5dp"
+        android:ems="2"
         android:fontFamily="@font/slackey"
         android:textColor="#FF5722"
         android:textSize="20sp" />

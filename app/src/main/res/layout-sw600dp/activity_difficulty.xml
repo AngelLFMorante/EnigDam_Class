@@ -7,17 +7,16 @@
     android:background="@drawable/main_background"
     tools:context=".Activities.Difficulty">
 
-
     <ImageView
         android:id="@+id/imageViewDifficulty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/image_difficulty"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/difficulty"
-        android:contentDescription="@string/image_difficulty" />
+        app:srcCompat="@drawable/difficulty" />
 
     <Button
         android:id="@+id/buttonsBack"

@@ -3,13 +3,15 @@ package pm.iesvives.enigdam_class.Fragments;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+
 import android.view.View;
 import android.widget.TextView;
-import pm.iesvives.enigdam_class.R;
 
+import pm.iesvives.enigdam_class.R;
 
 public class DialogEndZone2 extends DialogFragment {
 

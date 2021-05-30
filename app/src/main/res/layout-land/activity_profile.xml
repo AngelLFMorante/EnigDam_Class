@@ -20,7 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.00" />
 
-
     <Button
         android:id="@+id/buttonsBack"
         android:layout_width="50dp"
@@ -47,7 +46,6 @@
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintVertical_bias="0.329" />
 
-
     <ImageView
         android:id="@+id/gamepad"
         android:layout_width="40dp"
@@ -73,7 +71,6 @@
         android:shadowColor="#090909"
         android:shadowDy="20"
         android:shadowRadius="20"
-        android:singleLine="false"
         android:text="@string/player_text"
         android:textColor="#FF5722"
         android:textSize="30sp"

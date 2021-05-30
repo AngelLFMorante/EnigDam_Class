@@ -1,6 +1,5 @@
 package pm.iesvives.enigdam_class.Fragments;
 
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import pm.iesvives.enigdam_class.R;
-
 
 public class DialogEndZone1 extends DialogFragment {
 
