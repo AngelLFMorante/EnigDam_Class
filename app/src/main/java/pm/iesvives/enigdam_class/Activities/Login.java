@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
@@ -21,6 +22,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import pm.iesvives.enigdam_class.Entity.PlayerDto;
+import pm.iesvives.enigdam_class.Fragments.DialogFragmentForgetPassword;
 import pm.iesvives.enigdam_class.R;
 import pm.iesvives.enigdam_class.Utils.Settings;
 import retrofit2.Call;
@@ -33,12 +35,15 @@ public class Login extends MainActivity {
     private Button btnBack;
     private EditText userName;
     private EditText password;
+    private TextView forgetPassword;
+    private TextView textForgetPassword;
     private String playerExistsMessage;
     private String titlePlayerExistMessage;
     private String isVerifyMessage;
     private String titleSuccess;
     private int verify;
     private List<PlayerDto> players = new ArrayList<>();
+    private DialogFragmentForgetPassword dialogForgetPassword;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -49,10 +54,16 @@ public class Login extends MainActivity {
         password = findViewById(R.id.loginPassword);
         btnSignIn = findViewById(R.id.btnLogin);
         btnBack = findViewById(R.id.buttonsBack);
+        forgetPassword = findViewById(R.id.forgetPassword);
+        textForgetPassword = findViewById(R.id.textForgetPassword);
         playerExistsMessage = getResources().getString(R.string.playerExistsMessage);
         titlePlayerExistMessage = getResources().getString(R.string.titlePlayerExistMessage);
         isVerifyMessage = getResources().getString(R.string.isVerify);
         titleSuccess = getResources().getString(R.string.success);
+        String textPassword = getResources().getString(R.string.textForgetPassword);
+        String clickHere = getResources().getString(R.string.textClickForgetPassword);
+        textForgetPassword.setText(textPassword);
+        forgetPassword.setText(clickHere);
 
         //this is a small animation for the button
         scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
@@ -80,6 +91,17 @@ public class Login extends MainActivity {
                 if (!playerExists(userName.getText().toString().trim(), password.getText().toString().trim())) {
                     return false;
                 }
+            }
+            return true;
+        });
+
+        forgetPassword.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                forgetPassword.startAnimation(scaleUp);
+            } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                forgetPassword.startAnimation(scaleDown);
+                dialogForgetPassword = new DialogFragmentForgetPassword();
+                dialogForgetPassword.show(getSupportFragmentManager(), "Dialog forget password");
             }
             return true;
         });
@@ -130,6 +152,7 @@ public class Login extends MainActivity {
                                 Intent intent = new Intent(Login.this, Lobby.class);
                                 intent.putExtra("player", player);
                                 startActivity(intent);
+                                break;
                             }
                         }else{
                             verify = 1;
@@ -167,7 +190,6 @@ public class Login extends MainActivity {
         cipher.init(Cipher.DECRYPT_MODE, key);
         byte[] encrypt = Base64.decode(password, Base64.DEFAULT);
         byte[] decrypted = cipher.doFinal(encrypt);
-        Log.i("decrypt: ", new String(decrypted, StandardCharsets.UTF_8));
         return new String(decrypted, StandardCharsets.UTF_8);
     }
 

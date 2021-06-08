@@ -47,6 +47,7 @@ public class Registry extends MainActivity {
     private String messageRegistryError;
     private String encryptPassword;
     private String titleMessageRegis;
+    private String registerSuccess;
     private int usernameRegister = 0;
     private int emailRegister = 0;
     private List<PlayerDto> players = new ArrayList<>();
@@ -72,6 +73,7 @@ public class Registry extends MainActivity {
         messageRegistry = getResources().getString(R.string.addPlayer);
         messageRegistryError = getResources().getString(R.string.addPlayerError);
         titleMessageRegis = getResources().getString(R.string.titlePlayerRegistryMessage);
+        registerSuccess = getResources().getString(R.string.registerSuccess);
 
         //we retrieve user data from the database
         checkUser();
@@ -144,7 +146,7 @@ public class Registry extends MainActivity {
 
                             public void onFinish() {
                                 if (addNewPlayer(player)) {
-                                    pDialog.setTitleText("Success!")
+                                    pDialog.setTitleText(registerSuccess)
                                             .setContentText(messageRegistry)
                                             .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
                                     Intent intent = new Intent(Registry.this, MainActivity.class);

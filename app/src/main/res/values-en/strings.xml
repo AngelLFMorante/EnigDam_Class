@@ -19,6 +19,7 @@
     <string name="messageErrorEmail">Email not valid!</string>
     <string name="messageErrorUsername">User name already registered!</string>
     <string name="messageErrorEmailRegister">Email already registered</string>
+    <string name="registerSuccess">Success!!</string>
     <string name="jugador_score">Player</string>
     <string name="tiempo_score">Time</string>
     <string name="puntuacion_score">Score</string>
@@ -50,7 +51,6 @@
     <string name="deleteMessage">Are you sure you want to delete the player?</string>
     <string name="successDelete">Player eliminated</string>
     <string name="notSuccessDelete">Not eliminated</string>
-    <string name="hello_blank_fragment">blank fragment</string>
     <string name="history_logo">history_logo</string>
     <!--    History enigdam-class  -->
     <string name="history_enigdam">09:00 am Sunday, June 13, 2021\n\n
@@ -136,6 +136,10 @@
     <string name="key_close">key close</string>
     <string name="passwordIncorrect">Incorrect password</string>
     <string name="titlePassword">Enter password</string>
+    <string name="titleForgetPassword">Enter email</string>
+    <string name="textForgetPassword">Forgot your password ? Click&#160;</string>
+    <string name="textClickForgetPassword">here</string>
+    <string name="sendForgetPassword">An email was sent to the user…</string>
     <string name="exit_door">exit_door</string>
     <!-- region Hints Zone 1 -->
     <string name="z1hintBriefcase">Click on the suitcase</string>

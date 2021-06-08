@@ -145,9 +145,11 @@ public class Zone1 extends Fragment {
         //VISIBLE == 0 , INVISIBLE == 4, GONE == 8
         if (state.getInt("z1BtnBriefcaseOpen", 8) == 0) {
             btnBriefcaseOpen.setVisibility(View.VISIBLE);
+            btnBriefcaseClose.setVisibility(View.GONE);
         }
         if (state.getInt("z1BtnDrawerOpen", 8) == 0) {
             btnDrawerOpen.setVisibility(View.VISIBLE);
+            btnDrawerClose.setVisibility(View.GONE);
         }
         if (state.getInt("z1BtnAutowiredDrawer", 8) == 0) {
             if (state.getInt("z1BtnAutowiredDrawerAfterClick", 0) == 8) {
@@ -231,12 +233,14 @@ public class Zone1 extends Fragment {
 
         btnBriefcaseClose.setOnClickListener(v -> {
             btnBriefcaseOpen.setVisibility(View.VISIBLE);
+            btnBriefcaseClose.setVisibility(View.GONE);
             stateEdit.putInt("z1BtnBriefcaseOpen", btnBriefcaseOpen.getVisibility());
             stateEdit.commit();
         });
         btnBriefcaseOpen.setOnClickListener(v -> {
             binaryTest.setVisibility(View.VISIBLE);
             btnBriefcaseVoid.setVisibility(View.VISIBLE);
+            btnBriefcaseOpen.setVisibility(View.GONE);
         });
         binaryTest.setOnClickListener(v -> {
             binaryTest.setVisibility(View.GONE);

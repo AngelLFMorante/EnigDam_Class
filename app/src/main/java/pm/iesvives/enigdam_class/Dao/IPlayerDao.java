@@ -38,4 +38,7 @@ public interface IPlayerDao {
     @DELETE("deletePlayer")
     Call<Void> deletePlayer(@Query(value="id", encoded=true) int id);
 
+    @GET("forgetPassword")
+    Call<Void> forgetPassword(@Query(value="email", encoded=true) String email);
+
 }

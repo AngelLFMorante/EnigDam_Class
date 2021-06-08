@@ -153,9 +153,7 @@ public class Zone3 extends Fragment {
             });
         } else if (difficulty.getString("difficulty", "notValue").equals("hard")) {
             lampHint.setImageResource(R.drawable.lamp_off);
-            lampHint.setOnClickListener(v -> {
-                Toast.makeText(getContext(), getResources().getString(R.string.z4hintNoClues), Toast.LENGTH_LONG).show();
-            });
+            lampHint.setOnClickListener(v -> Toast.makeText(getContext(), getResources().getString(R.string.z4hintNoClues), Toast.LENGTH_LONG).show());
         }
     }
 
@@ -286,6 +284,10 @@ public class Zone3 extends Fragment {
         codeDoor.setOnClickListener(v -> {
             linearLayoutCodeExit.setVisibility(View.VISIBLE);
             btnBackCodeExit.setVisibility(View.VISIBLE);
+            if(openPaperWhite.getVisibility() == View.VISIBLE){
+                openPaperWhite.setVisibility(View.GONE);
+                paperWhite.setVisibility(View.VISIBLE);
+            }
             closeDoorLarge.setClickable(false);
             paperWhite.setClickable(false);
             keyCloseDoor.setClickable(false);

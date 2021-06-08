@@ -195,6 +195,16 @@ public class Zone2 extends Fragment {
 
         /* region book */
         bookShelf.setOnClickListener(v -> {
+            if(paperOpenGreen.getVisibility() == View.VISIBLE){
+                paperOpenGreen.setVisibility(View.GONE);
+                paperGreen.setVisibility(View.VISIBLE);
+            }else if( paperOpenYellow.getVisibility() == View.VISIBLE){
+                paperOpenYellow.setVisibility(View.GONE);
+                paperYellow.setVisibility(View.VISIBLE);
+            }else if( paperOpenRed.getVisibility() == View.VISIBLE){
+                paperOpenRed.setVisibility(View.GONE);
+                paperRed.setVisibility(View.VISIBLE);
+            }
             openBookShelf.setVisibility(View.VISIBLE);
             closeBookShelf.setVisibility(View.VISIBLE);
         });
@@ -205,6 +215,13 @@ public class Zone2 extends Fragment {
         /* endRegion */
         /* region paper */
         paperRed.setOnClickListener(v -> {
+            if(paperOpenGreen.getVisibility() == View.VISIBLE){
+                paperOpenGreen.setVisibility(View.GONE);
+                paperGreen.setVisibility(View.VISIBLE);
+            }else if( paperOpenYellow.getVisibility() == View.VISIBLE){
+                paperOpenYellow.setVisibility(View.GONE);
+                paperYellow.setVisibility(View.VISIBLE);
+            }
             paperOpenRed.setVisibility(View.VISIBLE);
             paperRed.setVisibility(View.GONE);
         });
@@ -213,6 +230,13 @@ public class Zone2 extends Fragment {
             paperOpenRed.setVisibility(View.GONE);
         });
         paperYellow.setOnClickListener(v -> {
+            if(paperOpenGreen.getVisibility() == View.VISIBLE){
+                paperOpenGreen.setVisibility(View.GONE);
+                paperGreen.setVisibility(View.VISIBLE);
+            }else if( paperOpenRed.getVisibility() == View.VISIBLE){
+                paperOpenRed.setVisibility(View.GONE);
+                paperRed.setVisibility(View.VISIBLE);
+            }
             paperOpenYellow.setVisibility(View.VISIBLE);
             paperYellow.setVisibility(View.GONE);
         });
@@ -221,6 +245,13 @@ public class Zone2 extends Fragment {
             paperOpenYellow.setVisibility(View.GONE);
         });
         paperGreen.setOnClickListener(v -> {
+            if(paperOpenYellow.getVisibility() == View.VISIBLE){
+                paperOpenYellow.setVisibility(View.GONE);
+                paperYellow.setVisibility(View.VISIBLE);
+            }else if( paperOpenRed.getVisibility() == View.VISIBLE){
+                paperOpenRed.setVisibility(View.GONE);
+                paperRed.setVisibility(View.VISIBLE);
+            }
             paperOpenGreen.setVisibility(View.VISIBLE);
             paperGreen.setVisibility(View.GONE);
         });

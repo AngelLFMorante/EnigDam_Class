@@ -173,7 +173,9 @@ public class EndGame extends MainActivity {
             score.setVisibility(View.VISIBLE);
             endGame.setVisibility(View.VISIBLE);
         }
-
+        if(timeGame.equals("0:00")){
+            timeGame = "00:00";
+        }
         time.setText(timeGame);
         score.setText(scoreGame);
         difficultyEditor = getSharedPreferences("Difficulty", Context.MODE_PRIVATE).edit().clear();

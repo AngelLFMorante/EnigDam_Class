@@ -17,6 +17,7 @@
     <string name="messageErrorEmail">Email no valido!</string>
     <string name="messageErrorUsername">Nombre usuario ya resgistrado!</string>
     <string name="messageErrorEmailRegister">Email ya resgistrado!</string>
+    <string name="registerSuccess">Registro creado!!</string>
     <string name="jugador_score">Jugador</string>
     <string name="tiempo_score">Tiempo</string>
     <string name="puntuacion_score">Puntuación</string>
@@ -48,7 +49,6 @@
     <string name="deleteMessage">¿ Estás seguro de que quieres borrar al jugador ?</string>
     <string name="successDelete">Jugador eliminado</string>
     <string name="notSuccessDelete">No se ha eliminado</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="history_logo">history_logo</string>
     <!--    History enigdam-class  -->
     <string name="history_enigdam">09:00 am Domingo 13 de Junio del 2021\n\n
@@ -132,6 +132,10 @@ Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás
     <string name="key_close">key close</string>
     <string name="passwordIncorrect">Password Incorrecto</string>
     <string name="titlePassword">Introduce el password</string>
+    <string name="titleForgetPassword">Introduce el email</string>
+    <string name="textForgetPassword">¿ Te has olvidado la contraseña ? Pulsa&#160;</string>
+    <string name="textClickForgetPassword">aquí</string>
+    <string name="sendForgetPassword">Se ha enviado un email al usuario…</string>
     <string name="exit_door">exit_door</string>
     <!-- region Hints Zone 1 -->
     <string name="z1hintBriefcase">Haz click en la maleta</string>
