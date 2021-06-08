@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    tools:context=".Game.EndGame">
+
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/tittle"
+        android:contentDescription="@string/game_tittle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.027" />
+
+    <Button
+        android:id="@+id/buttonsBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/button_x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--LEVEL COMPLETE LOSE-->
+
+    <ImageView
+        android:id="@+id/levelCompleteLose"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="300dp"
+        android:background="@drawable/level_complete_lose"
+        android:contentDescription="@string/level_complete_lose"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/gameOverLose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/slackey"
+        android:text="@string/game_over"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/levelCompleteLose"
+        app:layout_constraintEnd_toEndOf="@+id/levelCompleteLose"
+        app:layout_constraintStart_toStartOf="@+id/levelCompleteLose"
+        app:layout_constraintTop_toTopOf="@+id/levelCompleteLose"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/endTimeLose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:fontFamily="@font/slackey"
+        android:text="@string/time_default"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/levelCompleteLose"
+        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintStart_toStartOf="@+id/levelCompleteLose"
+        app:layout_constraintTop_toTopOf="@+id/levelCompleteLose" />
+
+    <TextView
+        android:id="@+id/endScoreLose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/slackey"
+        android:text="@string/score_default"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/levelCompleteLose"
+        app:layout_constraintEnd_toEndOf="@+id/levelCompleteLose"
+        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintStart_toStartOf="@+id/levelCompleteLose"
+        app:layout_constraintTop_toBottomOf="@+id/endTimeLose"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!--LEVEL COMPLETE WIN-->
+
+    <ImageView
+        android:id="@+id/levelCompleteWin"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="300dp"
+        android:background="@drawable/level_complete_win"
+        android:contentDescription="@string/level_complete_win"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/gameOverWin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/slackey"
+        android:text="@string/game_over"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/levelCompleteWin"
+        app:layout_constraintEnd_toEndOf="@+id/levelCompleteWin"
+        app:layout_constraintStart_toStartOf="@+id/levelCompleteWin"
+        app:layout_constraintTop_toTopOf="@+id/levelCompleteWin"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/endTimeWin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:fontFamily="@font/slackey"
+        android:text="@string/time_default"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/levelCompleteWin"
+        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintStart_toStartOf="@+id/levelCompleteWin"
+        app:layout_constraintTop_toTopOf="@+id/levelCompleteWin" />
+
+    <TextView
+        android:id="@+id/endScoreWin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/slackey"
+        android:text="@string/score_default"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/levelCompleteWin"
+        app:layout_constraintEnd_toEndOf="@+id/levelCompleteWin"
+        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintStart_toStartOf="@+id/levelCompleteWin"
+        app:layout_constraintTop_toBottomOf="@+id/endTimeWin"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EnigDam_Class</string>
+    <string name="game_tittle">Game title</string>
+    <string name="entrar">Enter</string>
+    <string name="login">Login</string>
+    <string name="registry">Register</string>
+    <string name="score">Scores</string>
+    <string name="back">Back</string>
+    <string name="icon_user">icon_user</string>
+    <string name="btn_registry">Register</string>
+    <string name="registry_name">Name:</string>
+    <string name="registry_email">Emai:</string>
+    <string name="registry_username">Username:</string>
+    <string name="registry_password">Password:</string>
+    <string name="addPlayer">Registered user!</string>
+    <string name="addPlayerError">Unable to register user!</string>
+    <string name="messageError">Required field</string>
+    <string name="messageErrorEmail">Email not valid!</string>
+    <string name="messageErrorUsername">User name already registered!</string>
+    <string name="messageErrorEmailRegister">Email already registered</string>
+    <string name="registerSuccess">Success!!</string>
+    <string name="jugador_score">Player</string>
+    <string name="tiempo_score">Time</string>
+    <string name="puntuacion_score">Score</string>
+    <string name="name_user">Username</string>
+    <string name="iniciar_sesion">Sign in</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="playerExistsMessage">Incorrect user or password</string>
+    <string name="titlePlayerExistMessage">Login message</string>
+    <string name="titlePlayerRegistryMessage">Register message</string>
+    <string name="isVerify">You must verify user!</string>
+    <string name="profile">Profile</string>
+    <string name="history">History</string>
+    <string name="welcome">Welcome:</string>
+    <string name="edit">Edit</string>
+    <string name="remove">Delete</string>
+    <string name="player_text">Player</string>
+    <string name="time_default">00:00</string>
+    <string name="score_default">0000</string>
+    <string name="editTitle">Username</string>
+    <string name="editMessage">New username</string>
+    <string name="btnOk">OK</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="success">Correct!</string>
+    <string name="titleEditPlayer">Username</string>
+    <string name="messageEditPlayerNoEdit">Could not be edited!</string>
+    <string name="loading">Loading…</string>
+    <string name="deleteTitle">Delete player</string>
+    <string name="deleteMessage">Are you sure you want to delete the player?</string>
+    <string name="successDelete">Player eliminated</string>
+    <string name="notSuccessDelete">Not eliminated</string>
+    <string name="history_logo">history_logo</string>
+    <!--    History enigdam-class  -->
+    <string name="history_enigdam">09:00 am Sunday, June 13, 2021\n\n
+        Welcome to the CNI cybersecurity technology department,
+        we have received a message of a possible computer attack in particular,
+        a video of the alleged \"Hacker\" about 03:15 am, indicating that within 2 hours he will disable all computer networks to create a financial crisis,
+        liquidating all public debt to all citizens, removing all virtual money from Spain.\n
+        We believe he will act around 11:00 am, which is when most financial traffic moves virtually.\n
+        This leaves us a margin of 2 hours to stop the attack.\n
+        We cannot alert the population of a possible cyber attack that would destroy the economy as we know it.\n
+        If we warn citizens to withdraw all their savings from their banks, we will create an economic crisis,
+        we will create an economic crisis, no longer state but global, that we will not be able to control.\n
+        We have thought of you because of your extraordinary references as a programmer, a mirror fight between programmers.\n
+        If you manage to stop the attack, you will get a job in the cybersecurity department of the CNI.\n\n
+        Remember, everything depends on you, you have 2 hours to find out, who is behind this attack and where the offender is located.\n
+        Good luck! (Name of the computer virus of the possible attack : <b>MORRIS 2N88</b>)
+    </string>
+    <string name="Difficulty">Difficulty</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="text_difficulty">Difficulty</string>
+    <string name="image_difficulty">image_difficulty</string>
+    <string name="title_activity_difficulty">difficulty_title</string>
+    <string name="next_fragment">Next fragment</string>
+    <string name="previous_fragment">Previous fragment</string>
+    <string name="play_game">Start</string>
+    <string name="test_binary">test_binary</string>
+    <string name="computer_test">computer_test</string>
+    <string name="lamp_hint">lamp_hint</string>
+    <string name="hintTestZone1">+32.168129, -110957665</string>
+    <string name="hintTestZone2">"Location HACKER: +40.339374, -3.765543"</string>
+    <string name="titleDialogGame">Enigdam-Class</string>
+    <string name="level_complete_lose">level_complete_lose</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="level_complete_win">level_complete_win</string>
+    <string name="background_looser">background_loser</string>
+    <string name="hacker_looser">hacker_loser</string>
+    <string name="back_to_menu_looser">Back to menu</string>
+    <string name="hacker_win">The Hacker Win</string>
+    <string name="you_loose">You Lose</string>
+    <string name="hacker_jail">The hacker has been jailed</string>
+    <string name="you_win">You Win</string>
+    <string name="police_hacker">police_hacker</string>
+    <string name="corona_win">corona_win</string>
+    <!--    How to play to enigdam-class  -->
+    <string name="how_to_play">We are in a high security CNI room.\n\n
+        The hacker has retrieved information via telnet and knows that we are after him, so he has locked us in this room.
+        As far as we know the security door has a code of X numbers that we must find out if we want to get out of it.\n
+        But to get out before we must know who is behind all this and from where he is doing it.\n\n
+        <b>To move around the room we will do it with the arrows</b> ,
+        if we see something that we can believe is evidence, we must click on it.\n
+        If we have an interaction, we must find out what it is in order to advance,
+        <b>each test has a reward, which will provide us with its name and location</b>.
+        <b>its name and location</b>.\n
+        Depending on the difficulty chosen, we will get clues or not.
+        <b>The clues are in the little light bulb</b>,
+        it will always give us the clue of where the test is but
+        <b>it will not tell us the solution of it</b>.\n
+        Knowing our tasks, as soon as we hit start, our time will be set in motion.\n\n
+        <b>We have 30 minutes to leave the room</b>,
+        if the countdown is set to 00:00,
+        the hacker will have achieved his purpose and we will have lost.\n\n
+        Good luck!</string>
+    <string name="blackboard">blackboard</string>
+    <string name="paper_red">paper red</string>
+    <string name="paper_yellow">paper yellow</string>
+    <string name="paper_green">paper green</string>
+    <string name="bookshelf">bookshelf</string>
+    <string name="not_bookshelf">not bookshelf</string>
+    <string name="close_the_door">close the door</string>
+    <string name="open_the_door">open the door</string>
+    <string name="key">key</string>
+    <string name="computer_password">computer password</string>
+    <string name="drawer_mobile">drawer mobile</string>
+    <string name="book_qr">book qr</string>
+    <string name="pen_drive">pen_drive</string>
+    <string name="open">Abrir</string>
+    <string name="code_open_the_door">code open the door</string>
+    <string name="paper_white">paper white</string>
+    <string name="close_the_door_large">close the door large</string>
+    <string name="key_open">key open</string>
+    <string name="key_close">key close</string>
+    <string name="passwordIncorrect">Incorrect password</string>
+    <string name="titlePassword">Enter password</string>
+    <string name="titleForgetPassword">Enter email</string>
+    <string name="textForgetPassword">Forgot your password ? Click&#160;</string>
+    <string name="textClickForgetPassword">here</string>
+    <string name="sendForgetPassword">An email was sent to the user…</string>
+    <string name="exit_door">exit_door</string>
+    <!-- region Hints Zone 1 -->
+    <string name="z1hintBriefcase">Click on the suitcase</string>
+    <string name="z1hintCloset">Click on the closet</string>
+    <string name="z1hintAutowired">Click on the socket</string>
+    <string name="z1hintComputerCoordinate">The pattern to follow is the image of the coordinate found on the paper</string>
+    <string name="z1hintNoClues">No clues</string>
+    <!-- endregion -->
+    <!-- region Hints Zone 2 -->
+    <string name="z2hintTakeBoard">Take a good look at the board</string>
+    <string name="z2hintBehindPaper">Behind the "red" and "green" papers there is 1 number that corresponds to the exit code.</string>
+    <string name="z2hintCloset">Click on the closet</string>
+    <string name="z2hintKey">Collect the key that opens the door of the drawer lock, screen 3.</string>
+    <string name="z2hintComputer">Click on the computer</string>
+    <string name="z2hintPasswordComputer">The password is the set of figures of the coordinates obtained.</string>
+    <!-- endregion -->
+    <!-- region Hints Zone 3 -->
+    <string name="z3hintDrawer">Click on the lock drawer.</string>
+    <string name="z3hintCodeDoor">Click on the code at the exit door.</string>
+    <string name="z3hintSolutionCode">The exit code is the numbers on the board plus the 2 numbers of the hacker location (street).</string>
+    <!-- endregion -->
+    <!-- region Hints Zone 4 -->
+    <string name="z4hintNoClues">No clues</string>
+    <!-- endregion -->
+    <string name="edit_autoFill">editUserAutoFill</string>
+    <string name="time_tempo_30_min">30:00</string>
+</resources>

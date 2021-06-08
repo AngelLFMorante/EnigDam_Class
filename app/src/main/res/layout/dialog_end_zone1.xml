@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_matrix"
+    tools:context=".Fragments.DialogEndZone1">
+
+    <TextView
+        android:id="@+id/textCoordinateZone1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/almendra"
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+</FrameLayout>

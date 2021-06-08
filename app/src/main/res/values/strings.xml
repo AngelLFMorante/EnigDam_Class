@@ -1,3 +1,165 @@
 <resources>
     <string name="app_name">EnigDam_Class</string>
+    <string name="entrar">Entrar</string>
+    <string name="login">LOGIN</string>
+    <string name="registry">REGISTRARSE</string>
+    <string name="score">PUNTUACIONES</string>
+    <string name="back">VOLVER</string>
+    <string name="icon_user">icon_user</string>
+    <string name="btn_registry">Registrarse</string>
+    <string name="registry_name">Nombre: </string>
+    <string name="registry_email">Email: </string>
+    <string name="registry_username">Username: </string>
+    <string name="registry_password">Password: </string>
+    <string name="addPlayer">Usuario registrado!</string>
+    <string name="addPlayerError">No se ha podido registrar usuario!</string>
+    <string name="messageError">Campo obligatorio</string>
+    <string name="messageErrorEmail">Email no valido!</string>
+    <string name="messageErrorUsername">Nombre usuario ya resgistrado!</string>
+    <string name="messageErrorEmailRegister">Email ya resgistrado!</string>
+    <string name="registerSuccess">Registro creado!!</string>
+    <string name="jugador_score">Jugador</string>
+    <string name="tiempo_score">Tiempo</string>
+    <string name="puntuacion_score">Puntuación</string>
+    <string name="name_user">Nombre usuario</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="username">UserName</string>
+    <string name="password">Password</string>
+    <string name="playerExistsMessage">Usuario o contraseña es Incorrecto!!</string>
+    <string name="titlePlayerExistMessage">Login mensaje</string>
+    <string name="titlePlayerRegistryMessage">Registrarse mensaje</string>
+    <string name="isVerify">Debes verificar usuario!!</string>
+    <string name="profile">Perfil</string>
+    <string name="history">Historia</string>
+    <string name="welcome">BIENVENIDO:</string>
+    <string name="edit">Editar</string>
+    <string name="remove">Eliminar</string>
+    <string name="player_text">Player</string>
+    <string name="time_default">00:00</string>
+    <string name="score_default">0000</string>
+    <string name="editTitle">Nombre de usuario</string>
+    <string name="editMessage">Nuevo nombre de usuario: </string>
+    <string name="btnOk">Aceptar</string>
+    <string name="btnCancel">Cancelar</string>
+    <string name="success">Correcto!</string>
+    <string name="titleEditPlayer">Nombre de usuario</string>
+    <string name="messageEditPlayerNoEdit">No se ha podido editar!</string>
+    <string name="loading">Cargando…</string>
+    <string name="deleteTitle">Borrar jugador</string>
+    <string name="deleteMessage">¿ Estás seguro de que quieres borrar al jugador ?</string>
+    <string name="successDelete">Jugador eliminado</string>
+    <string name="notSuccessDelete">No se ha eliminado</string>
+    <string name="history_logo">history_logo</string>
+    <!--    History enigdam-class  -->
+    <string name="history_enigdam">09:00 am Domingo 13 de Junio del 2021\n\n
+.- Bienvenido al departamento tecnológico en ciberseguridad del CNI,
+hemos recibido un mensaje de un posible ataque informático en concreto,
+un video del presunto “Hacker” sobre las 03:15 am,
+indicando que dentro de 2 horas desactivará toda red informática para crear una crisis financiera,
+liquidando toda deuda pública a todos los ciudadanos,
+quitando todo dinero virtual de España.\n
+Creemos que actuará sobre las 11:00 am,
+que es cuando mas tráfico financiero se mueve virtualmente.\n
+Con lo que nos deja un margen de 2 horas para parar el ataque.\n
+No podemos alertar a la población de un posible ataque cibernético que destruiría la economía tal y como la conocemos.\n
+Si avisamos a los ciudadanos de que sustraigan todos sus ahorros de sus bancos,
+crearemos una crisis económica, ya no estatal sino mundial, que no podremos controlar.\n
+Hemos pensado en ti por tus referencias extraordinarias como programador, lucha de espejo entre programadores.\n
+Si consigues frenar el ataque, obtendrás un puesto de trabajo en el departamento de ciberseguridad del CNI.\n\n
+Recuerda, todo depende de ti, tienes 2 horas para averiguar, quien está detrás de este ataque y donde se ubica el infractor.\n
+¡Mucha Suerte! (Nombre del Virus informático del posible ataque : <b>MORRIS 2N88</b>)
+    </string>
+    <string name="Difficulty">Difficulty</string>
+    <string name="difficulty_easy">Fácil</string>
+    <string name="difficulty_medium">Medio</string>
+    <string name="difficulty_hard">Difícil</string>
+    <string name="text_difficulty">Dificultad</string>
+    <string name="image_difficulty">imagen_dificultad</string>
+    <string name="title_activity_difficulty">difficulty_title</string>
+    <string name="next_fragment">Next fragment</string>
+    <string name="previous_fragment">Previous fragment</string>
+    <!--    How to play to enigdam-class  -->
+    <string name="how_to_play">Nos encontramos en una sala del CNI de alta seguridad.\n\n
+    El hacker mediante telnet ha recuperado información y sabe que vamos tras el, con lo que nos ha encerrado en esta sala.
+    Por lo que sabemos la puerta de seguridad tiene un código de X cifras que deberemos averiguar si queremos salir de ella.\n
+    Pero para salir antes deberemos saber quien está detrás de todo esto y desde donde lo está haciendo.\n\n
+    <b>Para movernos por la sala lo haremos con las flechas</b> , si vemos algo que podemos creer que es una prueba, deberemos hacer click sobre él.\n
+    Si tenemos una interacción, deberemos averiguar de que se trata para poder avanzar, <b>cada prueba tiene una recompensa, con lo que nos facilitará
+    su nombre y ubicación</b>.\n
+        Dependiendo de la dificultad elegida, obtendremos pistas o no. <b>Las pistas están en la bombillita</b>, nos facilitará siempre la pista de donde está la prueba pero
+    <b>no nos dirá la solución de la misma</b>.\n
+    Sabiendo nuestros cometidos, en cuanto le demos a comenzar, nuestro tiempo se pondrá en marcha.\n\n <b>Tenemos 30 minutos para salir de la sala</b>, si la cuenta se pone en 00:00,
+    el hacker habrá conseguido su propósito y habremos perdido.\n\n
+    Mucha Suerte!!</string>
+    <string name="play_game">Comenzar</string>
+    <string name="test_binary">test_binary</string>
+    <string name="computer_test">computer_test</string>
+    <string name="lamp_hint">lamp_hint</string>
+    <string name="hintTestZone1">"+32.168129, -110.957665"</string>
+    <string name="hintTestZone2">"Ubicación HACKER: +40.339374, -3.765543"</string>
+    <string name="titleDialogGame">Enigdam-Class</string>
+    <string name="level_complete_lose">level_complete_lose</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="level_complete_win">level_complete_win</string>
+    <string name="background_looser">background_looser</string>
+    <string name="hacker_looser">hacker_looser</string>
+    <string name="back_to_menu_looser">Volver al menú</string>
+    <string name="hacker_win">EL HACKER GANA</string>
+    <string name="you_loose">HAS PERDIDO</string>
+    <string name="hacker_jail">EL HACKER HA SIDO ENCARCELADO</string>
+    <string name="you_win">HAS GANADO</string>
+    <string name="police_hacker">police_hacker</string>
+    <string name="corona_win">corona_win</string>
+    <string name="game_tittle">Titulo del juego</string>
+    <string name="blackboard">blackboard</string>
+    <string name="paper_red">paper red</string>
+    <string name="paper_yellow">paper yellow</string>
+    <string name="paper_green">paper green</string>
+    <string name="bookshelf">bookshelf</string>
+    <string name="not_bookshelf">not bookshelf</string>
+    <string name="close_the_door">close the door</string>
+    <string name="open_the_door">open the door</string>
+    <string name="key">key</string>
+    <string name="computer_password">computer password</string>
+    <string name="drawer_mobile">drawer mobile</string>
+    <string name="book_qr">book qr</string>
+    <string name="pen_drive">pen_drive</string>
+    <string name="open">Abrir</string>
+    <string name="code_open_the_door">code open the door</string>
+    <string name="paper_white">paper white</string>
+    <string name="close_the_door_large">close the door large</string>
+    <string name="key_open">key open</string>
+    <string name="key_close">key close</string>
+    <string name="passwordIncorrect">Password Incorrecto</string>
+    <string name="titlePassword">Introduce el password</string>
+    <string name="titleForgetPassword">Introduce el email</string>
+    <string name="textForgetPassword">¿ Te has olvidado la contraseña ? Pulsa&#160;</string>
+    <string name="textClickForgetPassword">aquí</string>
+    <string name="sendForgetPassword">Se ha enviado un email al usuario…</string>
+    <string name="exit_door">exit_door</string>
+    <!-- region Hints Zone 1 -->
+    <string name="z1hintBriefcase">Haz click en la maleta</string>
+    <string name="z1hintCloset">Haz click en el armario</string>
+    <string name="z1hintAutowired">Recoge el enchufe</string>
+    <string name="z1hintComputerCoordinate">El patrón a seguir es la imagen de la coordenada encontrada en el papel</string>
+    <string name="z1hintNoClues">No hay pistas</string>
+    <!-- endregion -->
+    <!-- region Hints Zone 2 -->
+    <string name="z2hintTakeBoard">Observa bien la pizarra</string>
+    <string name="z2hintBehindPaper">Detrás de los papeles "rojo" y "verde" hay 1 numero que corresponde con el código de salida</string>
+    <string name="z2hintCloset">Haz click en el armario</string>
+    <string name="z2hintKey">Recoge la llave que abre la puerta de la cerradura del cajón, pantalla 3</string>
+    <string name="z2hintComputer">Haz click en el ordenador</string>
+    <string name="z2hintPasswordComputer">El password es el conjunto de figuras de las coordenadas obtenidas</string>
+    <!-- endregion -->
+    <!-- region Hints Zone 3 -->
+    <string name="z3hintDrawer">Haz click en el cajón de la cerradura</string>
+    <string name="z3hintCodeDoor">El código de la puerta son los numeros binarios de la pizarra</string>
+    <string name="z3hintSolutionCode">El código para salir, son los numeros de la pizarra mas los 2 numeros de la ubicación del hacker ( calle )</string>
+    <!-- endregion -->
+    <!-- region Hints Zone 4 -->
+    <string name="z4hintNoClues">No hay pistas</string>
+    <string name="edit_autoFill">editUserAutoFill</string>
+    <string name="time_tempo_30_min">30:00</string>
+    <!-- endregion -->
 </resources>
