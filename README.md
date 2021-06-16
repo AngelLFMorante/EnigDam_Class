@@ -13,3 +13,9 @@
 quitando SpringBoot y RetroFit,  
 que son puntos que se van a implementar como nuevos conocimientos,  
 ajustados a lo que he visto durante el curso.**
+
+El lado servidor Enigdam_server.
+
+Este proyecto ha sido realizado para el fin de grado.
+
+Autor : Ángel LF Morante
